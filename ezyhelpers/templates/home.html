@@ -1,0 +1,846 @@
+{% extends 'base.html' %}
+
+{% block title %}EzyHelpers - Premium Domestic Help Services{% endblock %}
+{% block description %}Home Page Description{% endblock %}
+
+{% block content %}
+  <!-- Hero Section Option 1: Animated Gradient Background -->
+  <section class="relative h-screen min-h-[700px] flex items-center overflow-hidden pt-16">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 overflow-hidden z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-white to-secondary/20 opacity-70 z-10"></div>
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center animate-tilt"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent z-10"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 lg:px-6 relative z-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white animate-fade-in" data-aos="fade-right" data-aos-duration="800">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-heading mb-6 leading-tight">
+            <span class="text-white">Premium Domestic Help</span><br>
+            <span class="text-white">For Your Peace of Mind</span>
+          </h1>
+          <!-- <p class="text-lg sm:text-xl mb-8 text-gray-200 max-w-2xl">
+            EzyHelpers connects you with thoroughly vetted, professional domestic helpers tailored to your family's unique needs. Experience the difference with our premium service.
+          </p> -->
+          <div class="relative overflow-hidden h-16 sm:h-20 mb-8 max-w-2xl" data-aos="fade-up">
+            <div class="scrolling-services-container absolute top-0 left-0 w-full h-full">
+              <div class="scrolling-services flex flex-col space-y-4 sm:space-y-5">
+                <!-- Service 1 -->
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="fas fa-broom text-primary"></i>
+                  </div>
+                  <span class="text-lg sm:text-xl font-medium text-gray-200">Daily Cleaning & Housekeeping</span>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="fas fa-utensils text-primary"></i>
+                  </div>
+                  <span class="text-lg sm:text-xl font-medium text-gray-200">Meal Preparation & Cooking</span>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="fas fa-tshirt text-primary"></i>
+                  </div>
+                  <span class="text-lg sm:text-xl font-medium text-gray-200">Laundry & Ironing Services</span>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="fas fa-baby text-primary"></i>
+                  </div>
+                  <span class="text-lg sm:text-xl font-medium text-gray-200">Child Care & Supervision</span>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="flex items-center space-x-3">
+                  <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="fas fa-user-nurse text-primary"></i>
+                  </div>
+                  <span class="text-lg sm:text-xl font-medium text-gray-200">Elderly Care Assistance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            // Pause animation on hover for better UX
+            document.querySelector('.scrolling-services-container').addEventListener('mouseenter', function() {
+              this.querySelector('.scrolling-services').style.animationPlayState = 'paused';
+            });
+            
+            document.querySelector('.scrolling-services-container').addEventListener('mouseleave', function() {
+              this.querySelector('.scrolling-services').style.animationPlayState = 'running';
+            });
+          </script>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#" class="px-8 py-4 bg-gradient-to-r from-secondary to-secondary/90 text-white font-medium rounded-xl hover:from-secondary/90 hover:to-secondary transition-all duration-300 shadow-lg hover:shadow-xl text-center flex items-center justify-center space-x-2 group">
+              <span>Find Your Helper</span>
+              <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
+            </a>
+            <a href="#" class="px-8 py-4 bg-white/90 text-primary font-medium rounded-xl hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl text-center flex items-center justify-center space-x-2 group">
+              <span>How It Works</span>
+              <i class="fas fa-play-circle text-sm"></i>
+            </a>
+          </div>
+          
+          <div class="mt-12 flex items-center space-x-6">
+            <div class="flex -space-x-3">
+              <img src="https://randomuser.me/api/portraits/women/32.jpg" class="w-12 h-12 rounded-full border-2 border-white" alt="Client">
+              <img src="https://randomuser.me/api/portraits/men/54.jpg" class="w-12 h-12 rounded-full border-2 border-white" alt="Client">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-12 h-12 rounded-full border-2 border-white" alt="Client">
+            </div>
+            <div>
+              <div class="flex items-center mb-1">
+                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                <span class="text-white font-medium ml-2">4.98/5</span>
+              </div>
+              <p class="text-sm text-gray-300">Trusted by 10,000+ families</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hero Image/Form -->
+        <div class="hidden lg:block animate-fade-in" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+          <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-[1.02]">
+            <div class="bg-primary py-4 px-6">
+              <h3 class="text-white font-bold text-xl">Quick Helper Request</h3>
+            </div>
+            <div class="p-6">
+              <form class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 text-sm font-medium mb-1">Service Needed</label>
+                  <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
+                    <option>Select a service</option>
+                    <option>Live-in Helper</option>
+                    <option>Part-time Cleaning</option>
+                    <option>Cooking Services</option>
+                    <option>Child Care</option>
+                    <option>Elderly Care</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-gray-700 text-sm font-medium mb-1">Location</label>
+                  <input type="text" placeholder="Enter your suburb" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
+                </div>
+                <div>
+                  <label class="block text-gray-700 text-sm font-medium mb-1">Contact Number</label>
+                  <input type="number" placeholder="Enter your contact number" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
+                </div>
+                <div>
+                  <label class="block text-gray-700 text-sm font-medium mb-1">When do you need help?</label>
+                  <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
+                    <option>As soon as possible</option>
+                    <option>Within 1 week</option>
+                    <option>Within 2 weeks</option>
+                    <option>Within 1 month</option>
+                    <option>After a month</option>
+                  </select>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-primary to-primary/90 text-white py-3 px-4 rounded-lg font-medium hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg">
+                  You're Just There!
+                </button>
+              </form>
+              <p class="text-xs text-gray-500 mt-4 text-center">We'll contact you within 2 hours during business hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+      <a href="#services" class="text-white bg-primary/20 p-3 rounded-full hover:bg-primary/30 transition-all duration-300 inline-block">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Trust Badges Section -->
+  <section class="py-12 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+    <div class="container mx-auto px-4">
+        <h3 class="text-center text-gray-600 font-medium mb-8 text-lg md:text-xl">Trusted by Thousands of Customers</h3>
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 lg:gap-14">
+            <!-- Trustpilot with stars -->
+            <div class="flex flex-col items-center group">
+                <img src="https://img.freepik.com/free-vector/trustpilot-logo_1017-8425.jpg" alt="Trustpilot" class="h-48 opacity-80 group-hover:opacity-100 transition-all duration-300">
+                <div class="flex mt-2">
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+            </div>
+
+            <!-- Google Reviews -->
+            <div class="flex flex-col items-center group">
+                <img src="https://img.freepik.com/free-vector/google-5-star-rating-badge_1017-25952.jpg" alt="Google 5-Star Reviews" class="h-48 opacity-80 group-hover:opacity-100 transition-all duration-300">
+                <span class="text-xs text-gray-500 mt-1">4.9/5 Rating</span>
+            </div>
+
+            <!-- BBB with A+ rating -->
+            <div class="flex flex-col items-center group">
+                <img src="https://img.freepik.com/free-vector/better-business-bureau-bbb-logo_1057-2701.jpg" alt="BBB A+ Rating" class="h-48 opacity-80 group-hover:opacity-100 transition-all duration-300">
+                <span class="text-xs text-gray-500 mt-1">A+ Accredited</span>
+            </div>
+
+            <!-- Award Badge -->
+            <div class="flex flex-col items-center group">
+                <img src="https://img.freepik.com/free-vector/best-service-award-badge_1017-25953.jpg" alt="Best Service Award" class="h-48 opacity-80 group-hover:opacity-100 transition-all duration-300">
+                <span class="text-xs text-gray-500 mt-1">2024 Winner</span>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Stats Section - Option 2: Animated Cards -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Stat Card 1 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-duration="600">
+          <div class="text-5xl font-bold font-heading mb-4 text-primary flex items-center">
+            <span class="counter" data-target="10000">0</span>
+            <span class="text-3xl">+</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Happy Families</h3>
+          <p class="text-gray-600">Trusting us with their homes and loved ones</p>
+          <div class="mt-4 h-1 bg-gradient-to-r from-primary to-primary/20 rounded-full"></div>
+        </div>
+        
+        <!-- Stat Card 2 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+          <div class="text-5xl font-bold font-heading mb-4 text-secondary flex items-center">
+            <span class="counter" data-target="98">0</span>
+            <span class="text-3xl">%</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Satisfaction Rate</h3>
+          <p class="text-gray-600">Of clients would recommend us to others</p>
+          <div class="mt-4 h-1 bg-gradient-to-r from-secondary to-secondary/20 rounded-full"></div>
+        </div>
+        
+        <!-- Stat Card 3 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+          <div class="text-5xl font-bold font-heading mb-4 text-accent flex items-center">
+            <span class="counter" data-target="500">0</span>
+            <span class="text-3xl">+</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Trained Helpers</h3>
+          <p class="text-gray-600">Ready to provide exceptional service</p>
+          <div class="mt-4 h-1 bg-gradient-to-r from-accent to-accent/20 rounded-full"></div>
+        </div>
+        
+        <!-- Stat Card 4 -->
+        <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+          <div class="text-5xl font-bold font-heading mb-4 text-primary">
+            24/7
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Support</h3>
+          <p class="text-gray-600">Dedicated team available anytime</p>
+          <div class="mt-4 h-1 bg-gradient-to-r from-primary to-primary/20 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section - Option 2: Featured Cards with Icons -->
+  <section id="services" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR SERVICES</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Comprehensive Domestic Solutions</h2>
+        <p class="text-gray-600">
+          We offer premium household services tailored to your specific needs, with flexible options to suit every family.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Card 1 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Live-in Helpers" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+            <div class="absolute top-6 right-6">
+              <div class="bg-white/90 text-primary w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg">
+                <i class="fas fa-home"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold font-heading mb-3">Live-in Helpers</h3>
+            <p class="text-gray-600 mb-6">
+              Full-time domestic professionals who become part of your household, providing comprehensive support.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>24/7 household management</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Child or elderly care included</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Meal preparation & cleaning</span>
+              </li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-primary font-medium hover:underline inline-flex items-center group">
+                <span>Learn more</span>
+                <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">From $25/hr</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Part-time Cleaning" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+            <div class="absolute top-6 right-6">
+              <div class="bg-white/90 text-primary w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg">
+                <i class="fas fa-broom"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold font-heading mb-3">Part-time Cleaning</h3>
+            <p class="text-gray-600 mb-6">
+              Professional cleaning services on your schedule, with eco-friendly products and thorough attention to detail.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Customizable cleaning plans</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Supplies provided</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Background-checked cleaners</span>
+              </li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-primary font-medium hover:underline inline-flex items-center group">
+                <span>Learn more</span>
+                <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">From $35/hr</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
+          <div class="relative h-60 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Cooking Services" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+            <div class="absolute top-6 right-6">
+              <div class="bg-white/90 text-primary w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg">
+                <i class="fas fa-utensils"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold font-heading mb-3">Cooking Services</h3>
+            <p class="text-gray-600 mb-6">
+              Experienced home chefs who prepare nutritious, delicious meals tailored to your family's preferences.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Custom meal plans</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Special diets accommodated</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Weekly meal prep available</span>
+              </li>
+            </ul>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-primary font-medium hover:underline inline-flex items-center group">
+                <span>Learn more</span>
+                <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">From $30/hr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12" data-aos="fade-up">
+        <a href="#" class="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 group">
+          <span>View All Services</span>
+          <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section - Option 2: Vertical Stepper -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR PROCESS</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Simple, Transparent Process</h2>
+        <p class="text-gray-600">
+          Finding the perfect domestic helper shouldn't be complicated. Our streamlined process makes it easy.
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <!-- Step 1 -->
+        <div class="flex flex-col md:flex-row mb-16" data-aos="fade-up">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                1
+              </div>
+              <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">Tell Us Your Needs</h3>
+              <p class="text-gray-600 mb-4">
+                Complete our simple form or call us to discuss your household requirements, schedule, and preferences in detail.
+              </p>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                  <span>No obligation consultation</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                  <span>Personalized service matching</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="flex flex-col md:flex-row mb-16" data-aos="fade-up" data-aos-delay="100">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-secondary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                2
+              </div>
+              <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">We Match You</h3>
+              <p class="text-gray-600 mb-4">
+                Our expert team carefully selects 2-3 pre-screened candidates that perfectly match your criteria.
+              </p>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                  <span>5-step vetting process</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                  <span>Skills and personality matching</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="flex flex-col md:flex-row mb-16" data-aos="fade-up" data-aos-delay="200">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-accent rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                3
+              </div>
+              <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">Interview & Select</h3>
+              <p class="text-gray-600 mb-4">
+                Meet the candidates (in-person or virtually) with our guidance to choose who fits best with your family.
+              </p>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                  <span>No-pressure interviews</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                  <span>Background checks included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="300">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                4
+              </div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">Begin Service</h3>
+              <p class="text-gray-600 mb-4">
+                Your helper starts working, with our ongoing support ensuring everything runs smoothly from day one.
+              </p>
+              <ul class="space-y-2 text-gray-600">
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                  <span>Continuous quality assurance</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check-circle text-secondary mt-1 mr-2"></i>
+                  <span>Replacement guarantee</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section - Option 2: Video Testimonials -->
+  <section class="py-20 bg-primary/5">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">TESTIMONIALS</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Families Love EzyHelpers</h2>
+        <p class="text-gray-600">
+          Don't just take our word for it - hear from families who've transformed their home life with our help.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Video Testimonial -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-right">
+          <div class="relative pt-[56.25%] bg-gray-200">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 hover:scale-110">
+                <i class="fas fa-play text-primary text-xl"></i>
+              </button>
+            </div>
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Video thumbnail" 
+                 class="absolute inset-0 w-full h-full object-cover">
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-4">
+              <div class="flex mr-2">
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+                <i class="fas fa-star text-yellow-400"></i>
+              </div>
+              <span class="text-gray-600 text-sm">5.0 rating</span>
+            </div>
+            <blockquote class="text-lg font-medium text-gray-700 mb-6">
+              "Our helper Maria has been with us for 2 years and has become like family. EzyHelpers' matching process was spot on - they really understood what we needed."
+            </blockquote>
+            <div class="flex items-center">
+              <img src="https://randomuser.me/api/portraits/women/43.jpg" 
+                   alt="Sarah Johnson" 
+                   class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h4 class="font-bold">Sarah Johnson</h4>
+                <p class="text-gray-600 text-sm">Sydney • Live-in Helper</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial Carousel -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden" data-aos="fade-left">
+          <div class="p-8 h-full flex flex-col">
+            <h3 class="text-xl font-bold font-heading mb-6">More Happy Families</h3>
+            <div class="flex-1 relative">
+              <!-- Testimonial 1 -->
+              <div class="absolute inset-0 opacity-100 transition-opacity duration-500">
+                <div class="flex mb-4">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <blockquote class="text-gray-700 mb-6">
+                  "As working parents, finding reliable childcare was stressful. EzyHelpers found us a wonderful nanny who our kids adore. Their vetting process gave us complete peace of mind."
+                </blockquote>
+                <div class="flex items-center">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                       alt="Michael Chen" 
+                       class="w-12 h-12 rounded-full mr-4">
+                  <div>
+                    <h4 class="font-bold">Michael Chen</h4>
+                    <p class="text-gray-600 text-sm">Melbourne • Child Care</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 2 (hidden) -->
+              <div class="absolute inset-0 opacity-0 transition-opacity duration-500">
+                <div class="flex mb-4">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <blockquote class="text-gray-700 mb-6">
+                  "The part-time cleaner EzyHelpers provided has transformed our home. She's thorough, trustworthy, and always punctual. Couldn't be happier with the service!"
+                </blockquote>
+                <div class="flex items-center">
+                  <img src="https://randomuser.me/api/portraits/women/65.jpg" 
+                       alt="Priya Patel" 
+                       class="w-12 h-12 rounded-full mr-4">
+                  <div>
+                    <h4 class="font-bold">Priya Patel</h4>
+                    <p class="text-gray-600 text-sm">Brisbane • Part-time Cleaning</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 3 (hidden) -->
+              <div class="absolute inset-0 opacity-0 transition-opacity duration-500">
+                <div class="flex mb-4">
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                  <i class="fas fa-star text-yellow-400"></i>
+                </div>
+                <blockquote class="text-gray-700 mb-6">
+                  "Our elderly care helper has been amazing with my mother. She's patient, knowledgeable, and genuinely caring. EzyHelpers' matching was perfect for our needs."
+                </blockquote>
+                <div class="flex items-center">
+                  <img src="https://randomuser.me/api/portraits/women/28.jpg" 
+                       alt="Emma Wilson" 
+                       class="w-12 h-12 rounded-full mr-4">
+                  <div>
+                    <h4 class="font-bold">Emma Wilson</h4>
+                    <p class="text-gray-600 text-sm">Perth • Elderly Care</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center space-x-2 mt-6 pt-6 border-t border-gray-100">
+              <button class="w-3 h-3 rounded-full bg-primary"></button>
+              <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+              <button class="w-3 h-3 rounded-full bg-gray-300"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section - Option 2: Accordion with Icons -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">FAQS</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Common Questions</h2>
+        <p class="text-gray-600">
+          Everything you need to know about our services. Can't find an answer? Contact us anytime.
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto divide-y divide-gray-200">
+        <!-- FAQ Item 1 -->
+        <div class="py-6" data-aos="fade-up">
+          <button class="flex justify-between items-center w-full text-left group">
+            <div class="flex items-start">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg mr-4 group-hover:bg-primary/20 transition-all duration-300">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">How does EzyHelpers vet its domestic helpers?</h3>
+              </div>
+            </div>
+            <div class="text-primary ml-4">
+              <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+            </div>
+          </button>
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
+            <p>
+              All our helpers undergo a rigorous 5-step vetting process:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Comprehensive background checks</li>
+              <li>Reference verification (minimum 2 professional references)</li>
+              <li>Skills assessment and practical testing</li>
+              <li>In-depth in-person interviews</li>
+              <li>Specialized training program completion</li>
+            </ul>
+            <p class="mt-3">
+              We only work with the top 20% of applicants to ensure quality service for your family.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="py-6" data-aos="fade-up" data-aos-delay="50">
+          <button class="flex justify-between items-center w-full text-left group">
+            <div class="flex items-start">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg mr-4 group-hover:bg-primary/20 transition-all duration-300">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">What if I'm not happy with my helper?</h3>
+              </div>
+            </div>
+            <div class="text-primary ml-4">
+              <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+            </div>
+          </button>
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
+            <p>
+              Your satisfaction is our top priority. Our guarantee includes:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>First 2 weeks:</strong> Free replacement if you're not completely satisfied</li>
+              <li><strong>Ongoing support:</strong> We'll work with you to resolve any issues</li>
+              <li><strong>Mediation services:</strong> If any concerns arise, we facilitate communication</li>
+              <li><strong>Additional training:</strong> We can provide extra training for your helper at no cost</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="py-6" data-aos="fade-up" data-aos-delay="100">
+          <button class="flex justify-between items-center w-full text-left group">
+            <div class="flex items-start">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg mr-4 group-hover:bg-primary/20 transition-all duration-300">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">How much does it cost to hire a helper?</h3>
+              </div>
+            </div>
+            <div class="text-primary ml-4">
+              <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+            </div>
+          </button>
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
+            <p>
+              Our pricing is transparent and varies based on:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Service type:</strong> Live-in, part-time, or specialized care</li>
+              <li><strong>Experience level:</strong> Entry-level to premium professional helpers</li>
+              <li><strong>Responsibilities:</strong> Standard duties vs. additional requirements</li>
+              <li><strong>Location:</strong> Metro vs. regional areas</li>
+            </ul>
+            <p class="mt-3">
+              <strong>Typical costs:</strong><br>
+              Placement fee: $500-$1500 (one-time)<br>
+              Helper salary: $20-$35 per hour depending on experience<br>
+              <a href="#" class="text-primary hover:underline">Contact us</a> for a personalized quote based on your needs.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="py-6" data-aos="fade-up" data-aos-delay="150">
+          <button class="flex justify-between items-center w-full text-left group">
+            <div class="flex items-start">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg mr-4 group-hover:bg-primary/20 transition-all duration-300">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">How long does the hiring process take?</h3>
+              </div>
+            </div>
+            <div class="text-primary ml-4">
+              <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+            </div>
+          </button>
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
+            <p>
+              Our standard process timeline:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Initial consultation:</strong> 1-2 days</li>
+              <li><strong>Candidate matching:</strong> 3-5 business days</li>
+              <li><strong>Interviews:</strong> Scheduled at your convenience</li>
+              <li><strong>Onboarding:</strong> 2-3 days after selection</li>
+            </ul>
+            <p class="mt-3">
+              For standard requests, most families have their helper start within 1-2 weeks of initial contact. We also offer:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Express service:</strong> Helper within 72 hours (+20% fee)</li>
+              <li><strong>Temporary placements:</strong> Available immediately for short-term needs</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="py-6" data-aos="fade-up" data-aos-delay="200">
+          <button class="flex justify-between items-center w-full text-left group">
+            <div class="flex items-start">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg mr-4 group-hover:bg-primary/20 transition-all duration-300">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">What ongoing support do you provide?</h3>
+              </div>
+            </div>
+            <div class="text-primary ml-4">
+              <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+            </div>
+          </button>
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
+            <p>
+              Our support continues throughout your helper's employment:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Regular check-ins:</strong> Scheduled follow-ups to ensure satisfaction</li>
+              <li><strong>24/7 support line:</strong> Urgent matters handled anytime</li>
+              <li><strong>Performance reviews:</strong> Optional formal evaluations</li>
+              <li><strong>Training updates:</strong> Access to continuing education for your helper</li>
+              <li><strong>Replacement guarantee:</strong> If your helper leaves, we find a replacement quickly</li>
+              <li><strong>Mediation services:</strong> Help resolving any issues that arise</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %} 

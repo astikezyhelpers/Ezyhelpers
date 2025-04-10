@@ -1,0 +1,479 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us| EzyHelpers{% endblock %}
+{% block description %}About Us Description{% endblock %}
+
+{% block content %}
+
+  <!-- Hero Section Options -->
+  <!-- Option 1: Simple Hero with Background Image -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-36 bg-gray-900 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+           alt="Happy family with helper" 
+           class="w-full h-full object-cover opacity-70">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center text-white" data-aos="fade-up">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading mb-6 leading-tight">
+          About EzyHelpers
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          Transforming homes and lives through trusted domestic help services since 2010
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Our Story Section Options -->
+  <!-- Option 1: Timeline Style -->
+  <section id="our-story" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR STORY</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">From Humble Beginnings to Industry Leaders</h2>
+        <p class="text-gray-600">
+          How a simple idea grew into India's most trusted domestic help provider
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <!-- Timeline Item 1 -->
+        <div class="flex flex-col md:flex-row mb-16" data-aos="fade-up">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                2010
+              </div>
+              <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">Founded in a Small Apartment</h3>
+              <p class="text-gray-600">
+                After struggling to find reliable help for his aging parents, founder Rajesh Kumar started EzyHelpers with just 3 helpers and a vision to create a better way to connect families with domestic professionals.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 2 -->
+        <div class="flex flex-col md:flex-row mb-16" data-aos="fade-up" data-aos-delay="100">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-secondary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                2014
+              </div>
+              <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">First Office & Training Center</h3>
+              <p class="text-gray-600">
+                With growing demand, we opened our first dedicated office and training facility, allowing us to implement our comprehensive 5-step vetting and training program that became our hallmark.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 3 -->
+        <div class="flex flex-col md:flex-row mb-16" data-aos="fade-up" data-aos-delay="200">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-accent rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                2018
+              </div>
+              <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">National Expansion</h3>
+              <p class="text-gray-600">
+                After perfecting our model in Delhi, we expanded to 5 major cities across India, bringing our premium domestic help services to thousands more families.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Timeline Item 4 -->
+        <div class="flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="300">
+          <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+            <div class="relative">
+              <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-xl flex items-center justify-center shadow-lg">
+                Today
+              </div>
+            </div>
+          </div>
+          <div class="md:w-2/3">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <h3 class="text-xl font-bold font-heading mb-3">10,000+ Happy Families</h3>
+              <p class="text-gray-600">
+                Today, EzyHelpers is India's most trusted domestic help provider, serving over 10,000 families with a team of 500+ carefully vetted professionals across 12 cities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Values Section Options -->
+  <!-- Option 1: Cards with Icons -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR CORE</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Mission, Vision & Values</h2>
+        <p class="text-gray-600">
+          The principles that guide everything we do at EzyHelpers
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Mission Card -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100" data-aos="fade-up">
+          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-3">Our Mission</h3>
+          <p class="text-gray-600">
+            To transform home life by connecting families with thoroughly vetted, professional domestic help while creating dignified employment opportunities.
+          </p>
+        </div>
+        
+        <!-- Vision Card -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-secondary/10 text-secondary w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-3">Our Vision</h3>
+          <p class="text-gray-600">
+            To be India's most trusted domestic help provider by setting the standard for quality, reliability, and professionalism in household services.
+          </p>
+        </div>
+        
+        <!-- Values Card -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-accent/10 text-accent w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-6">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-3">Our Values</h3>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>Integrity in all we do</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>Exceptional service</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>Continuous improvement</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Team Section Options -->
+  <!-- Option 1: Grid with Hover Effects -->
+  <section id="meet-the-team" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR TEAM</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Meet the Leadership Team</h2>
+        <p class="text-gray-600">
+          The passionate professionals dedicated to making your home life easier
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Team Member 1 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" 
+                 alt="Rajesh Kumar" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold font-heading mb-1">Rajesh Kumar</h3>
+            <p class="text-primary font-medium mb-3">Founder & CEO</p>
+            <p class="text-gray-600 text-sm mb-4">
+              Founded EzyHelpers in 2010 after struggling to find reliable care for his parents.
+            </p>
+            <div class="flex justify-center space-x-3">
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Team Member 2 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=688&q=80" 
+                 alt="Priya Sharma" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold font-heading mb-1">Priya Sharma</h3>
+            <p class="text-primary font-medium mb-3">COO</p>
+            <p class="text-gray-600 text-sm mb-4">
+              Oversees daily operations and ensures service excellence across all locations.
+            </p>
+            <div class="flex justify-center space-x-3">
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Team Member 3 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Amit Patel" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold font-heading mb-1">Amit Patel</h3>
+            <p class="text-primary font-medium mb-3">Head of Training</p>
+            <p class="text-gray-600 text-sm mb-4">
+              Develops our comprehensive training programs for all domestic professionals.
+            </p>
+            <div class="flex justify-center space-x-3">
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Team Member 4 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="300">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=688&q=80" 
+                 alt="Neha Gupta" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold font-heading mb-1">Neha Gupta</h3>
+            <p class="text-primary font-medium mb-3">Customer Experience</p>
+            <p class="text-gray-600 text-sm mb-4">
+              Ensures every family receives exceptional service from first contact onward.
+            </p>
+            <div class="flex justify-center space-x-3">
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-primary transition">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12" data-aos="fade-up">
+        <a href="#" class="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-300 group">
+          <span>View All Team Members</span>
+          <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Helpers Section Options -->
+  <!-- Option 1: Helper Profiles -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR HELPERS</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Meet Some of Our Helpers</h2>
+        <p class="text-gray-600">
+          Carefully selected professionals who make the EzyHelpers difference
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Helper 1 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Maria" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-xl font-bold font-heading text-white mb-1">Maria</h3>
+                  <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <span class="text-white text-sm ml-2">5.0 (42 reviews)</span>
+                  </div>
+                </div>
+                <span class="bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-medium">Live-in Helper</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="bg-primary/10 text-primary p-2 rounded-lg mr-4">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p class="text-gray-600 italic">
+                "I love helping families create comfortable, happy homes. It's rewarding to be part of their daily lives."
+              </p>
+            </div>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                <span>8 years experience</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                <span>Specializes in child care</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+                <span>Certified in first aid</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Helper 2 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=688&q=80" 
+                 alt="Sunita" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-xl font-bold font-heading text-white mb-1">Sunita</h3>
+                  <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <span class="text-white text-sm ml-2">4.9 (36 reviews)</span>
+                  </div>
+                </div>
+                <span class="bg-secondary/90 text-white px-3 py-1 rounded-full text-sm font-medium">Cleaning Expert</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="bg-secondary/10 text-secondary p-2 rounded-lg mr-4">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p class="text-gray-600 italic">
+                "A clean home is a happy home. I take pride in leaving every space spotless and organized."
+              </p>
+            </div>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>6 years experience</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Eco-friendly cleaning</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
+                <span>Deep cleaning specialist</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Helper 3 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Rahul" 
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-xl font-bold font-heading text-white mb-1">Rahul</h3>
+                  <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <span class="text-white text-sm ml-2">5.0 (28 reviews)</span>
+                  </div>
+                </div>
+                <span class="bg-accent/90 text-white px-3 py-1 rounded-full text-sm font-medium">Home Chef</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <div class="bg-accent/10 text-accent p-2 rounded-lg mr-4">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p class="text-gray-600 italic">
+                "Cooking is my passion. I love creating nutritious, delicious meals that bring families together."
+              </p>
+            </div>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                <span>Professional chef training</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                <span>Special diets expertise</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-accent mt-1 mr-3"></i>
+                <span>Meal planning services</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12" data-aos="fade-up">
+        <a href="#" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all duration-300 group">
+          <span>Meet More Helpers</span>
+          <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

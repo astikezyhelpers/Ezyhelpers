@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us | EzyHelpers{% endblock %}
+{% block description %}Contact Us Page Description{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="relative h-[500px] flex items-center overflow-hidden pt-16">
+    <div class="absolute inset-0 overflow-hidden z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-white to-secondary/20 opacity-70 z-10"></div>
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center animate-tilt"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent z-10"></div>
+    </div>
+    <div class="container mx-auto px-4 lg:px-6 relative z-20 text-center">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading mb-6 leading-tight text-white" data-aos="fade-up">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-secondary/80">Contact Us</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        We're here to assist you with all your domestic help needs. Reach out to us anytime, and let’s find the perfect solution for your family.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section (Multiple Options) -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">GET IN TOUCH</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Send Us a Message</h2>
+        <p class="text-gray-600">Fill out the form below, and our team will get back to you within 2 hours during business hours.</p>
+      </div>
+
+      <!-- Option 1: Simple Contact Form -->
+      <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8 mb-12" data-aos="fade-up">
+        <form class="space-y-6">
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-1">Full Name</label>
+            <input type="text" placeholder="Enter your name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
+          </div>
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-1">Email Address</label>
+            <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
+          </div>
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-1">Message</label>
+            <textarea placeholder="Tell us how we can help" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-gradient-to-r from-primary to-primary/90 text-white py-3 px-4 rounded-lg font-medium hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info Section (Multiple Options) -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">REACH US</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Contact Information</h2>
+        <p class="text-gray-600">We’re available 24/7 to assist you. Choose your preferred way to get in touch.</p>
+      </div>
+
+      <!-- Option 1: Card Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12" data-aos="fade-up">
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-500">
+          <div class="bg-primary/10 text-primary w-14 h-14 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Phone</h3>
+          <p class="text-gray-600">(+91) 99725 - 71005</p>
+          <p class="text-sm text-gray-500 mt-2">Available 24/7</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-500">
+          <div class="bg-primary/10 text-primary w-14 h-14 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Email</h3>
+          <p class="text-gray-600">contact@ezyhelpers.com</p>
+          <p class="text-sm text-gray-500 mt-2">Response within 2 hours</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-500">
+          <div class="bg-primary/10 text-primary w-14 h-14 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Office</h3>
+          <p class="text-gray-600">Sarjapur Road, Near Motherhood Hospital, Bangalore 560035, India</p>
+          <p class="text-sm text-gray-500 mt-2">Mon-Fri: 9 AM - 5 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section (Multiple Options) -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">FIND US</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Our Location</h2>
+        <p class="text-gray-600">Visit our office or see where we’re based to serve you better.</p>
+      </div>
+
+      <!-- Option 1: Embedded Google Map -->
+      <div class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.108937403741!2d77.6479017746028!3d12.900716116429415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13cc6492dd4b%3A0xfcddb39c37ce09e6!2sEzyHelpers!5e0!3m2!1sen!2sin!4v1744188319121!5m2!1sen!2sin"                  width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

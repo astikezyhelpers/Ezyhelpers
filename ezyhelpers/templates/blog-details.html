@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}EzyHelpers - Premium Domestic Help Services{% endblock %}
+{% block description %}Home Page Description{% endblock %}
+
+{% block content %}
+  <!-- Blog Detail Hero Section -->
+  <section class="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-16">
+    <div class="absolute inset-0 overflow-hidden z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-white to-secondary/20 opacity-70 z-10"></div>
+      <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center animate-tilt"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/30 to-transparent z-10"></div>
+    </div>
+    <div class="container mx-auto px-4 lg:px-6 relative z-20 text-center text-white animate-fade-in" data-aos="fade-up" data-aos-duration="800">
+      <span class="inline-block px-4 py-1 bg-primary/90 text-white rounded-full text-sm font-medium mb-4">Domestic Help Tips</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading mb-6 leading-tight">
+        <span class="bg-clip-text text-transparent text-white">{{ blog.title }}</span>
+      </h1>
+      <div class="flex justify-center items-center text-gray-200 text-sm space-x-4">
+        <span><i class="fas fa-calendar-alt mr-2"></i>{{ blog.created_at }}</span>
+        <span><i class="fas fa-clock mr-2"></i>6 min read</span>
+        <span><i class="fas fa-user mr-2"></i>By {{ blog.author }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Detail Content Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-2xl shadow-lg p-8 blog-content" data-aos="fade-up">
+            {% if blog.image %}
+               
+              <!-- <img src="https://img.freepik.com/free-photo/portrait-indian-kid-with-traveler_23-2150913120.jpg"  -->
+              <img src="{{ blog.image.url }}"
+                alt="{{ blog.title }}" 
+                class="w-full h-96 object-cover rounded-xl mb-6" data-aos="fade-up" data-aos-delay="100">
+            {% else %}
+              <img src="https://img.freepik.com/free-photo/portrait-indian-kid-with-traveler_23-2150913120.jpg" 
+                   alt="{{ blog.title }}" 
+                   class="w-full h-96 object-cover rounded-xl mb-6" data-aos="fade-up" data-aos-delay="100">
+            {% endif %}
+            
+            {{ blog.content|safe }}
+          </div>
+
+          <!-- Share Buttons -->
+          <div class="mt-8 flex justify-start space-x-4" data-aos="fade-up">
+            <h4 class="text-lg font-semibold font-heading text-gray-900 mr-4">Share This Post:</h4>
+            <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-all duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center hover:bg-secondary/90 transition-all duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center hover:bg-accent/90 transition-all duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+
+          <!-- Author Bio -->
+          <div class="mt-12 bg-white rounded-2xl shadow-lg p-6 flex items-center" data-aos="fade-up">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Sharma" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h4 class="text-lg font-bold font-heading text-gray-900">Priya Sharma</h4>
+              <p class="text-gray-600">Content Writer at EzyHelpers | Passionate about helping families simplify their lives with practical advice.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar with Featured Posts -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-24">
+            <h3 class="text-xl font-bold font-heading mb-6 text-primary">Featured Posts</h3>
+            <div class="space-y-6">
+              <!-- Featured Post 1 -->
+              <div class="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                     alt="Family Balance" 
+                     class="w-full h-32 object-cover rounded-lg mb-3">
+                <h4 class="text-lg font-semibold font-heading mb-2 text-gray-900 hover:text-primary transition-all duration-300">Balancing Work and Family</h4>
+                <p class="text-sm text-gray-600">April 02, 2025</p>
+              </div>
+              <!-- Featured Post 2 -->
+              <div class="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-left" data-aos-delay="100">
+                <img src="https://img.freepik.com/free-photo/animals-lifestyle-concept-happy-young-woman-bathrobe-hugs-her-dog-sofa-cuddle-puppy_1258-198507.jpg" 
+                     alt="Pet Care" 
+                     class="w-full h-32 object-cover rounded-lg mb-3">
+                <h4 class="text-lg font-semibold font-heading mb-2 text-gray-900 hover:text-primary transition-all duration-300">Top 5 Pet Care Tips</h4>
+                <p class="text-sm text-gray-600">April 04, 2025</p>
+              </div>
+              <!-- Featured Post 3 -->
+              <div class="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-left" data-aos-delay="200">
+                <img src="https://img.freepik.com/free-photo/senior-couple-seaside-medium-shot_23-2149021658.jpg" 
+                     alt="Elderly Care" 
+                     class="w-full h-32 object-cover rounded-lg mb-3">
+                <h4 class="text-lg font-semibold font-heading mb-2 text-gray-900 hover:text-primary transition-all duration-300">Caring for Aging Parents</h4>
+                <p class="text-sm text-gray-600">March 15, 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,55 @@
+/* Center the service-detail content */
+.service-detail {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px; /* Adjust this value as needed for your desired content width */
+    padding: 0 20px; /* Adds some padding on smaller screens */
+  }
+  
+  /* Maintain existing typography styles */
+  .prose {
+    color: inherit; /* Keeps default text color */
+    line-height: 1.5; /* Good default line height */
+  }
+  
+  /* Heading styles */
+  .service-detail h2, 
+  .service-detail h3 {
+    color: #1a1a1a; /* Dark gray for headings */
+  }
+  
+  .service-detail h2 {
+    font-size: 1.875rem; /* 3xl */
+    font-weight: 700; /* bold */
+    margin-bottom: 1.5rem; /* mb-6 */
+  }
+  
+  .service-detail h3 {
+    font-size: 1.5rem; /* 2xl */
+    font-weight: 700; /* bold */
+    margin-bottom: 1rem; /* mb-4 */
+    margin-top: 2.5rem; /* mt-10 */
+  }
+  
+  /* Paragraph and spacing */
+  .service-detail p {
+    margin-bottom: 2rem; /* mb-8 on the div translates to mb on paragraphs */
+  }
+  
+  /* List styles */
+  .service-detail ul {
+    margin-top: 0.75rem; /* space-y-3 creates gap between items */
+  }
+  
+  .service-detail li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem; /* space-y-3 equivalent */
+  }
+  
+  /* Icon styles */
+  .service-detail .fa-check {
+    color: #0075FF; /* Replace with your actual secondary color */
+    margin-top: 0.25rem; /* mt-1 */
+    margin-right: 0.75rem; /* mr-3 */
+  }

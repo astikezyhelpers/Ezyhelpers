@@ -1,0 +1,84 @@
+{% load static %}
+<footer class="bg-dark text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <!-- Column 1: About -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center mb-6">
+            <img src="{% static 'images/ezyhelpers.png' %}" 
+                 alt="EzyHelpers" 
+                 class="h-10">
+            <span class="ml-2 text-xl font-bold font-heading hidden lg:block">EzyHelpers</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            India's most trusted domestic help provider, connecting families with reliable, professional helpers since 2010.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 w-10 h-10 rounded-full bg-dark/50 flex items-center justify-center hover:bg-primary">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 w-10 h-10 rounded-full bg-dark/50 flex items-center justify-center hover:bg-gradient-to-r from-pink-500 to-red-500">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 w-10 h-10 rounded-full bg-dark/50 flex items-center justify-center hover:bg-blue-600">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-all duration-300 w-10 h-10 rounded-full bg-dark/50 flex items-center justify-center hover:bg-red-600">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Column 2: Services -->
+        <div>
+          <h3 class="text-lg font-bold font-heading mb-6">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Live-in Helpers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Part-time Cleaning</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Cooking Services</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Child Care</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Elderly Care</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Pet Care</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3: Company -->
+        <div>
+          <h3 class="text-lg font-bold font-heading mb-6">Company</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Our Process</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 4: Support -->
+        <div>
+          <h3 class="text-lg font-bold font-heading mb-6">Support</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="pt-8 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">
+            &copy; 2023 EzyHelpers. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition">Accessibility</a>
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition">Modern Slavery Statement</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
