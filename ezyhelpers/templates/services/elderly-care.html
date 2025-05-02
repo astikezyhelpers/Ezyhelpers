@@ -1,0 +1,758 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}EzyHelpers | Elderly Care Service{% endblock %}
+{% block description %}Elderly Care Description{% endblock %}
+
+{% block content %}
+  <!-- Service Hero Section - Option 1: With Background Pattern -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-32 lg:pb-32 bg-white overflow-hidden">
+    <div class="absolute inset-0 service-hero-pattern z-0"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right">
+          <!-- Breadcrumb -->
+          <div class="flex items-center text-sm text-gray-500 mb-6">
+            <a href="{% url 'home' %}" class="hover:text-primary transition">Home</a>
+            <span class="mx-2">/</span>
+            <a href="{% url 'services' %}" class="hover:text-primary transition">Services</a>
+            <span class="mx-2">/</span>
+            <span class="text-primary">Elderly Care</span>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 leading-tight " style="padding-right: 70px;">
+            Experience the Best <span class="text-primary">Elderly Home Care </span>Services in Bangalore for Loved Ones
+          </h1>
+          <p class="text-lg text-gray-600 mb-8 max-w-xl text-justify">
+            Give your loved ones the care they deserve with the best elderly home care services in Bangalore. Our caretakers for the elderly in bangalore provide personalized support, ensuring comfort, safety, and companionship for seniors while they age gracefully at home.
+          </p>
+          <p class="text-lg text-gray-600 mb-8 max-w-xl text-justify">From daily living assistance with bathing, dressing, and meals to medication management and health monitoring, we offer flexible hourly, daily, or 24/7 elderly care options. Our elderly home assistants ensure seniors maintain independence and safety through fall prevention and mobility support.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#hire-now" class="px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-medium rounded-lg hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
+              <span>Hire a Helper</span>
+              <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
+            </a>
+            <a href="#how-it-works" class="px-6 py-3 bg-white border border-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center space-x-2">
+              <i class="fas fa-play-circle"></i>
+              <span>How It Works</span>
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-1/2" data-aos="fade-left">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Live-in helper assisting family" 
+                 class="rounded-2xl shadow-xl w-full h-auto">
+            <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
+              <div class="flex items-center">
+                <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                  <i class="fas fa-home text-primary text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Average Rating</p>
+                  <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    <span class="ml-2 font-medium">4.98/5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Stats Section - Option 1: Icon Stats -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Stat 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm text-center" data-aos="fade-up">
+          <div class="bg-primary/10 text-primary service-feature-icon mx-auto">
+            <i class="fas fa-user-shield"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Thoroughly Vetted</h3>
+          <p class="text-gray-600">5-step screening process including background checks and reference verification</p>
+        </div>
+        
+        <!-- Stat 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-primary/10 text-primary service-feature-icon mx-auto">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Trained Professionals</h3>
+          <p class="text-gray-600">Minimum 100 hours of training in household management and care</p>
+        </div>
+        
+        <!-- Stat 3 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-primary/10 text-primary service-feature-icon mx-auto">
+            <i class="fas fa-history"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">Quick Placement</h3>
+          <p class="text-gray-600">Average placement time of just 7 days from initial consultation</p>
+        </div>
+        
+        <!-- Stat 4 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-primary/10 text-primary service-feature-icon mx-auto">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-2">24/7 Support</h3>
+          <p class="text-gray-600">Dedicated support team available anytime you need assistance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+   <!-- Service Features Section - Option 1: Split Layout with Tabs -->
+   <section class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Our Comprehensive Services</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Comprehensive Elderly Care Services: Daily Support & More
+            Your loved one deserves the BEST care. Here's how we help:
+            </h2>
+        <!-- <p class="text-gray-600">
+          Our helpers are trained to handle all aspects of household management with professionalism and care.
+        </p> -->
+      </div>
+      
+      <div class="flex flex-col lg:flex-row">
+        <!-- Tab Buttons -->
+        <div class="lg:w-1/3 mb-8 lg:mb-0" data-aos="fade-right">
+          <div class="flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 space-x-4 lg:space-x-0 lg:space-y-2">
+            <button class="tab-button px-6 py-3 text-left font-medium rounded-lg whitespace-nowrap active" data-tab="housekeeping-and-deep-cleaning">
+              <i class="fas fa-broom mr-3"></i>  Daily Living Assistance
+            </button>
+            <button class="tab-button px-6 py-3 text-left font-medium rounded-lg whitespace-nowrap" data-tab="cooking-and-meal-preparation">
+              <i class="fas fa-utensils mr-3"></i> Mobility Support
+            </button>
+            <button class="tab-button px-6 py-3 text-left font-medium rounded-lg whitespace-nowrap" data-tab="child-care-assistance">
+              <i class="fas fa-tshirt mr-3"></i> Medication Management
+            </button>
+            <button class="tab-button px-6 py-3 text-left font-medium rounded-lg whitespace-nowrap" data-tab="elderly-care-support">
+              <i class="fas fa-baby mr-3"></i> Nutritious Meal Preparation
+            </button>
+            <button class="tab-button px-6 py-3 text-left font-medium rounded-lg whitespace-nowrap" data-tab="pet-care-services">
+              <i class="fas fa-user-nurse mr-3"></i>  Companionship and Emotional Support
+            </button>
+            <button class="tab-button px-6 py-3 text-left font-medium rounded-lg whitespace-nowrap" data-tab="household-errands">
+              <i class="fas fa-user-nurse mr-3"></i>   Household Assistance
+            </button>
+            <button class="tab-button px-6 py-3 text-left font-medium rounded-lg whitespace-nowrap" data-tab="health-monitoring">
+                <i class="fas fa-user-nurse mr-3"></i>   Health Monitoring
+              </button>
+          </div>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="lg:w-2/3 lg:pl-12" data-aos="fade-left">
+          <!-- Housekeeping Tab -->
+          <div id="housekeeping-and-deep-cleaning" class="tab-content active">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+              <h3 class="text-2xl font-bold font-heading mb-4">Daily Living Assistance</h3>
+              <p class="text-gray-900 mb-6">
+                Our caregivers provide essential support with bathing, dressing, and grooming, ensuring seniors feel comfortable and dignified. Assistance with toileting and hygiene is also available to promote overall well-being.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold grid place-items-center">Help with bathing, dressing, and grooming</h4>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Assistance with toileting and hygiene</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Cooking Tab -->
+          <div id="cooking-and-meal-preparation" class="tab-content">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+              <h3 class="text-2xl font-bold font-heading mb-4">Mobility Support</h3>
+              <p class="text-gray-600 mb-6">
+                We help seniors move safely within their homes, offering guidance and support while walking. Transfers from bed to chair or other movements are handled with care, minimizing fall risks.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Helping seniors walk safely</h4>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Support with transfers and movement</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Child Care Tab -->
+          <div id="child-care-assistance" class="tab-content">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+              <h3 class="text-2xl font-bold font-heading mb-4"> Medication Management</h3>
+              <p class="text-gray-600 mb-6">
+                Timely reminders ensure medications are taken as prescribed. Our caregivers also assist in organizing prescriptions, reducing the risk of missed or incorrect doses.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Reminders to take medications on time</h4>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Assistance in organizing prescriptions</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Elderly Care Tab -->
+          <div id="elderly-care-support" class="tab-content">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+              <h3 class="text-2xl font-bold font-heading mb-4">Nutritious Meal Preparation</h3>
+              <p class="text-gray-600 mb-6">
+                Meals are prepared according to dietary needs, with a focus on balanced nutrition. Whether it’s home-cooked meals or special dietary requirements, we ensure seniors receive wholesome food.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Cooking meals based on dietary needs</h4>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Ensuring a healthy and balanced diet</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Pet Care Tab -->
+          <div id="pet-care-services" class="tab-content">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+              <h3 class="text-2xl font-bold font-heading mb-4">Companionship and Emotional Support</h3>
+              <p class="text-gray-600 mb-6">
+                Engaging conversations, recreational activities, and encouraging hobbies help seniors stay socially and mentally active. Emotional support is provided to enhance their overall quality of life.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Engaging in conversation and social activities</h4>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Encouraging hobbies and mental stimulation</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Household Errands Tab -->
+          <div id="household-errands" class="tab-content">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+              <h3 class="text-2xl font-bold font-heading mb-4">Household Assistance
+            </h3>
+              <p class="text-gray-600 mb-6">
+                Light housekeeping, laundry, and daily chores are managed efficiently. Grocery shopping and meal planning ensure a smooth household routine without added stress.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Light housekeeping, laundry, and errands</h4>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Grocery shopping and meal planning</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Health Monitoring Tab -->
+          <div id="health-monitoring" class="tab-content">
+            <div class="bg-gray-50 rounded-xl p-8 shadow-sm">
+              <h3 class="text-2xl font-bold font-heading mb-4">Health Monitoring</h3>
+              <p class="text-gray-600 mb-6">
+                Caregivers observe any changes in physical or mental health, providing timely updates to family members or healthcare professionals if concerns arise.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Observing changes in health and well-being</h4>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-primary/10 p-2 rounded-lg mr-4">
+                    <i class="fas fa-check text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-1">Reporting concerns to family or healthcare professionals</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- How It Works Section - Option 1: Horizontal Steps -->
+  <section id="how-it-works" class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Our Suggestion</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Choosing the Right Home Care for Seniors in Bangalore</h2>
+        <!-- <p class="text-gray-600">
+          A simple, stress-free process to find your perfect domestic helper.
+        </p> -->
+      </div>
+      
+      <div class="max-w-5xl mx-auto">
+        <div class="relative">
+          <!-- Progress line -->
+          <div class="hidden md:block absolute top-8 left-16 right-16 h-1 bg-gray-200 z-0"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            <!-- Step 1 -->
+            <div class="text-center" data-aos="fade-up">
+              <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-xl flex items-center justify-center mx-auto mb-4 shadow-lg">1</div>
+              <h3 class="text-xl font-bold font-heading mb-2">Skills & Experience</h3>
+              <p class="text-gray-600">
+                Trained caregivers for professional elderly care
+              </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+              <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-xl flex items-center justify-center mx-auto mb-4 shadow-lg">2</div>
+              <h3 class="text-xl font-bold font-heading mb-2">Compatibility</h3>
+              <p class="text-gray-600">
+                A compassionate and patient approach to care
+              </p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+              <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-xl flex items-center justify-center mx-auto mb-4 shadow-lg">3</div>
+              <h3 class="text-xl font-bold font-heading mb-2">Background Checks</h3>
+              <p class="text-gray-600">
+                Ensuring safety and reliability
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-6xl mx-auto mb-16" data-aos="fade-up">
+        <!-- <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Other Specialised Live-In Services</span> -->
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Why Choose Our Caretakers for the Elderly in Bangalore?
+        </h2>
+        <p class="text-gray-600">
+            EzyHelpers’ elderly home care services in Bangalore provide compassionate, personalised care with hourly, daily, and live-in options. Our experienced caregivers ensure seniors stay independent, offering medical and non-medical support, medication management, and companionship. With 24/7 assistance, we promote faster recovery post-hospitalisation and offer relief for family caregivers, ensuring safety, comfort, and peace of mind.
+        </p>
+        <br>
+        <p class="text-gray-600">Finding the perfect caregiver is essential, not just for seniors but also for young children. If you are looking for trusted childcare solutions, explore our <a href="{% url 'nanny' %}"><b>Nanny Services</b></a> in Bangalore to ensure your little ones receive the same level of care and attention.</p>
+    </div>
+    </div>
+    </section>
+
+    <section class="py-8 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-6xl mx-auto mb-16" data-aos="fade-up">
+          <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Benefits</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">
+            Benefits of Our Elderly Caretakers in Bangalore
+          </h2>
+          <!-- <p class="text-gray-600">
+            In addition to maids, we provide various instant help to meet all your household needs:
+          </p> -->
+          <div class="mt-8">
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <!-- Testimonial 1 -->
+              <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <h4 class="text-lg font-bold font-heading mb-2">
+                    Stay Independent 
+                </h4>
+                <p class="text-gray-600 mb-4">
+                    Age comfortably at home
+                </p>
+              </div>
+              <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <h4 class="text-lg font-bold font-heading mb-2">
+                    Peace of Mind
+                </h4>
+                <p class="text-gray-600 mb-4">
+                    Professional care, 24/7 support
+                </p>
+              </div>
+              <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <h4 class="text-lg font-bold font-heading mb-2">
+                    Faster Recovery
+                </h4>
+                <p class="text-gray-600 mb-4">
+                    Post-hospitalization care
+                </p>
+              </div>
+              <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <h4 class="text-lg font-bold font-heading mb-2">
+                    Family Support
+                </h4>
+                <p class="text-gray-600 mb-4">
+                    Respite for family caregivers
+                </p>
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="p-8 bg-white">
+          <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+              <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3" id="our-process">Things to Consider</span>
+              <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Key Factors to Consider Before Hiring an Elderly Care Assistant</h2>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+              <!-- Step 1 -->
+              <div class="flex flex-col md:flex-row mb-8" data-aos="fade-up">
+                <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+                  <div class="relative">
+                    <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                      1
+                    </div>
+                    <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+                  </div>
+                </div>
+                <div class="md:w-2/3">
+                  <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                    <h3 class="text-xl font-bold font-heading mb-3">Skills and Experience</h3>
+                    <p class="text-gray-600 mb-4">
+                        It’s important to choose a trained elderly caretaker for professional home nurse services
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Step 2 -->
+              <div class="flex flex-col md:flex-row mb-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+                  <div class="relative">
+                    <div class="w-16 h-16 bg-secondary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                      2
+                    </div>
+                    <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+                  </div>
+                </div>
+                <div class="md:w-2/3">
+                  <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                    <h3 class="text-xl font-bold font-heading mb-3">Compatibility</h3>
+                    <p class="text-gray-600 mb-4">
+                        The helper should have a compassionate approach that resonates with the senior.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Step 3 -->
+              <div class="flex flex-col md:flex-row mb-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="md:w-1/3 md:pr-10 mb-8 md:mb-0 flex md:justify-end">
+                  <div class="relative">
+                    <div class="w-16 h-16 bg-primary rounded-full text-white font-bold text-2xl flex items-center justify-center shadow-lg">
+                      3
+                    </div>
+                    <div class="hidden md:block absolute top-0 bottom-0 right-8 w-1 bg-gray-200 -z-10"></div>
+                  </div>
+                </div>
+                <div class="md:w-2/3">
+                  <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                    <h3 class="text-xl font-bold font-heading mb-3">Background checks</h3>
+                    <p class="text-gray-600 mb-4">
+                        Ensuring the safety and reliability of the helper through background checks is crucial.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <section class="px-4 md:px-32 py:4 md:py-8 bg-white">
+        <div class="bg-gray-50 rounded-lg overflow-hidden my-8 flex flex-col md:flex-row">
+            <!-- Image Section (Left) -->
+            <div class="w-full md:w-1/2 bg-ezyblue-600 flex items-center justify-center p-8">
+              <img 
+                src="https://img.freepik.com/free-photo/doctor-holding-hands-with-senior-patient_23-2148962319.jpg?t=st=1745490366~exp=1745493966~hmac=51cc63eaf3b19ac3ffca5baab29f387e059abd6b0e9524d3eed4099e7296cc8c" 
+                alt="Contact our team for service inquiries"
+                class="rounded-lg object-cover w-full h-full max-h-96"
+              >
+            </div>
+          
+            <!-- Form Section (Right) -->
+            <div class="w-full md:w-1/2 p-8">
+              <h3 class="text-dark-600 text-2xl font-bold mb-4">Get a Free Quote Today</h3>
+              <p class="text-gray-600 mb-6">Fill out this form and our team will contact you within a bussiness day.</p>
+              
+              <form id="service-inquiry-form" class="space-y-4">
+                <div class="grid grid-cols-1 gap-4">
+                  <div>
+                    <label for="name" class="block text-gray-700 font-medium mb-1">Full Name*</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ezyblue-500 focus:border-transparent"
+                    >
+                  </div>
+                </div>
+          
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label for="email" class="block text-gray-700 font-medium mb-1">Email*</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ezyblue-500 focus:border-transparent"
+                    >
+                  </div>
+                  <div>
+                    <label for="phone" class="block text-gray-700 font-medium mb-1">Phone*</label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      name="phone" 
+                      required 
+                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ezyblue-500 focus:border-transparent"
+                    >
+                  </div>
+                </div>
+          
+                <div>
+                  <label for="message" class="block text-gray-700 font-medium mb-1">Message*</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="4" 
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-ezyblue-500 focus:border-transparent"
+                    placeholder="Tell us about the service you need..."
+                  ></textarea>
+                </div>
+          
+                <button 
+                  type="submit" 
+                  class="w-full bg-secondary-600 hover:bg-ezyblue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-md"
+                >
+                  Get Your Free Quote!
+                </button>
+              </form>
+            </div>
+          </div>
+    </section>
+  <!-- FAQ Section - Option 1: Simple Accordion -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">FAQS</span>
+            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Elderly Care Questions</h2>
+            <p class="text-gray-600">
+            Everything you need to know about our Elderly Care service. Can't find an answer? Contact us anytime.
+            </p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto divide-y divide-gray-200">
+            <!-- FAQ Item 1 -->
+            <div class="py-6" data-aos="fade-up">
+            <button class="flex justify-between items-center w-full text-left group">
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">What's included in the placement fee?</h3>
+                <div class="text-primary ml-4">
+                <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+            </button>
+            <div class="pl-0 mt-2 text-gray-600 faq-answer">
+                <p>
+                Our one-time placement fee includes:
+                </p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                <li>Comprehensive background checks and screening</li>
+                <li>Skills assessment and matching services</li>
+                <li>Interview coordination and guidance</li>
+                <li>Employment contract preparation</li>
+                <li>Orientation for both family and helper</li>
+                <li>Ongoing support for the duration of employment</li>
+                </ul>
+            </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="py-6" data-aos="fade-up" data-aos-delay="50">
+            <button class="flex justify-between items-center w-full text-left group">
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">What are the typical working hours for a live-in helper?</h3>
+                <div class="text-primary ml-4">
+                <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+            </button>
+            <div class="pl-0 mt-2 text-gray-600 faq-answer">
+                <p>
+                Standard arrangements include:
+                </p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                <li><strong>6-day work week</strong> with 1 full day off</li>
+                <li><strong>8-12 hours of active work per day</strong> (depending on package)</li>
+                <li><strong>2-3 hours of break time</strong> during the day</li>
+                <li><strong>8 hours of uninterrupted sleep</strong> at night</li>
+                </ul>
+                <p class="mt-3">
+                All working conditions are clearly outlined in the employment contract and can be customized to your family's needs.
+                </p>
+            </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="py-6" data-aos="fade-up" data-aos-delay="100">
+            <button class="flex justify-between items-center w-full text-left group">
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">What if my helper gets sick or needs time off?</h3>
+                <div class="text-primary ml-4">
+                <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+            </button>
+            <div class="pl-0 mt-2 text-gray-600 faq-answer">
+                <p>
+                We recommend including these provisions in your contract:
+                </p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                <li><strong>12-15 days of paid leave per year</strong> (can be used for sickness or vacation)</li>
+                <li><strong>Emergency backup service</strong> available for an additional fee</li>
+                <li><strong>Short-term replacements</strong> can be arranged through our agency</li>
+                </ul>
+                <p class="mt-3">
+                Our team can help you establish fair and legal time-off policies during the onboarding process.
+                </p>
+            </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="py-6" data-aos="fade-up" data-aos-delay="150">
+            <button class="flex justify-between items-center w-full text-left group">
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-all duration-300">How do you handle conflicts or performance issues?</h3>
+                <div class="text-primary ml-4">
+                <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
+                </div>
+            </button>
+            <div class="pl-0 mt-2 text-gray-600 faq-answer">
+                <p>
+                We provide comprehensive support for conflict resolution:
+                </p>
+                <ul class="list-disc pl-5 mt-2 space-y-1">
+                <li><strong>Mediation services</strong> to facilitate communication</li>
+                <li><strong>Performance improvement plans</strong> with clear expectations</li>
+                <li><strong>Additional training</strong> if specific skills need development</li>
+                <li><strong>Replacement guarantee</strong> if the situation cannot be resolved</li>
+                </ul>
+                <p class="mt-3">
+                Most issues can be resolved through open communication and our guidance.
+                </p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-tab');
+            
+            // Remove active class from all buttons and tabs
+            document.querySelectorAll('.tab-button').forEach(btn => {
+            btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+            });
+            
+            // Add active class to clicked button and corresponding tab
+            button.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        });
+        });
+    </script>
+{% endblock %}

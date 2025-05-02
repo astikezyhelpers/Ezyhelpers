@@ -1,0 +1,573 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load my_filters %}
+
+{% block title %}{{ service.meta_title }}{% endblock %}
+{% block description %}{{ service.meta_description }}{% endblock %}
+
+{% block content %}
+  <!-- Service Hero Section -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
+          <!-- Breadcrumb -->
+          <div class="flex items-center justify-center lg:justify-start text-sm text-gray-500 mb-4">
+            <a href="{% url 'home' %}" class="hover:text-primary transition">Home</a>
+            <span class="mx-2">/</span>
+            <a href="{% url 'services' %}" class="hover:text-primary transition">Services</a>
+            <span class="mx-2">/</span>
+            <span class="font-medium text-primary">{{ service.name }}</span>
+          </div>
+          
+          <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-heading mb-5 leading-tight">
+            {{ service.hero_title|safe }}
+          </h1>
+          <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
+            {{ service.hero_subtitle|safe }}
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <a href="#contact-form" class="px-7 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center space-x-2 group text-base">
+              <span>Hire a Helper</span>
+              <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
+            </a>
+            <a href="#how-it-works" class="px-7 py-3 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center space-x-2 text-base">
+              <i class="fas fa-info-circle text-gray-500"></i>
+              <span>How It Works</span>
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-1/2" data-aos="fade-left" data-aos-delay="100">
+          <div class="relative">
+            <img src="{{ service.hero_image.url }}" 
+                 alt="{{ service.name }}" 
+                 class="rounded-2xl shadow-xl w-full h-auto">
+            <div class="absolute -bottom-5 -right-5 bg-white/70 backdrop-blur-md p-4 rounded-xl shadow-lg hidden md:block border border-gray-100">
+              <div class="flex items-center">
+                <div class="bg-primary/10 p-3 rounded-lg mr-3">
+                  <i class="fas fa-star text-primary text-xl"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-600 mb-0.5">Average Rating</p>
+                  <div class="flex items-center">
+                    {% for i in "12345" %}
+                      <i class="fas fa-star text-yellow-400 {% if forloop.counter <= service.hero_rating %}text-yellow-400{% else %}text-gray-300{% endif %} mr-1 text-sm"></i>
+                    {% endfor %}
+                    <span class="ml-2 font-semibold text-gray-800 text-sm">{{ service.hero_rating }}/5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Stats Section -->
+  <section class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {% for stat in service.stats.all %}
+        <div class="bg-white p-6 lg:p-8 rounded-2xl shadow-md text-center border border-gray-100 transition-shadow hover:shadow-lg" data-aos="fade-up" {% if not forloop.first %}data-aos-delay="{{ forloop.counter0|multiply:100 }}"{% endif %}>
+          <div class="inline-flex items-center justify-center bg-primary/10 text-primary rounded-full w-14 h-14 mb-5">
+            <i class="{{ stat.icon }} text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ stat.title }}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">{{ stat.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Features Section -->
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Our Services</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.features_title }}</h2>
+      </div>
+      
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <!-- Tab Buttons -->
+        <div class="lg:w-1/3" data-aos="fade-right">
+          <div class="flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 space-x-3 lg:space-x-0 lg:space-y-3">
+            {% for feature in service.features.all %}
+            <button class="tab-button flex items-center w-full text-left px-5 py-3 font-medium rounded-xl whitespace-nowrap text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-200 {% if forloop.first %}active{% endif %}" data-tab="feature-{{ feature.id }}">
+              <i class="{{ feature.icon }} text-lg w-6 text-center mr-3 {% if forloop.first %}text-primary{% else %}text-gray-400{% endif %} transition-colors duration-200"></i>
+              <span class="flex-1">{{ feature.title }}</span>
+            </button>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="lg:w-2/3" data-aos="fade-left" data-aos-delay="100">
+          {% for feature in service.features.all %}
+          <div id="feature-{{ feature.id }}" class="tab-content"> 
+            <div class="bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-lg border border-gray-100/80 transition-all duration-300">
+              <h3 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-5">{{ feature.title }}</h3>
+              <div class="rich-text-content text-gray-600 text-base leading-relaxed">{{ feature.description|safe }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Our Process</span>
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.how_it_works_title }}</h2>
+      </div>
+
+      <!-- New Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 max-w-6xl mx-auto relative">
+        
+        <!-- Optional: Connecting Line (requires careful styling) -->
+        <!-- <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 transform -translate-y-1/2 -z-10"></div> -->
+
+        {% for step in service.how_it_works_steps.all %}
+        <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+          <!-- Step Number/Icon -->
+          <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white font-bold text-xl mb-5 shadow-lg border-4 border-gray-50 z-10">
+            {% if step.icon %}
+              <i class="{{ step.icon }}"></i>
+            {% else %}
+              {{ step.step_number }}
+            {% endif %}
+          </div>
+          <!-- Step Content -->
+          <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 flex-grow w-full">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ step.title }}</h3>
+            <div class="rich-text-content text-gray-600 text-sm leading-relaxed">{{ step.description|safe }}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="max-w-4xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-12 lg:mb-16">
+          <span class="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Why Choose Us</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.benefits_title }}</h2>
+        </div>
+        
+        <!-- New Benefits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for benefit in service.benefits.all %}
+            <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+                {% if benefit.icon %}
+                <div class="flex-shrink-0 mt-1">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-600">
+                        <i class="{{ benefit.icon }} text-xl"></i>
+                    </div>
+                </div>
+                {% endif %}
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">{{ benefit.title }}</h3>
+                    <div class="rich-text-content text-gray-600 text-sm leading-relaxed">{{ benefit.description|safe }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if service.benefits_link_text %}
+        <p class="mt-12 text-center text-gray-500 text-sm">
+          Need different hours? Explore our <a href="{{ service.benefits_link_url }}" class="font-medium text-primary hover:underline"><b>{{ service.benefits_link_text }}</b></a>.
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialized Services Section -->
+  <section class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="max-w-4xl mx-auto" data-aos="fade-up">
+         <div class="text-center mb-12 lg:mb-16">
+            <span class="inline-block px-4 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">More Options</span>
+            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.specialized_services_title }}</h2>
+         </div>
+        
+        <!-- New Specialized Services List/Grid -->
+        <div class="space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:grid-cols-3">
+            {% for detail in service.specialized_details.all %}
+            <div class="flex items-start" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+                {% if detail.icon %}
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 text-primary">
+                        <i class="{{ detail.icon }} text-2xl"></i>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="{% if detail.icon %}ml-4{% endif %}">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">{{ detail.title }}</h3>
+                    <div class="mt-2 rich-text-content text-base text-gray-500">{{ detail.description|safe }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Considerations Section -->
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="max-w-4xl mx-auto" data-aos="fade-up">
+        <div class="text-center mb-12 lg:mb-16">
+          <span class="inline-block px-4 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Good to Know</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.considerations_title }}</h2>
+        </div>
+        
+        <!-- Improved Considerations Section (Card Layout) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {% for point in service.consideration_points.all %}
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 flex flex-col items-center text-center shadow-sm" 
+                 data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+                <div class="flex-shrink-0 mb-4">
+                     <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 text-yellow-600">
+                        <i class="{{ point.icon|default:'fas fa-info-circle' }} text-2xl"></i>
+                     </div>
+                </div>
+                <div class="rich-text-content text-yellow-800 text-sm leading-relaxed">{{ point.point_text|safe }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact-form" class="py-16 lg:py-20 bg-gray-100 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+        <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+          <!-- Form Section -->
+          <div class="w-full md:w-1/2 p-8 lg:p-12 order-2 md:order-1">
+            <h3 class="text-gray-900 text-2xl lg:text-3xl font-semibold mb-3">Get a Free Quote Today</h3>
+            <p class="text-gray-600 mb-6 lg:mb-8">Fill out this form, and our team will contact you shortly.</p>
+            
+            <form method="POST" class="space-y-5" id="servicePageQuoteForm">
+              {% csrf_token %}
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Full Name*</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  required 
+                  placeholder="Enter your full name"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                >
+              </div>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email*</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required 
+                    placeholder="you@example.com"
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                  >
+                </div>
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Phone*</label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    required 
+                    placeholder="Your phone number"
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                  >
+                </div>
+              </div>
+        
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Message*</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="4" 
+                  required
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                  placeholder="Tell us about the service you need..."
+                ></textarea>
+              </div>
+        
+              <button 
+                type="submit" 
+                class="w-full px-7 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center space-x-2 group text-base"
+              >
+                <span>Request Your Free Quote</span>
+                 <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
+              </button>
+            </form>
+            <div id="serviceFormMessage" class="mt-4"></div>
+          </div>
+
+           <!-- Image Section -->
+          <div class="w-full md:w-1/2 order-1 md:order-2">
+            <img 
+              src="https://images.pexels.com/photos/7792815/pexels-photo-7792815.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+              alt="Contact EzyHelpers Support Team"
+              class="object-cover w-full h-64 md:h-full"
+            >
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12 lg:mb-16" data-aos="fade-up">
+          <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Need Answers?</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Frequently Asked Questions</h2>
+          <p class="text-gray-600 text-base lg:text-lg leading-relaxed">Find answers to common questions about our {{ service.name }} service.</p>
+        </div>
+
+        <div class="space-y-3 lg:space-y-4">
+          {% for faq in service.faqs.all %}
+          <div class="bg-gray-50 border border-gray-200 rounded-xl faq-item overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:50 }}">
+            <button class="faq-question w-full px-5 py-4 lg:px-6 lg:py-5 text-left text-base lg:text-lg font-medium text-gray-800 flex justify-between items-center hover:bg-gray-100 transition duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50">
+              <span>{{ faq.question }}</span>
+              <i class="fas fa-chevron-down text-primary text-sm transform transition-transform duration-300 ease-out faq-icon"></i>
+            </button>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-out" style="max-height: 0px;">
+               <div class="px-5 lg:px-6 pb-4 lg:pb-5 pt-2 rich-text-content text-gray-600 text-sm lg:text-base leading-relaxed">
+                 {{ faq.answer|safe }}
+               </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab functionality
+      const tabButtons = document.querySelectorAll('.tab-button');
+      // Select content panes using ID pattern instead of class
+      const tabContents = document.querySelectorAll('[id^="feature-"]'); 
+
+      // Apply initial active styles to the first tab button
+      if (tabButtons.length > 0) {
+        const firstButton = tabButtons[0];
+        firstButton.classList.add('active', 'bg-primary/10', 'text-primary');
+        const firstIcon = firstButton.querySelector('i');
+         if (firstIcon) {
+            firstIcon.classList.add('text-primary');
+            firstIcon.classList.remove('text-gray-400');
+         }
+      }
+
+      // Set initial display state for content panes
+      tabContents.forEach((content, index) => {
+        if (index === 0) {
+          content.style.display = 'block'; // Show the first tab content
+        } else {
+          content.style.display = 'none'; // Hide others
+        }
+      });
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabId = button.getAttribute('data-tab');
+
+          // Update button active state (same logic as before)
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-primary/10', 'text-primary');
+            btn.classList.add('text-gray-700'); 
+            const icon = btn.querySelector('i');
+            if (icon) {
+              icon.classList.remove('text-primary');
+              icon.classList.add('text-gray-400'); 
+            }
+          });
+
+          // Activate the clicked button (same logic as before)
+          button.classList.add('active', 'bg-primary/10', 'text-primary');
+          button.classList.remove('text-gray-700');
+          const activeIcon = button.querySelector('i');
+          if (activeIcon) {
+            activeIcon.classList.add('text-primary');
+            activeIcon.classList.remove('text-gray-400');
+          }
+
+          // Update content visibility using direct style manipulation
+          tabContents.forEach(content => {
+            if (content.id === tabId) {
+                content.style.display = 'block'; // Show target
+                // Force reflow (optional but kept from previous step)
+                void content.offsetWidth; 
+            } else {
+                content.style.display = 'none'; // Hide others
+            }
+          });
+
+          // Refresh AOS after updating tab content visibility
+          if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+          }
+        });
+      });
+
+      // FAQ Accordion Logic (Keep existing code here)
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const button = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = button.querySelector('.faq-icon');
+
+        button.addEventListener('click', () => {
+          const isOpen = item.classList.contains('active');
+
+          // Close all other items smoothly
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+              otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+              otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+            }
+          });
+
+          // Toggle current item
+          if (isOpen) {
+            item.classList.remove('active');
+            answer.style.maxHeight = '0px';
+            icon.style.transform = 'rotate(0deg)';
+          } else {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.style.transform = 'rotate(180deg)';
+          }
+        });
+
+        window.addEventListener('resize', () => {
+            if (item.classList.contains('active')) {
+                 const originalTransition = answer.style.transition;
+                 answer.style.transition = 'none';
+                 answer.style.maxHeight = answer.scrollHeight + "px";
+                 setTimeout(() => {
+                     answer.style.transition = originalTransition;
+                 }, 50);
+            }
+        });
+      });
+
+      // Contact Form Logic
+      const quoteForm = document.getElementById('servicePageQuoteForm'); 
+      const messageContainer = document.getElementById('serviceFormMessage'); 
+
+      if (quoteForm && messageContainer) {
+          quoteForm.addEventListener('submit', function(event) {
+              event.preventDefault(); // Ensure this is the VERY FIRST line
+
+              try { // Start try block
+                  const formData = new FormData(quoteForm);
+                  const submitButton = quoteForm.querySelector('button[type="submit"]');
+                  if (!submitButton) {
+                      console.error("Submit button not found in service form:", quoteForm);
+                      messageContainer.innerHTML = 
+                          `<div class="bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Error!</strong><span class="block sm:inline"> Form configuration error. Cannot submit.</span></div>`;
+                      messageContainer.className = 'mt-4';
+                      return; // Stop execution
+                  }
+                  const originalButtonText = submitButton.innerHTML;
+
+                  submitButton.disabled = true;
+                  submitButton.innerHTML = 
+                      `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...`;
+
+                  messageContainer.innerHTML = '';
+                  messageContainer.className = ''; 
+
+                  fetch(quoteForm.action || window.location.pathname, { 
+                      method: 'POST',
+                      headers: {
+                          'X-CSRFToken': formData.get('csrfmiddlewaretoken'), 
+                          'X-Requested-With': 'XMLHttpRequest', 
+                      },
+                      body: formData 
+                  })
+                  .then(response => {
+                      const contentType = response.headers.get("content-type");
+                      if (contentType && contentType.indexOf("application/json") !== -1) {
+                          return response.json().then(data => ({ ok: response.ok, status: response.status, data }));
+                      } else {
+                          return response.text().then(text => { throw new Error(`Server returned non-JSON response: ${response.status} ${response.statusText}. Body: ${text.substring(0, 100)}`); });
+                      }
+                  })
+                  .then(result => {
+                      if (!result.ok) {
+                          throw new Error(result.data.error || `Server error: ${result.status}`);
+                      }
+                      const data = result.data;
+                      if (data.success) {
+                          messageContainer.innerHTML = 
+                              `<div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Success!</strong><span class="block sm:inline"> Quote request sent. We will contact you shortly.</span></div>`;
+                          messageContainer.className = 'mt-4';
+
+                          const thankYouUrl = new URL('{% url "thank_you" %}', window.location.origin);
+                          const thankYouData = data.form_data; // Contains Name, Email, Phone, Message, form_type
+                          
+                          for (const key in thankYouData) {
+                              if (thankYouData[key]) {
+                                  thankYouUrl.searchParams.append(key, thankYouData[key]);
+                              }
+                          }
+                          console.log("Service form AJAX success: Redirecting..."); // DEBUG
+                          console.log("Generated Service Thank You URL:", thankYouUrl.toString()); // DEBUG
+                          window.location.href = thankYouUrl.toString(); // Redirect in the same tab
+                          // quoteForm.reset(); // Might not execute before redirect
+                      } else {
+                          throw new Error(data.error || 'Could not send request. Please try again.');
+                      }
+                  })
+                  .catch(error => {
+                      console.error('Service quote form submission error:', error);
+                      messageContainer.innerHTML = 
+                          `<div class="bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Error!</strong><span class="block sm:inline"> An unexpected error occurred: ${error.message}. Please check console or try again later.</span></div>`;
+                      messageContainer.className = 'mt-4';
+                  })
+                  .finally(() => {
+                      submitButton.disabled = false;
+                      submitButton.innerHTML = originalButtonText;
+                  });
+
+              } catch (error) { // Catch synchronous errors
+                  console.error('Synchronous error during service form setup:', error);
+                  messageContainer.innerHTML = 
+                      `<div class="bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Error!</strong><span class="block sm:inline"> A script error occurred: ${error.message}. Please check console.</span></div>`;
+                  messageContainer.className = 'mt-4';
+                  const submitButton = quoteForm.querySelector('button[type="submit"]');
+                   if (submitButton) {
+                       submitButton.disabled = false;
+                       // submitButton.innerHTML = originalButtonText; // May fail
+                   }
+              }
+          });
+      } else {
+          if (!quoteForm) console.error("Service page quote form with ID 'servicePageQuoteForm' not found.");
+          if (!messageContainer) console.error("Service page message container with ID 'serviceFormMessage' not found.");
+      }
+    });
+  </script>
+{% endblock %} 

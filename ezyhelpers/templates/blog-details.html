@@ -5,7 +5,7 @@
 
 {% block content %}
   <!-- Blog Detail Hero Section -->
-  <section class="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-16">
+  <section class="px-8 relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-16">
     <div class="absolute inset-0 overflow-hidden z-0">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-white to-secondary/20 opacity-70 z-10"></div>
       <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center animate-tilt"></div>
@@ -18,18 +18,18 @@
       </h1>
       <div class="flex justify-center items-center text-gray-200 text-sm space-x-4">
         <span><i class="fas fa-calendar-alt mr-2"></i>{{ blog.created_at }}</span>
-        <span><i class="fas fa-clock mr-2"></i>6 min read</span>
+        <span><i class="fas fa-clock mr-2"></i>{{blog.reading_time}} min read</span>
         <span><i class="fas fa-user mr-2"></i>By {{ blog.author }}</span>
       </div>
     </div>
   </section>
 
   <!-- Blog Detail Content Section -->
-  <section class="py-20 bg-gray-50">
+  <section class="px-8 py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div class="grid grid-cols-1 gap-12">
         <!-- Main Content -->
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-4">
           <div class="bg-white rounded-2xl shadow-lg p-8 blog-content" data-aos="fade-up">
             {% if blog.image %}
                
@@ -71,33 +71,39 @@
         </div>
 
         <!-- Sidebar with Featured Posts -->
-        <div class="lg:col-span-1">
-          <div class="sticky top-24">
-            <h3 class="text-xl font-bold font-heading mb-6 text-primary">Featured Posts</h3>
-            <div class="space-y-6">
+        <div class="lg:col-span-4">
+          <div class="mt-12">
+            <h3 class="text-2xl font-bold font-heading mb-8 text-dark border-b pb-3 text-center">Featured Posts</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <!-- Featured Post 1 -->
-              <div class="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-left">
+              <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
                 <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
                      alt="Family Balance" 
                      class="w-full h-32 object-cover rounded-lg mb-3">
+                     <div class="p-4">
                 <h4 class="text-lg font-semibold font-heading mb-2 text-gray-900 hover:text-primary transition-all duration-300">Balancing Work and Family</h4>
                 <p class="text-sm text-gray-600">April 02, 2025</p>
+                </div>
               </div>
               <!-- Featured Post 2 -->
-              <div class="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-left" data-aos-delay="100">
+              <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
                 <img src="https://img.freepik.com/free-photo/animals-lifestyle-concept-happy-young-woman-bathrobe-hugs-her-dog-sofa-cuddle-puppy_1258-198507.jpg" 
                      alt="Pet Care" 
                      class="w-full h-32 object-cover rounded-lg mb-3">
+                     <div class="p-4">
                 <h4 class="text-lg font-semibold font-heading mb-2 text-gray-900 hover:text-primary transition-all duration-300">Top 5 Pet Care Tips</h4>
                 <p class="text-sm text-gray-600">April 04, 2025</p>
+                     </div>
               </div>
               <!-- Featured Post 3 -->
-              <div class="bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-left" data-aos-delay="200">
+              <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
                 <img src="https://img.freepik.com/free-photo/senior-couple-seaside-medium-shot_23-2149021658.jpg" 
                      alt="Elderly Care" 
                      class="w-full h-32 object-cover rounded-lg mb-3">
+                     <div class="p-4">
                 <h4 class="text-lg font-semibold font-heading mb-2 text-gray-900 hover:text-primary transition-all duration-300">Caring for Aging Parents</h4>
                 <p class="text-sm text-gray-600">March 15, 2025</p>
+                </div>
               </div>
             </div>
           </div>

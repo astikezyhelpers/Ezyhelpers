@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}All Blogs | EzyHelpers{% endblock %}
 {% block description %}All Blogs Page Description{% endblock %}
 
 {% block content %}
   <!-- Hero Section -->
-  <section class="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-16">
+  <section class="px-8relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-16">
     <div class="absolute inset-0 overflow-hidden z-0">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-white to-secondary/20 opacity-70 z-10"></div>
       <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center animate-tilt"></div>
@@ -31,7 +32,7 @@
   </section>
 
   <!-- Blog List Section -->
-  <section id="blog-list" class="py-20 bg-gray-50">
+  <section id="blog-list" class="px-8 py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
         <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR INSIGHTS</span>
@@ -44,15 +45,8 @@
       <!-- Blog Filter/Search Bar -->
       <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
         <div class="flex flex-col sm:flex-row gap-4 bg-white p-4 rounded-xl shadow-md border border-gray-100">
-          <input type="text" placeholder="Search articles..." class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
-          <select class="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300">
-            <option>All Categories</option>
-            <option>Domestic Help Tips</option>
-            <option>Family Life</option>
-            <option>Care Services</option>
-            <option>Home Management</option>
-          </select>
-          <button class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all duration-300">Search</button>
+          <input type="text" placeholder="Search articles..." class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300" id="searchInput">
+          <button class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all duration-300" id="searchButton">Search</button>
         </div>
       </div>
 
@@ -60,7 +54,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         <!-- Blog Post 1 -->
          {% for blog in blogs %}
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group" data-aos="fade-up">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group blog-post" data-aos="fade-up">
           <div class="relative h-60 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
                  alt="Hiring Helpers" 
@@ -70,11 +64,15 @@
             <span class="absolute top-4 right-4 bg-secondary/90 text-white px-3 py-1 rounded-full text-sm font-medium">Featured</span>
           </div>
           <div class="p-6">
-            <h3 class="text-xl font-bold font-heading mb-3 text-gray-900 group-hover:text-primary transition-all duration-300">{{blog.title}}</h3>
-            <p class="text-gray-600 mb-4">{{blog.content|truncatewords:20}}</p>
+            <h3 class="text-xl font-bold font-heading mb-3 text-gray-900 group-hover:text-primary transition-all duration-300 blog-title">{{blog.title}}</h3>
+            <p class="text-gray-600 mb-4 blog-content">{{blog.content|truncatewords:20|safe}}</p>
             <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
               <span><i class="fas fa-calendar-alt mr-2"></i>{{blog.created_at}}</span>
-              <span><i class="fas fa-clock mr-2"></i>6 min read</span>
+              {% if blog.reading_time %}
+              <span><i class="fas fa-tags mr-2"></i>{{blog.reading_time}} min read</span>
+              {% else %}
+              <span><i class="fas fa-tags mr-2"></i>5 min read</span>
+              {% endif %}
             </div>
             <div class="flex items-center text-sm text-gray-600 mb-4">
               <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author" class="w-8 h-8 rounded-full mr-2">
@@ -236,5 +234,5 @@
     </div>
   </section>
 
-
+  <script src="{% static 'js/blogSearch.js' %}"></script>
 {% endblock %}

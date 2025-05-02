@@ -6,9 +6,15 @@
 
 {% block content %}
   <!-- Hero Section for Services Page -->
-  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-36 bg-gradient-to-br from-primary/10 via-white to-secondary/10">
+  <section class="px-8 relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-36 bg-gradient-to-br from-primary/10 via-white to-secondary/10">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
+        <div class="flex items-center justify-center text-sm text-gray-500 mb-6">
+          <a href="{% url 'home' %}" class="hover:text-primary transition">Home</a>
+          <span class="mx-2">/</span>
+          <a href="{% url 'services' %}" class="hover:text-primary transition">Services</a>
+
+        </div>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 leading-tight" data-aos="fade-up">
           <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Premium Domestic Help</span>
           <br>
@@ -31,8 +37,8 @@
     </div>
   </section>
 
-  <!-- Services Overview Section -->
-  <section id="services" class="py-16 bg-white">
+  <!-- Main Services Overview Section -->
+  <section id="services" class="px-8 py-16 bg-white">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
         <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR SERVICES</span>
@@ -42,722 +48,140 @@
         </p>
       </div>
       
-      <!-- Option 1: Service Categories with Icons -->
+      <!-- Service Categories with Icons -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" data-aos="fade-up">
-        {% for service in services %}
         <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
           <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
             <i class="fas fa-home"></i>
           </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Live-in Helpers</h3>
+          <h3 class="text-xl font-bold font-heading mb-3">Live-in Maid</h3>
           <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="#live-in" class="text-primary font-medium hover:underline inline-flex items-center group">
+          <a href="{% url 'live_in_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
             <span>Learn more</span>
             <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
-          <a href="{% url 'service_details' service.slug %}" class="text-primary font-medium hover:underline inline-flex items-center group">Link</a>
         </div>
-        {% endfor %}
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
           <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-broom"></i>
+            <i class="fa-solid fa-user-clock"></i>
           </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Cleaning Services</h3>
-          <p class="text-gray-600 mb-4">Professional cleaning on your schedule with eco-friendly products.</p>
-          <a href="#cleaning" class="text-primary font-medium hover:underline inline-flex items-center group">
+          <h3 class="text-xl font-bold font-heading mb-3">Full-time Maid</h3>
+          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
+          <a href="{% url 'full_time_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
             <span>Learn more</span>
             <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
         </div>
-        
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
           <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-utensils"></i>
+            <i class="fa-solid fa-clock"></i>
           </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Cooking Services</h3>
-          <p class="text-gray-600 mb-4">Experienced home chefs preparing nutritious, delicious meals.</p>
-          <a href="#cooking" class="text-primary font-medium hover:underline inline-flex items-center group">
+          <h3 class="text-xl font-bold font-heading mb-3">Part-time Maid</h3>
+          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
+          <a href="{% url 'part_time_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
             <span>Learn more</span>
             <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
         </div>
-        
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card" data-aos="fade-up" data-aos-delay="300">
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
           <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-hands-helping"></i>
+            <i class="fa-solid fa-clock"></i>
           </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Care Services</h3>
-          <p class="text-gray-600 mb-4">Compassionate care for children, elderly, or pets.</p>
-          <a href="#care" class="text-primary font-medium hover:underline inline-flex items-center group">
+          <h3 class="text-xl font-bold font-heading mb-3">On-Demand Maid</h3>
+          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
+          <a href="{% url 'on_demand_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
             <span>Learn more</span>
             <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
         </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
+          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+            <i class="fa-solid fa-baby"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-3">Nanny/Babysitter</h3>
+          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
+          <a href="{% url 'nanny' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
+          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+            <i class="fa-solid fa-person-cane"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-3">Elderly Care</h3>
+          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
+          <a href="{% url 'elderly_care' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
+          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-3">Cook</h3>
+          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
+          <a href="{% url 'cooks' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
+          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+            <i class="fa-solid fa-car"></i>
+          </div>
+          <h3 class="text-xl font-bold font-heading mb-3">Driver</h3>
+          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
+          <a href="{% url 'drivers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+        </div>
+
       </div>
       
     </div>
   </section>
 
-  <!-- Detailed Services Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <!-- Live-in Helpers -->
-      <div id="live-in" class="mb-20" data-aos="fade-up">
-        <div class="flex flex-col lg:flex-row items-center gap-12 mb-12">
-          <div class="lg:w-1/2">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                 alt="Live-in Helpers" 
-                 class="rounded-2xl shadow-lg w-full h-auto">
-          </div>
-          <div class="lg:w-1/2">
-            <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">DOMESTIC HELP</span>
-            <h2 class="text-3xl font-bold font-heading mb-4">Live-in Helpers</h2>
-            <p class="text-gray-600 mb-6">
-              Our live-in domestic helpers provide comprehensive household management, becoming a trusted part of your family. They handle all aspects of home maintenance, allowing you to focus on what matters most.
-            </p>
-            <div class="mb-8">
-              <h3 class="text-xl font-bold font-heading mb-3">Service Features:</h3>
-              <ul class="feature-list space-y-3">
-                <li>24/7 household management and support</li>
-                <li>Daily cleaning and home organization</li>
-                <li>Meal preparation and kitchen management</li>
-                <li>Laundry and ironing services</li>
-                <li>Optional child or elderly care included</li>
-                <li>Grocery shopping and errands</li>
-              </ul>
-            </div>
-            <div class="flex flex-wrap gap-4">
-              <a href="#" class="px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-medium rounded-lg hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <span>Request Helper</span>
-                <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
-              </a>
-              <a href="#" class="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <i class="fas fa-file-alt"></i>
-                <span>View Sample Contract</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pricing Options -->
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-2xl font-bold font-heading mb-6 text-center">Pricing Options</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Basic</h4>
-                <p class="text-gray-600 text-sm">Entry-level helper with 1-2 years experience</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹25,000</span>
-                <span class="text-sm font-normal text-gray-600">/month</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>General housekeeping</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Basic meal preparation</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Laundry services</span>
-                </li>
-                <li class="flex items-start text-gray-400">
-                  <i class="fas fa-times mt-1 mr-2"></i>
-                  <span>No specialized care</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Select Plan
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table popular-plan">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Standard</h4>
-                <p class="text-gray-600 text-sm">Experienced helper with 3-5 years experience</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹35,000</span>
-                <span class="text-sm font-normal text-gray-600">/month</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Comprehensive housekeeping</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Meal planning & preparation</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Laundry & ironing</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Basic child/elderly care</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-primary text-white py-3 px-4 rounded-lg text-center font-medium hover:bg-primary/90 transition-all duration-300">
-                Select Plan
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Premium</h4>
-                <p class="text-gray-600 text-sm">Highly skilled helper with 5+ years experience</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹50,000</span>
-                <span class="text-sm font-normal text-gray-600">/month</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Executive housekeeping</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Gourmet meal preparation</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Professional laundry service</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Specialized care services</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Select Plan
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cleaning Services -->
-      <div id="cleaning" class="mb-20" data-aos="fade-up">
-        <div class="flex flex-col lg:flex-row-reverse items-center gap-12 mb-12">
-          <div class="lg:w-1/2">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                 alt="Cleaning Services" 
-                 class="rounded-2xl shadow-lg w-full h-auto">
-          </div>
-          <div class="lg:w-1/2">
-            <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">DOMESTIC HELP</span>
-            <h2 class="text-3xl font-bold font-heading mb-4">Cleaning Services</h2>
-            <p class="text-gray-600 mb-6">
-              Our professional cleaning services bring sparkling results to your home with flexible scheduling options. We use eco-friendly products and thorough techniques to ensure every corner shines.
-            </p>
-            <div class="mb-8">
-              <h3 class="text-xl font-bold font-heading mb-3">Service Options:</h3>
-              <ul class="feature-list space-y-3">
-                <li><strong>Regular Cleaning:</strong> Weekly, bi-weekly, or monthly maintenance cleaning</li>
-                <li><strong>Deep Cleaning:</strong> Intensive whole-house cleaning for move-ins or special occasions</li>
-                <li><strong>Post-Construction:</strong> Specialized cleaning after renovations</li>
-                <li><strong>Eco Cleaning:</strong> Green cleaning with environmentally friendly products</li>
-                <li><strong>Specialty Services:</strong> Carpet, upholstery, and window cleaning</li>
-              </ul>
-            </div>
-            <div class="flex flex-wrap gap-4">
-              <a href="#" class="px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-medium rounded-lg hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <span>Book Cleaning</span>
-                <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
-              </a>
-              <a href="#" class="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <i class="fas fa-question-circle"></i>
-                <span>Ask About Products</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cleaning Packages -->
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-2xl font-bold font-heading mb-6 text-center">Cleaning Packages</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Basic Cleaning</h4>
-                <p class="text-gray-600 text-sm">For regular maintenance</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹1,500</span>
-                <span class="text-sm font-normal text-gray-600">/visit</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Dusting & vacuuming all rooms</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Bathroom sanitization</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Kitchen cleaning</span>
-                </li>
-                <li class="flex items-start text-gray-400">
-                  <i class="fas fa-times mt-1 mr-2"></i>
-                  <span>No deep cleaning</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table popular-plan">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Standard Cleaning</h4>
-                <p class="text-gray-600 text-sm">Most popular choice</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹2,500</span>
-                <span class="text-sm font-normal text-gray-600">/visit</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Everything in Basic</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Appliance cleaning</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Window sills & ledges</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Light organization</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-primary text-white py-3 px-4 rounded-lg text-center font-medium hover:bg-primary/90 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Deep Cleaning</h4>
-                <p class="text-gray-600 text-sm">For thorough whole-house cleaning</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹5,000</span>
-                <span class="text-sm font-normal text-gray-600">/visit</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Everything in Standard</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Inside cabinets & drawers</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Baseboards & moldings</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Detailed kitchen & bath</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cooking Services -->
-      <div id="cooking" class="mb-20" data-aos="fade-up">
-        <div class="flex flex-col lg:flex-row items-center gap-12 mb-12">
-          <div class="lg:w-1/2">
-            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                 alt="Cooking Services" 
-                 class="rounded-2xl shadow-lg w-full h-auto">
-          </div>
-          <div class="lg:w-1/2">
-            <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">DOMESTIC HELP</span>
-            <h2 class="text-3xl font-bold font-heading mb-4">Cooking Services</h2>
-            <p class="text-gray-600 mb-6">
-              Our professional home chefs prepare delicious, nutritious meals tailored to your family's preferences and dietary needs. Enjoy restaurant-quality meals in the comfort of your home.
-            </p>
-            <div class="mb-8">
-              <h3 class="text-xl font-bold font-heading mb-3">Service Options:</h3>
-              <ul class="feature-list space-y-3">
-                <li><strong>Daily Meal Preparation:</strong> Fresh meals prepared in your home daily</li>
-                <li><strong>Weekly Meal Prep:</strong> Bulk cooking for the week ahead</li>
-                <li><strong>Special Diets:</strong> Vegan, gluten-free, keto, and other dietary needs</li>
-                <li><strong>Event Catering:</strong> Dinner parties and special occasions</li>
-                <li><strong>Cooking Lessons:</strong> Learn culinary skills from our chefs</li>
-              </ul>
-            </div>
-            <div class="flex flex-wrap gap-4">
-              <a href="#" class="px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-medium rounded-lg hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <span>Hire a Chef</span>
-                <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
-              </a>
-              <a href="#" class="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <i class="fas fa-utensils"></i>
-                <span>View Sample Menus</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cooking Packages -->
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-2xl font-bold font-heading mb-6 text-center">Cooking Packages</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Weekly Prep</h4>
-                <p class="text-gray-600 text-sm">5 meals for the week</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹3,500</span>
-                <span class="text-sm font-normal text-gray-600">/week</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>5 main dishes</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Portioned for your family</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Basic dietary requests</span>
-                </li>
-                <li class="flex items-start text-gray-400">
-                  <i class="fas fa-times mt-1 mr-2"></i>
-                  <span>No specialty diets</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table popular-plan">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Daily Cooking</h4>
-                <p class="text-gray-600 text-sm">Fresh meals daily</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹7,000</span>
-                <span class="text-sm font-normal text-gray-600">/week</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Daily fresh meals</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Breakfast, lunch & dinner</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Special dietary needs</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Pantry organization</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-primary text-white py-3 px-4 rounded-lg text-center font-medium hover:bg-primary/90 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Gourmet Service</h4>
-                <p class="text-gray-600 text-sm">Restaurant-quality meals</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹12,000</span>
-                <span class="text-sm font-normal text-gray-600">/week</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Everything in Daily</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Gourmet meal planning</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Specialty ingredients</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Event catering included</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Care Services -->
-      <div id="care" class="mb-20" data-aos="fade-up">
-        <div class="flex flex-col lg:flex-row-reverse items-center gap-12 mb-12">
-          <div class="lg:w-1/2">
-            <img src="https://images.unsplash.com/photo-1668261258387-b3e7b4653847?q=80&w=1954&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                 alt="Care Services" 
-                 class="rounded-2xl shadow-lg w-full h-auto">
-          </div>
-          <div class="lg:w-1/2">
-            <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">CARE SERVICES</span>
-            <h2 class="text-3xl font-bold font-heading mb-4">Compassionate Care Services</h2>
-            <p class="text-gray-600 mb-6">
-              Our trained caregivers provide loving, professional care for your children, elderly family members, or pets. We match you with caregivers who share your values and understand your specific needs.
-            </p>
-            
-            <!-- Child Care -->
-            <div id="child-care" class="mb-8">
-              <h3 class="text-xl font-bold font-heading mb-3 flex items-center">
-                <i class="fas fa-baby text-primary mr-3"></i>
-                <span>Child Care</span>
-              </h3>
-              <ul class="feature-list space-y-2 ml-9">
-                <li>Full-time or part-time nannies</li>
-                <li>Newborn care specialists</li>
-                <li>After-school care</li>
-                <li>Homework assistance</li>
-                <li>Child development activities</li>
-              </ul>
-            </div>
-            
-            <!-- Elderly Care -->
-            <div id="elderly-care" class="mb-8">
-              <h3 class="text-xl font-bold font-heading mb-3 flex items-center">
-                <i class="fas fa-user-nurse text-primary mr-3"></i>
-                <span>Elderly Care</span>
-              </h3>
-              <ul class="feature-list space-y-2 ml-9">
-                <li>Companionship and supervision</li>
-                <li>Medication reminders</li>
-                <li>Mobility assistance</li>
-                <li>Meal preparation</li>
-                <li>Light housekeeping</li>
-              </ul>
-            </div>
-            
-            <!-- Pet Care -->
-            <div id="pet-care">
-              <h3 class="text-xl font-bold font-heading mb-3 flex items-center">
-                <i class="fas fa-paw text-primary mr-3"></i>
-                <span>Pet Care</span>
-              </h3>
-              <ul class="feature-list space-y-2 ml-9">
-                <li>Daily dog walking</li>
-                <li>Pet sitting while you're away</li>
-                <li>Feeding and medication</li>
-                <li>Playtime and exercise</li>
-                <li>Grooming assistance</li>
-              </ul>
-            </div>
-            
-            <div class="mt-8 flex flex-wrap gap-4">
-              <a href="#" class="px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-medium rounded-lg hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <span>Find a Caregiver</span>
-                <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
-              </a>
-              <a href="#" class="px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group">
-                <i class="fas fa-question-circle"></i>
-                <span>Care Questions</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Care Pricing -->
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-2xl font-bold font-heading mb-6 text-center">Care Service Rates</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Child Care</h4>
-                <p class="text-gray-600 text-sm">For your little ones</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹300</span>
-                <span class="text-sm font-normal text-gray-600">/hour</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Experienced nannies</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Background checked</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Child development focus</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Flexible scheduling</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table popular-plan">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Elderly Care</h4>
-                <p class="text-gray-600 text-sm">For your loved ones</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹350</span>
-                <span class="text-sm font-normal text-gray-600">/hour</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Compassionate caregivers</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Medication training</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Mobility assistance</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Companionship</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-primary text-white py-3 px-4 rounded-lg text-center font-medium hover:bg-primary/90 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-md p-8 pricing-table">
-              <div class="text-center mb-6">
-                <h4 class="text-lg font-bold font-heading mb-2">Pet Care</h4>
-                <p class="text-gray-600 text-sm">For your furry friends</p>
-              </div>
-              <div class="text-4xl font-bold font-heading text-center mb-6">
-                <span class="text-primary">₹250</span>
-                <span class="text-sm font-normal text-gray-600">/hour</span>
-              </div>
-              <ul class="space-y-3 mb-8">
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Dog walking</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Pet sitting</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Feeding & medication</span>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-check text-primary mt-1 mr-2"></i>
-                  <span>Playtime & exercise</span>
-                </li>
-              </ul>
-              <a href="#" class="block w-full bg-gray-100 text-primary py-3 px-4 rounded-lg text-center font-medium hover:bg-gray-200 transition-all duration-300">
-                Book Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">WHY EZYHELPERS</span>
-        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">The EzyHelpers Difference</h2>
-        <p class="text-gray-600">
-          What sets us apart from other domestic help providers in India
-        </p>
-      </div>
-
-      <!-- Option 1: Icon Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20" data-aos="fade-up">
-        <div class="bg-white rounded-xl shadow-sm p-8 text-center border border-gray-100 hover:shadow-md transition-all duration-300">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Rigorous Vetting</h3>
+    <!-- Other Services Overview Section -->
+    <section id="services" class="px-8 py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">OUR SERVICES</span>
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Comprehensive Domestic Solutions</h2>
           <p class="text-gray-600">
-            Only 1 in 5 applicants passes our 5-step screening process, ensuring only the most qualified helpers join our team.
+            We offer premium household services tailored to your specific needs, with flexible options to suit every family.
           </p>
         </div>
         
-        <div class="bg-white rounded-xl shadow-sm p-8 text-center border border-gray-100 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-certificate"></i>
+        <!-- Option 1: Service Categories with Icons -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" data-aos="fade-up">
+          {% for service in services %}
+          <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
+            <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3 class="text-xl font-bold font-heading mb-3">{{ service.name }}</h3>
+            <p class="text-gray-600 mb-4">{{ service.meta_description }}</p>
+            <a href="{% url 'service_details' service.slug %}" class="text-primary font-medium hover:underline inline-flex items-center group">
+              <span>Learn more</span>
+              <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+            </a>
           </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Professional Training</h3>
-          <p class="text-gray-600">
-            All helpers complete our intensive training program covering modern home management techniques.
-          </p>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-sm p-8 text-center border border-gray-100 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-hand-holding-heart"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Perfect Matching</h3>
-          <p class="text-gray-600">
-            We match helpers based on skills, personality, and your family's specific needs for ideal compatibility.
-          </p>
-        </div>
-        
-        <div class="bg-white rounded-xl shadow-sm p-8 text-center border border-gray-100 hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Ongoing Support</h3>
-          <p class="text-gray-600">
-            Our team is available 24/7 to address any concerns and ensure your complete satisfaction.
-          </p>
-        </div>
+          {% endfor %}
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- FAQ Section - Option 2: Accordion with Icons -->
-  <section class="py-20 bg-white">
+  <section class="px-8 py-20 bg-white">
     <div class="container mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
         <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">FAQS</span>
@@ -783,7 +207,7 @@
               <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
             </div>
           </button>
-          <div class="pl-16 mt-2 text-gray-600 hidden">
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
             <p>
               All our helpers undergo a rigorous 5-step vetting process:
             </p>
@@ -815,7 +239,7 @@
               <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
             </div>
           </button>
-          <div class="pl-16 mt-2 text-gray-600 hidden">
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
             <p>
               Your satisfaction is our top priority. Our guarantee includes:
             </p>
@@ -843,7 +267,7 @@
               <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
             </div>
           </button>
-          <div class="pl-16 mt-2 text-gray-600 hidden">
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
             <p>
               Our pricing is transparent and varies based on:
             </p>
@@ -877,7 +301,7 @@
               <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
             </div>
           </button>
-          <div class="pl-16 mt-2 text-gray-600 hidden">
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
             <p>
               Our standard process timeline:
             </p>
@@ -912,7 +336,7 @@
               <i class="fas fa-plus transition-transform duration-300 group-hover:rotate-45"></i>
             </div>
           </button>
-          <div class="pl-16 mt-2 text-gray-600 hidden">
+          <div class="pl-16 mt-2 text-gray-600 faq-answer">
             <p>
               Our support continues throughout your helper's employment:
             </p>

@@ -26,3 +26,18 @@ window.addEventListener('scroll', () => {
   lastScroll = currentScroll;
 });
 }
+
+ // Mobile menu toggle functionality
+ const headerMobileMenuButton = document.getElementById('mobile-menu-button');
+ const headerMobileMenuClose = document.getElementById('mobile-menu-close');
+ const headerMobileMenu = document.getElementById('mobile-menu');
+ 
+ headerMobileMenuButton.addEventListener('click', () => {
+  headerMobileMenu.classList.remove('hidden');
+     document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+ });
+ 
+ headerMobileMenuClose.addEventListener('click', () => {
+     headerMobileMenu.classList.add('hidden');
+     document.body.style.overflow = ''; // Re-enable scrolling
+ });

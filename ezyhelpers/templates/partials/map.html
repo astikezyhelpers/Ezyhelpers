@@ -1,0 +1,138 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Tab Buttons -->
+    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+      <button 
+        class="tab-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ease-in-out bg-emerald-100 text-emerald-800 hover:bg-emerald-200 active"
+        data-tab="ecofriendly"
+      >
+        Ecofriendly Construction
+      </button>
+      <button 
+        class="tab-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ease-in-out bg-blue-100 text-blue-800 hover:bg-blue-200"
+        data-tab="community"
+      >
+        Community Building
+      </button>
+      <button 
+        class="tab-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ease-in-out bg-amber-100 text-amber-800 hover:bg-amber-200"
+        data-tab="landforms"
+      >
+        Discover Landforms
+      </button>
+      <button 
+        class="tab-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ease-in-out bg-purple-100 text-purple-800 hover:bg-purple-200"
+        data-tab="evapotranspiration"
+      >
+        Evapotranspiration Toilet
+      </button>
+    </div>
+  
+    <!-- Tab Contents -->
+    <div class="tab-contents">
+      <!-- Ecofriendly Construction Tab -->
+      <div class="tab-content active" id="ecofriendly">
+        <div class="relative h-96 md:h-[500px] rounded-xl overflow-hidden shadow-lg bg-gray-50">
+          <!-- SVG Map - Replace with actual city map -->
+          <svg class="w-full h-full" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background pattern for placeholder -->
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="0.5"/>
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+            
+            <!-- City outline placeholder - replace with actual SVG -->
+            <path d="M200,100 L250,150 L300,120 L350,200 L400,180 L450,250 L500,220 L550,300 L600,280" 
+                  fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <!-- Animated service points -->
+            <circle class="service-point animate-pulse" cx="150" cy="200" r="8" fill="#10b981"/>
+            <circle class="service-point animate-pulse" cx="300" cy="350" r="8" fill="#10b981"/>
+            <circle class="service-point animate-pulse" cx="500" cy="250" r="8" fill="#10b981"/>
+          </svg>
+          
+          <!-- Overlay Content -->
+          <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-5 max-w-xs shadow-md">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Ecofriendly Construction</h3>
+            <p class="text-gray-600 mb-4">Revolutionize your eco-friendly lifestyle with sustainable construction solutions.</p>
+            <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+              Read More
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Community Building Tab -->
+      <div class="tab-content hidden" id="community">
+        <div class="relative h-96 md:h-[500px] rounded-xl overflow-hidden shadow-lg bg-gray-50">
+          <!-- SVG Map - Replace with actual city map -->
+          <svg class="w-full h-full" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+            <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="0.5"/>
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#grid2)"/>
+            
+            <!-- City outline placeholder -->
+            <path d="M100,150 L180,120 L250,180 L320,150 L400,200 L480,170 L550,220 L620,190" 
+                  fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="5,5"/>
+            
+            <!-- Animated service points -->
+            <circle class="service-point animate-pulse" cx="200" cy="150" r="8" fill="#3b82f6"/>
+            <circle class="service-point animate-pulse" cx="400" cy="300" r="8" fill="#3b82f6"/>
+            <circle class="service-point animate-pulse" cx="600" cy="200" r="8" fill="#3b82f6"/>
+          </svg>
+          
+          <!-- Overlay Content -->
+          <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-5 max-w-xs shadow-md">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Community Building</h3>
+            <p class="text-gray-600 mb-4">Creating sustainable communities for a better future.</p>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+              Read More
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Other tabs would follow the same pattern -->
+    </div>
+  </div>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active classes
+        document.querySelectorAll('.tab-button').forEach(btn => {
+          btn.classList.remove('active', 'bg-emerald-100', 'text-emerald-800');
+          btn.classList.remove('bg-blue-100', 'text-blue-800');
+          btn.classList.remove('bg-amber-100', 'text-amber-800');
+          btn.classList.remove('bg-purple-100', 'text-purple-800');
+        });
+        
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.add('hidden');
+          content.classList.remove('active');
+        });
+        
+        // Set active button styles based on category
+        const tabId = this.getAttribute('data-tab');
+        if(tabId === 'ecofriendly') {
+          this.classList.add('bg-emerald-100', 'text-emerald-800');
+        } else if(tabId === 'community') {
+          this.classList.add('bg-blue-100', 'text-blue-800');
+        } else if(tabId === 'landforms') {
+          this.classList.add('bg-amber-100', 'text-amber-800');
+        } else {
+          this.classList.add('bg-purple-100', 'text-purple-800');
+        }
+        
+        this.classList.add('active');
+        
+        // Show corresponding content
+        document.getElementById(tabId).classList.remove('hidden');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+  });
+  </script>
