@@ -1,0 +1,183 @@
+/* Custom Admin Styles */
+
+/* General improvements */
+.field-group {
+    margin-bottom: 20px;
+}
+
+/* Fieldset styling */
+.module h2 {
+    background: #f8f9fa;
+    color: #2c3e50;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Inline form improvements */
+.inline-group {
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.inline-group h2 {
+    color: #2c3e50;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.inline-group .help_text {
+    color: #6c757d;
+    font-style: italic;
+    margin: 5px 0 15px;
+}
+
+/* Form field styling */
+.form-row {
+    padding: 10px 0;
+}
+
+.form-row label {
+    color: #495057;
+    font-weight: 500;
+}
+
+.form-row input[type="text"],
+.form-row input[type="number"],
+.form-row textarea {
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Icon preview styling */
+.field-icon_preview i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #495057;
+}
+
+/* Image preview styling */
+.field-preview_hero_image img {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Submit row styling */
+.submit-row {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.submit-row input[type="submit"] {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-row input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+/* List view improvements */
+#changelist table thead th {
+    background: #f8f9fa;
+    color: #2c3e50;
+    padding: 12px 8px;
+}
+
+#changelist table tbody td {
+    padding: 12px 8px;
+}
+
+#changelist table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Filter styling */
+#changelist-filter {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+#changelist-filter h2 {
+    color: #2c3e50;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#changelist-filter li {
+    margin: 5px 0;
+}
+
+/* Search box styling */
+#searchbar {
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Help text styling */
+.help {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+/* Collapsible sections */
+.collapse {
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.collapse h2 {
+    cursor: pointer;
+}
+
+/* Error message styling */
+.errornote {
+    background: #dc3545;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Success message styling */
+.messagelist .success {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Responsive improvements */
+@media (max-width: 767px) {
+    .form-row {
+        padding: 5px 0;
+    }
+    
+    .inline-group {
+        padding: 10px;
+    }
+    
+    #changelist table thead th,
+    #changelist table tbody td {
+        padding: 8px 4px;
+    }
+} 

@@ -1,0 +1,88 @@
+/* Center the blog content */
+/* .blog-content {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  } */
+  
+  /* Existing styles from your HTML (preserved and enhanced) */
+  /* .blog-content .bg-white {
+    padding: 2rem;
+  } */
+  
+  .blog-content h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #2B59C3;
+  }
+  
+  .blog-content p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    color: #495057;
+  }
+  
+  .blog-content .bg-white[img] {
+    max-height: 400px;
+    object-fit: cover;
+    margin: 2rem 0;
+  }
+  
+  .blog-content em{
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-left: 4px solid #3b82f6; /* primary color */
+    font-style: italic;
+  }
+  
+  /* Share buttons styling */
+  .blog-content .flex.justify-start {
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .blog-content .flex.justify-start a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  /* Author bio styling */
+  .blog-content .bg-white.rounded-2xl {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .blog-content .bg-white.rounded-2xl img {
+    width: 64px;
+    height: 64px;
+    margin: 0 1rem 0 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .blog-content {
+      padding: 0 1rem;
+    }
+    
+    .blog-content .bg-white.rounded-2xl {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .blog-content .bg-white.rounded-2xl img {
+      margin: 0 0 1rem 0;
+    }
+  }

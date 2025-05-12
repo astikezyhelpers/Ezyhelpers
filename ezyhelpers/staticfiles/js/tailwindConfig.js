@@ -59,8 +59,9 @@ tailwind.config = {
         }
       },
       fontFamily: {
-        sans: ['"Open Sans"', 'sans-serif'],
-        heading: ['"Poppins"', 'sans-serif'],
+        montserrat: ['"Montserrat"', 'sans-serif'],
+        sans: ['"Montserrat"', 'sans-serif'],
+        heading: ['"Montserrat"', 'sans-serif'],
         display: ['"Montserrat"', 'sans-serif']
       },
       animation: {

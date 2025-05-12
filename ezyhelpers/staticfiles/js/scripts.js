@@ -1,29 +1,29 @@
-// Header Scroll Effect
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    const backToTop = document.querySelector('.back-to-top');
+// // Header Scroll Effect
+// window.addEventListener('scroll', function() {
+//     const header = document.getElementById('header');
+//     const backToTop = document.querySelector('.back-to-top');
     
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+//     if (window.scrollY > 100) {
+//         header.classList.add('scrolled');
+//     } else {
+//         header.classList.remove('scrolled');
+//     }
     
-    if (window.scrollY > 500) {
-        backToTop.classList.add('active');
-    } else {
-        backToTop.classList.remove('active');
-    }
-});
+//     if (window.scrollY > 500) {
+//         backToTop.classList.add('active');
+//     } else {
+//         backToTop.classList.remove('active');
+//     }
+// });
 
-// Back to Top Button
-document.querySelector('.back-to-top').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
+// // Back to Top Button
+// document.querySelector('.back-to-top').addEventListener('click', function(e) {
+//     e.preventDefault();
+//     window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth'
+//     });
+// });
 
 // FAQ Accordion
 const faqQuestions = document.querySelectorAll('.faq-question');

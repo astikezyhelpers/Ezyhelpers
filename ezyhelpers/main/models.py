@@ -1,46 +1,21 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+# from ckeditor.fields import RichTextField # Remove old
 from django.contrib.auth.models import User
 from django.utils.text import slugify
-from ckeditor_uploader.fields import RichTextUploadingField
+# from ckeditor_uploader.fields import RichTextUploadingField # Remove old
+from django_ckeditor_5.fields import CKEditor5Field
 import math
 import re
 
-# Custom CKEditor configurations
-CKEDITOR_BASIC_CONFIG = {
-    'toolbar': 'Basic',
-    'height': 200,
-    'width': '100%',
-    'toolbar_Basic': [
-        ['Bold', 'Italic', 'Underline', 'Strike', 'TextColor', 'BGColor'],
-        ['Link', 'Unlink'],
-        ['NumberedList', 'BulletedList'],
-        ['Undo', 'Redo'],
-    ],
-}
-
-CKEDITOR_FULL_CONFIG = {
-    'toolbar': 'Full',
-    'height': 300,
-    'width': '100%',
-    'toolbar_Full': [
-        ['Styles', 'Format', 'Bold', 'Italic', 'Underline', 'Strike', 'SpellChecker', 'TextColor', 'BGColor'],
-        ['Link', 'Unlink'],
-        ['Image', 'Table', 'HorizontalRule'],
-        ['NumberedList', 'BulletedList'],
-        ['Indent', 'Outdent'],
-        ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-        ['Source'],
-        ['Undo', 'Redo'],
-    ],
-    'extraPlugins': 'justify,textcolor,colorbutton,font',
-}
+# Custom CKEditor configurations (These are for CKEditor 4 and no longer used)
+# CKEDITOR_BASIC_CONFIG = { ... }
+# CKEDITOR_FULL_CONFIG = { ... }
 
 class Services(models.Model):
     name = models.CharField(max_length=100)
     meta_title = models.CharField(max_length=100)
     meta_description = models.TextField()
-    content = RichTextField()
+    content = CKEditor5Field(config_name='default')
     slug = models.SlugField(max_length=100, unique=True)
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -58,7 +33,7 @@ class Blog(models.Model):
     meta_title = models.CharField(max_length=200)
     meta_description = models.TextField()
     image = models.ImageField(upload_to='static/blog_images/', default='static/images/ezyhelpers.png')
-    content = RichTextField()
+    content = CKEditor5Field(config_name='default')
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
@@ -75,29 +50,33 @@ class Blog(models.Model):
         super().save(*args, **kwargs)
 
     def calculate_reading_time(self):
-        word_count = len(re.sub('<[^<]+?>', ' ', self.content).split())
+        # Simplified reading time calculation - consider a library for HTML stripping if needed
+        word_count = len(re.sub('<[^<]+?>', ' ', self.content if self.content else '').split())
         return max(1, math.ceil(word_count / 200))
 
 # New Models for Service Features
 class ServiceFeature(models.Model):
+    service = models.ForeignKey('MainService', related_name='custom_features', on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100)
-    icon = models.CharField(max_length=50)  # FontAwesome class
-    description = RichTextField(config_name='basic')
+    icon = models.CharField(max_length=50, help_text="FontAwesome class (e.g., 'fas fa-check')")
+    description = CKEditor5Field(config_name='default')
     
     def __str__(self):
         return self.title
 
 class ServiceStat(models.Model):
+    service = models.ForeignKey('MainService', related_name='custom_stats', on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100)
-    icon = models.CharField(max_length=50)  # FontAwesome class
-    description = RichTextField(config_name='basic')
+    icon = models.CharField(max_length=50, help_text="FontAwesome class (e.g., 'fas fa-star')")
+    description = CKEditor5Field(config_name='default')
     
     def __str__(self):
         return self.title
 
 class FAQ(models.Model):
+    service = models.ForeignKey('MainService', related_name='custom_faqs', on_delete=models.CASCADE, null=True, blank=True)
     question = models.CharField(max_length=200)
-    answer = RichTextField(config_name='basic')
+    answer = CKEditor5Field(config_name='default')
     
     def __str__(self):
         return self.question
@@ -106,7 +85,7 @@ class FAQ(models.Model):
 class HowItWorksStep(models.Model):
     step_number = models.PositiveIntegerField()
     title = models.CharField(max_length=100)
-    description = RichTextField(config_name='basic')
+    description = CKEditor5Field(config_name='default')
     icon = models.CharField(max_length=50, blank=True, help_text="Optional: FontAwesome class (e.g., 'fas fa-check')")
     service = models.ForeignKey('MainService', related_name='how_it_works_steps', on_delete=models.CASCADE)
 
@@ -114,12 +93,12 @@ class HowItWorksStep(models.Model):
         ordering = ['step_number'] # Order steps naturally
 
     def __str__(self):
-        return f"Step {self.step_number}: {self.title}"
+        return f"{self.step_number}. {self.title}"
 
 # New Model for Benefits
 class Benefit(models.Model):
     title = models.CharField(max_length=150)
-    description = RichTextField(config_name='basic')
+    description = CKEditor5Field(config_name='default')
     icon = models.CharField(max_length=50, blank=True, help_text="Optional: FontAwesome class (e.g., 'fas fa-check-circle')")
     service = models.ForeignKey('MainService', related_name='benefits', on_delete=models.CASCADE)
 
@@ -129,7 +108,7 @@ class Benefit(models.Model):
 # New Model for Specialized Service Details
 class SpecializedServiceDetail(models.Model):
     title = models.CharField(max_length=150)
-    description = RichTextField(config_name='basic')
+    description = CKEditor5Field(config_name='default')
     icon = models.CharField(max_length=50, blank=True, help_text="Optional: FontAwesome class")
     service = models.ForeignKey('MainService', related_name='specialized_details', on_delete=models.CASCADE)
 
@@ -138,13 +117,13 @@ class SpecializedServiceDetail(models.Model):
 
 # New Model for Consideration Points
 class ConsiderationPoint(models.Model):
-    point_text = RichTextField(config_name='basic', help_text="The text for the consideration point.")
+    point_text = CKEditor5Field(config_name='default')
     icon = models.CharField(max_length=50, blank=True, default='fas fa-info-circle', help_text="Optional: FontAwesome class (defaults to info icon)")
     service = models.ForeignKey('MainService', related_name='consideration_points', on_delete=models.CASCADE)
 
     def __str__(self):
         # Basic string representation, might need refinement if point_text is long HTML
-        return self.point_text[:50] + '...' if len(self.point_text) > 50 else self.point_text
+        return self.point_text[:50] + '...' if self.point_text and len(self.point_text) > 50 else (self.point_text or '')
 
 class MainService(models.Model):
     # Basic Info
@@ -154,17 +133,13 @@ class MainService(models.Model):
     meta_description = models.TextField()
     
     # Hero Section
-    hero_title = RichTextField(config_name='basic')
-    hero_subtitle = RichTextField(config_name='basic')
+    hero_title = CKEditor5Field(config_name='default')
+    hero_subtitle = CKEditor5Field(config_name='default')
     hero_image = models.ImageField(upload_to='static/service_images/')
     hero_rating = models.DecimalField(max_digits=3, decimal_places=2, default=4.98)
     
-    # Stats Section
-    stats = models.ManyToManyField(ServiceStat)
-    
     # Features Section
     features_title = models.CharField(max_length=200)
-    features = models.ManyToManyField(ServiceFeature)
     
     # How It Works
     how_it_works_title = models.CharField(max_length=200)
@@ -179,9 +154,6 @@ class MainService(models.Model):
     
     # Considerations
     considerations_title = models.CharField(max_length=200)
-    
-    # FAQs
-    faqs = models.ManyToManyField(FAQ)
     
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True)

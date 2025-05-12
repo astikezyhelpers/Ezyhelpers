@@ -31,7 +31,6 @@
                     <span class="hidden lg:block text-xl font-bold font-heading text-primary bg-clip-text">EzyHelpers</span>
                 </a>
             </div>
-            
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-1">
                 <a href="{% url 'home' %}" class="px-4 py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 font-medium">Home</a>
@@ -39,14 +38,13 @@
                 <a href="{% url 'services' %}" class="px-4 py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 font-medium">Our Services</a>
                 <a href="{% url 'blogs' %}" class="px-4 py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 font-medium">Blogs</a>
                 <a href="{% url 'contact_us' %}" class="px-4 py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 font-medium mr-4">Contact Us</a>
-                 <!-- Animated Header Promo Button (Moved Here) -->
-                <div class="bg-success rounded-lg inline-flex items-center justify-center px-2 py-1.5 text-sm shadow-md animate-pulse-slow text-white" style="background-color: #009933;">
-                    <i class="fas fa-bolt text-white mr-2 text-xs"></i>
-                    <span class="font-medium">Get verified Helper Now!</span>
-                    <i class="fas fa-bolt text-white ml-2 text-xs"></i>
-                </div>
              </div>
-            
+            <!-- Animated Header Promo Button (Moved Here) -->
+            <div class="hidden lg:flex items-center bg-success rounded-lg inline-flex items-center justify-center px-6 py-2.5 text-sm shadow-md animate-pulse-slow text-white" style="background-color: #009933;">
+                <i class="fas fa-bolt text-white mr-2 text-xs"></i>
+                <span class="font-medium">Get verified Helper Now!</span>
+                <i class="fas fa-bolt text-white ml-2 text-xs"></i>
+            </div>
             <!-- CTA Buttons -->
             <div class="hidden lg:flex items-center space-x-3">
                 <a href="tel:9972571005" class="px-6 py-2.5 bg-gradient-to-r from-primary to-primary/90 text-white font-medium rounded-lg hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-md hover:shadow-lg flex items-center space-x-2 group">
@@ -54,16 +52,13 @@
                     <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
                 </a>
             </div>
-            
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="lg:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-all duration-300">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
-    
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="lg:hidden hidden fixed inset-0 bg-white z-50 pt-20 px-4">
-          
             <div class="flex flex-col space-y-4 text-center" style="background-color: white;">
                 <a href="{% url 'home' %}" class="px-4 py-3 rounded-lg text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-300 font-medium">Home</a>
                 <hr>
@@ -80,29 +75,22 @@
                         Hire Now
                     </a>
                 </div>
-            </div>
-            
+            </div>  
             <button id="mobile-menu-close" class="absolute top-4 right-4 text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-all duration-300">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
-        
         </div>
-      </header>
+    </header>
 
     {% block content %}
-
     {% endblock %}    
-
     {% include 'partials/cta.html' %}
     {% include 'partials/footer.html' %}
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
     <script src="{% static 'js/animations.js' %}"></script>
     <script src="{% static 'js/header.js' %}"></script>
     <script src="{% static 'js/preloader.js' %}"></script>
     <script src="{% static 'js/faq.js' %}"></script>
-    
-    
 </body>
 </html>

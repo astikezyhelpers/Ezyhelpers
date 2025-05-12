@@ -1532,7 +1532,7 @@
           
             /* Typography */
             :root {
-              --font-heading: 'Playfair Display', serif;
+              --font-heading: "Montserrat", sans-serif;
               --font-body: 'Poppins', sans-serif;
             }
           

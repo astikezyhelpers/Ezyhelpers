@@ -11,6 +11,7 @@
             --lighter: #ffffff;
             --gray: #6b7280;
             --gray-light: #e5e7eb;
+            --font-family: 'Montserrat', sans-serif;
         }
         
         * {
@@ -20,17 +21,17 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: var(--font-family);
             color: var(--dark);
             line-height: 1.7;
             background-color: var(--lighter);
             overflow-x: hidden;
         }
         
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family) !important;
             font-weight: 600;
-            line-height: 1.3;
+            line-height: 1.6;
         }
         
         .container {
@@ -1449,3 +1450,407 @@
               .faq-answer.show {
                 max-height: 500px; /* Adjust this value based on your content */
               }
+              /* Add to existing styles */
+              #videoModal.active {
+                opacity: 1;
+                visibility: visible;
+              }
+
+              .scrolling-services {
+                animation: scrollServices 10s linear infinite;
+              }
+              
+              @keyframes scrollServices {
+                0% {
+                  transform: translateY(0);
+                }
+                100% {
+                  transform: translateY(calc(-100% + 64px)); /* Adjust based on your height */
+                }
+              }
+              
+              @media (min-width: 640px) {
+                @keyframes scrollServices {
+                  0% {
+                    transform: translateY(0);
+                  }
+                  100% {
+                    transform: translateY(calc(-100% + 80px)); /* Adjust for sm height */
+                  }
+                }
+              }
+
+              .feature-list li::before {
+                content: "\f00c";
+                font-family: "Font Awesome 6 Free";
+                font-weight: 900;
+                position: absolute;
+                left: 0;
+                color: #2B59C3;
+            }
+
+            .feature-list li {
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 12px;
+            }
+            /* Update container styles */
+            .container {
+              max-width: 1280px;
+              margin-left: auto;
+              margin-right: auto;
+              padding-left: 1.5rem;
+              padding-right: 1.5rem;
+            }
+          
+            @media (min-width: 640px) {
+              .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+              }
+            }
+          
+            @media (min-width: 1024px) {
+              .container {
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
+              }
+            }
+          
+            /* Content width constraints */
+            .content-container {
+              max-width: 1120px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          
+            .narrow-container {
+              max-width: 960px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          
+            /* Typography */
+            :root {
+              --font-heading: "Montserrat", sans-serif;
+              --font-body: 'Poppins', sans-serif;
+            }
+          
+            /* Design System Button Styles */
+            .btn-primary {
+              background: linear-gradient(to right, var(--primary), var(--primary-dark));
+              color: white;
+              padding: 10px 24px;
+              border-radius: 50px;
+              font-weight: 600;
+              font-size: 14px;
+              box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+              transition: all 0.3s;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              text-decoration: none;
+            }
+            .btn-primary:hover {
+              background: linear-gradient(to right, var(--primary-dark), var(--primary));
+              transform: translateY(-2px);
+              box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            }
+          
+            .btn-secondary {
+              background: linear-gradient(to right, var(--secondary), var(--secondary-light));
+              color: var(--darker);
+              padding: 10px 24px;
+              border-radius: 50px;
+              font-weight: 600;
+              font-size: 14px;
+              box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+              transition: all 0.3s;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              text-decoration: none;
+            }
+            .btn-secondary:hover {
+              background: linear-gradient(to right, var(--secondary-light), var(--secondary));
+              transform: translateY(-2px);
+              box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            }
+          
+            .btn-outline {
+              border: 2px solid var(--primary);
+              color: var(--primary);
+              background: transparent;
+              padding: 10px 24px;
+              border-radius: 50px;
+              font-weight: 600;
+              font-size: 14px;
+              transition: all 0.3s;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              text-decoration: none;
+            }
+            .btn-outline:hover {
+              background: var(--primary);
+              color: white;
+              transform: translateY(-2px);
+            }
+          
+            /* Design System Form Styles */
+            .form-label {
+              font-size: 13px;
+              font-weight: 500;
+              color: var(--dark);
+              margin-bottom: 6px;
+              display: block; /* Ensure label takes block space */
+            }
+          
+            .input-field {
+              padding: 10px 14px;
+              border: 2px solid var(--gray-light);
+              border-radius: 8px;
+              font-size: 15px;
+              transition: all 0.3s;
+              width: 100%; /* Make inputs full width */
+              background-color: var(--lighter);
+              color: var(--dark);
+            }
+            .input-field::placeholder {
+                color: var(--gray);
+                opacity: 1;
+            }
+            .input-field:focus {
+              border-color: var(--primary);
+              box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+              outline: none; /* Remove default outline */
+            }
+          
+            /* Apply base font */
+            body {
+                font-family: var(--font-family);
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: var(--font-family);
+            }
+          
+            /* Custom Select Arrow */
+            .select-wrapper {
+                position: relative;
+            }
+            .select-wrapper select {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                padding-right: 40px; /* Space for arrow */
+            }
+            .select-arrow {
+                position: absolute;
+                right: 16px; /* Adjust as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                pointer-events: none;
+                color: var(--gray);
+                transition: color 0.3s;
+            }
+            .input-field:focus + .select-arrow {
+                color: var(--primary);
+            }
+          
+            /* Tailwind overrides might be needed if global styles conflict */
+            /* Example: ensure font families are applied correctly */
+            .font-heading { font-family: var(--font-family); }
+            .font-body { font-family: var(--font-family); }
+          
+            .scrolling-services-container {
+              mask-image: none; /* Remove mask */
+              -webkit-mask-image: none;
+            }
+          
+            /* Positioning for markers */
+            a[href="#bareilly"] { top: 34%; left: 46%; }
+            /* a[href="#mumbai"] { top: 58%; left: 38%; } */
+            a[href="#bangalore"] { top: 76%; left: 42%; }
+          
+            /* Animations */
+            @keyframes fadeIn {
+              from { opacity: 0; transform: translateY(10px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes pulse {
+              0%, 100% { transform: scale(1); }
+              50% { transform: scale(1.2); }
+            }
+            .animate-fadeIn {
+              animation: fadeIn 0.6s ease-out forwards;
+            }
+            .animate-pulse {
+              animation: pulse 1.5s infinite;
+            }
+          
+            @keyframes slow-zoom {
+              from { transform: scale(1); }
+              to { transform: scale(1.05); }
+            }
+            .animate-slow-zoom {
+              animation: slow-zoom 25s ease-in-out infinite alternate;
+            }
+          
+            @keyframes gradient-x-fast {
+              0%, 100% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+            }
+            .animate-gradient-x-fast {
+                background-size: 200% 200%;
+                animation: gradient-x-fast 4s ease infinite;
+            }
+          
+            @keyframes bounce-slow {
+              0%, 100% {
+                transform: translateY(-15%);
+                animation-timing-function: cubic-bezier(0.8,0,1,1);
+              }
+              50% {
+                transform: none;
+                animation-timing-function: cubic-bezier(0,0,0.2,1);
+              }
+            }
+          
+            .animate-bounce-slow {
+              animation: bounce-slow 2s infinite;
+            }
+          
+            /* Custom text shadow */
+            .text-shadow-md {
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            }
+          
+            /* Ensure scrolling container has mask */
+            .scrolling-services-container {
+              -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+              mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            }
+          
+            svg path:hover {
+              fill: #FF5722;
+              cursor: pointer;
+              transition: 0.3s;
+            }
+            svg circle:hover {
+              fill: #2196F3;
+              cursor: pointer;
+              transform: scale(1.2);
+              transition: all 0.3s ease;
+            }
+
+/* Styling for Rich Text Content (from CKEditor) */
+.rich-text-content {
+    line-height: 1.7;
+    font-size: 16px; /* Adjust base font size if needed */
+    color: var(--gray); /* Default text color */
+}
+
+.rich-text-content p {
+    margin-bottom: 1em; /* Spacing between paragraphs */
+}
+
+.rich-text-content h1,
+.rich-text-content h2,
+.rich-text-content h3,
+.rich-text-content h4,
+.rich-text-content h5,
+.rich-text-content h6 {
+    font-family: var(--font-family); /* Ensure heading font */
+    font-weight: 600; /* Default heading weight */
+    color: var(--dark); /* Heading color */
+    margin-top: 1.5em; /* Space above headings */
+    margin-bottom: 0.75em; /* Space below headings */
+    line-height: 1.4;
+}
+
+/* Specific heading sizes (adjust as needed to match Tailwind defaults or your theme) */
+.rich-text-content h1 {
+    font-size: 2.25rem; /* ~ Tailwind text-4xl */
+}
+.rich-text-content h2 {
+    font-size: 1.875rem; /* ~ Tailwind text-3xl */
+}
+.rich-text-content h3 {
+    font-size: 1.5rem; /* ~ Tailwind text-2xl */
+}
+.rich-text-content h4 {
+    font-size: 1.25rem; /* ~ Tailwind text-xl */
+}
+.rich-text-content h5 {
+    font-size: 1.125rem; /* ~ Tailwind text-lg */
+}
+.rich-text-content h6 {
+    font-size: 1rem; /* ~ Tailwind text-base */
+}
+
+.rich-text-content ul,
+.rich-text-content ol {
+    margin-left: 1.5em; /* Indentation for lists */
+    margin-bottom: 1em;
+}
+
+.rich-text-content ul {
+    list-style: disc;
+}
+
+.rich-text-content ol {
+    list-style: decimal;
+}
+
+.rich-text-content li {
+    margin-bottom: 0.5em; /* Spacing between list items */
+}
+
+.rich-text-content a {
+    color: var(--primary); /* Link color */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.rich-text-content a:hover {
+    color: var(--primary-dark);
+}
+
+.rich-text-content strong {
+    font-weight: 600; /* Bold text */
+}
+
+.rich-text-content em {
+    font-style: italic; /* Italic text */
+}
+
+.rich-text-content blockquote {
+    border-left: 4px solid var(--primary-light);
+    padding-left: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+    font-style: italic;
+    color: var(--gray);
+}
+
+.rich-text-content pre {
+    background-color: var(--light);
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    padding: 1em;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+}
+
+.rich-text-content code {
+    background-color: var(--light);
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Add any other element styles needed based on CKEditor output */
