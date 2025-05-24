@@ -138,22 +138,79 @@ class MainService(models.Model):
     hero_image = models.ImageField(upload_to='static/service_images/')
     hero_rating = models.DecimalField(max_digits=3, decimal_places=2, default=4.98)
     
+    # Service Stats Section
+    stats_title = models.CharField(max_length=200, default="Experience Excellence with Our Services")
+    stats_subtitle = models.TextField(default="We bring years of expertise and dedication to every service we provide, ensuring your complete satisfaction and peace of mind.")
+    stats_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the stats section")
+    
     # Features Section
     features_title = models.CharField(max_length=200)
+    features_subtitle = models.TextField(default="Explore our comprehensive range of services designed to meet your specific needs and requirements.")
+    features_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the features section")
     
-    # How It Works
-    how_it_works_title = models.CharField(max_length=200)
+    # Specialized Services Section
+    specialized_services_title = models.CharField(max_length=200)
+    specialized_services_subtitle = models.TextField(default="Explore our specialized services tailored to meet your unique requirements and preferences.")
+    specialized_services_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the specialized services section")
     
-    # Benefits
+    # Types of Services Section
+    service_types_title = models.CharField(max_length=200, default="Comprehensive Home Care Services")
+    service_types_subtitle = models.TextField(default="Choose from our range of specialized services tailored to meet your specific needs and requirements.")
+    service_types_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the service types section")
+    
+    # Benefits Section
     benefits_title = models.CharField(max_length=200)
+    benefits_subtitle = models.TextField(default="Experience the advantages of working with a professional cleaning service.")
     benefits_link_text = models.CharField(max_length=100, blank=True)
     benefits_link_url = models.CharField(max_length=200, blank=True)
+    benefits_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the benefits section")
     
-    # Specialized Services
-    specialized_services_title = models.CharField(max_length=200)
+    # Choose Right Service Section
+    choose_service_title = models.CharField(max_length=200, default="Choosing the Right Cleaning Service")
+    choose_service_subtitle = models.TextField(default="We understand that selecting the perfect cleaning service is crucial. Here's what makes our service stand out and how we can help you make the right choice.")
+    choose_service_image = models.ImageField(upload_to='static/service_images/', null=True, blank=True)
+    choose_service_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the choose service section")
     
-    # Considerations
+    # Why Hire Us Section
+    why_hire_title = models.CharField(max_length=200, default="Why Choose Our Services")
+    why_hire_subtitle = models.TextField(default="Experience unmatched quality and reliability with our professional services. We go above and beyond to ensure your complete satisfaction.")
+    why_hire_image = models.ImageField(upload_to='static/service_images/', null=True, blank=True)
+    why_hire_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the why hire us section")
+    
+    # Ideal For Section
+    ideal_for_title = models.CharField(max_length=200, default="Ideal For")
+    ideal_for_subtitle = models.TextField(default="Our services are perfectly suited for various situations and requirements")
+    ideal_for_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the ideal for section")
+    
+    # How to Book Section
+    how_to_book_title = models.CharField(max_length=200, default="How to Book Our Service")
+    how_to_book_subtitle = models.TextField(default="Getting started with our service is simple and straightforward. Follow these easy steps to book your cleaning service.")
+    how_to_book_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the how to book section")
+    
+    # Key Considerations Section
     considerations_title = models.CharField(max_length=200)
+    considerations_subtitle = models.TextField(default="Important aspects that make our cleaning service stand out from the rest.")
+    considerations_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the considerations section")
+    
+    # Hyperlinks Section
+    hyperlinks_title = models.CharField(max_length=200, default="Related Services & Resources")
+    hyperlinks_subtitle = models.TextField(default="Explore our comprehensive range of services and helpful resources.")
+    
+    # CTA Section
+    cta_title = models.CharField(max_length=200, default="Ready for a Cleaner Space?")
+    cta_subtitle = models.TextField(default="Experience the difference with our professional cleaning services. Book now and enjoy a spotless environment.")
+    cta_button_text = models.CharField(max_length=100, default="Schedule Cleaning")
+    cta_secondary_button_text = models.CharField(max_length=100, default="Get a Quote")
+    cta_bottom_paragraph = CKEditor5Field(config_name='default', blank=True, help_text="Additional text to appear below the CTA section")
+    
+    # Lead Form Section
+    lead_form_title = models.CharField(max_length=200, default="Get a Free Quote Today")
+    lead_form_subtitle = models.TextField(default="Fill out this form, and our team will contact you shortly.")
+    lead_form_image = models.ImageField(upload_to='static/service_images/', null=True, blank=True)
+    
+    # FAQs Section
+    faqs_title = models.CharField(max_length=200, default="Frequently Asked Questions")
+    faqs_subtitle = models.TextField(default="Find answers to common questions about our service.")
     
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True)
@@ -166,6 +223,11 @@ class MainService(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Main Service"
+        verbose_name_plural = "Main Services"
+        ordering = ['-created_at']
 
 # Universal Lead Model for All Forms
 class Lead(models.Model):
@@ -194,3 +256,77 @@ class Lead(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
+# New Model for Service Types Cards
+class ServiceTypeCard(models.Model):
+    service = models.ForeignKey('MainService', related_name='service_type_cards', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    description = CKEditor5Field(config_name='default')
+    icon = models.CharField(max_length=50, help_text="FontAwesome class (e.g., 'fas fa-home')")
+    image = models.ImageField(upload_to='static/service_images/', null=True, blank=True)
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        ordering = ['order']
+    
+    def __str__(self):
+        return self.title
+
+# New Model for Ideal For Cards
+class IdealForCard(models.Model):
+    service = models.ForeignKey('MainService', related_name='ideal_for_cards', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    description = CKEditor5Field(config_name='default')
+    icon = models.CharField(max_length=50, help_text="FontAwesome class (e.g., 'fas fa-home')")
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        ordering = ['order']
+    
+    def __str__(self):
+        return self.title
+
+# New Model for How to Book Steps
+class BookingStep(models.Model):
+    service = models.ForeignKey('MainService', related_name='booking_steps', on_delete=models.CASCADE)
+    step_number = models.PositiveIntegerField()
+    title = models.CharField(max_length=200)
+    description = CKEditor5Field(config_name='default')
+    icon = models.CharField(max_length=50, help_text="FontAwesome class (e.g., 'fas fa-calendar')")
+    
+    class Meta:
+        ordering = ['step_number']
+    
+    def __str__(self):
+        return f"{self.step_number}. {self.title}"
+
+# New Model for Hyperlinks Cards
+class HyperlinkCard(models.Model):
+    service = models.ForeignKey('MainService', related_name='hyperlink_cards', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    description = CKEditor5Field(config_name='default')
+    link_text = models.CharField(max_length=100)
+    link_url = models.CharField(max_length=200)
+    icon = models.CharField(max_length=50, help_text="FontAwesome class (e.g., 'fas fa-link')")
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        ordering = ['order']
+    
+    def __str__(self):
+        return self.title
+
+# New Model for Specialized Services Cards
+class SpecializedServiceCard(models.Model):
+    service = models.ForeignKey('MainService', related_name='specialized_service_cards', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    description = CKEditor5Field(config_name='default')
+    icon = models.CharField(max_length=50, help_text="FontAwesome class (e.g., 'fas fa-star')")
+    image = models.ImageField(upload_to='static/service_images/', null=True, blank=True)
+    order = models.PositiveIntegerField(default=0)
+    
+    class Meta:
+        ordering = ['order']
+    
+    def __str__(self):
+        return self.title

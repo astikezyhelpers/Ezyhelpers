@@ -1,0 +1,85 @@
+[
+  {
+    "model": "main.mainservice",
+    "pk": 1,
+    "fields": {
+      "name": "Full-Time Maid Service",
+      "slug": "full-time-maid-service",
+      "meta_title": "Professional Full-Time Maid Services in India | EzyHelpers",
+      "meta_description": "Get reliable full-time maid services for your home. Our professional maids are trained, verified, and ready to provide comprehensive household assistance.",
+      "hero_title": "Professional Full-Time Maid Services for Your Home",
+      "hero_subtitle": "Experience hassle-free household management with our trained and verified full-time maids. We provide comprehensive cleaning and household assistance services.",
+      "hero_rating": 4.98,
+      "stats_title": "Why Choose Our Full-Time Maid Service",
+      "stats_subtitle": "We bring years of expertise and dedication to every service we provide, ensuring your complete satisfaction and peace of mind.",
+      "features_title": "Comprehensive Household Management",
+      "features_subtitle": "Our full-time maids are trained to handle all aspects of household management with professionalism and care.",
+      "specialized_services_title": "Specialized Maid Services",
+      "specialized_services_subtitle": "Choose from our range of specialized maid services tailored to meet your specific household needs.",
+      "service_types_title": "Our Full-Time Maid Service Packages",
+      "service_types_subtitle": "Select the perfect maid service package that matches your household requirements and budget.",
+      "benefits_title": "Benefits of Our Full-Time Maid Service",
+      "benefits_subtitle": "Experience the advantages of having a professional full-time maid from EzyHelpers.",
+      "choose_service_title": "Choosing the Right Full-Time Maid",
+      "choose_service_subtitle": "We understand that selecting the perfect full-time maid is crucial. Here's what makes our service stand out.",
+      "why_hire_title": "Why Choose Our Full-Time Maid Service",
+      "why_hire_subtitle": "Experience unmatched quality and reliability with our professional full-time maid services.",
+      "ideal_for_title": "Perfect For Your Home",
+      "ideal_for_subtitle": "Our full-time maid services are ideal for various household situations and requirements.",
+      "how_to_book_title": "How to Book Our Full-Time Maid Service",
+      "how_to_book_subtitle": "Getting started with our full-time maid service is simple and straightforward.",
+      "considerations_title": "Important Considerations",
+      "considerations_subtitle": "Key points to consider when hiring a full-time maid for your home.",
+      "cta_title": "Ready for a Well-Managed Home?",
+      "cta_subtitle": "Experience the difference with our professional full-time maid services. Book now and enjoy a well-maintained home.",
+      "cta_button_text": "Book Full-Time Maid",
+      "cta_secondary_button_text": "Get a Quote",
+      "lead_form_title": "Get a Free Quote for Full-Time Maid Service",
+      "lead_form_subtitle": "Fill out this form, and our team will contact you shortly to discuss your requirements.",
+      "faqs_title": "Frequently Asked Questions",
+      "faqs_subtitle": "Find answers to common questions about our full-time maid services.",
+      "created_at": "2024-03-20T10:00:00Z",
+      "updated_at": "2024-03-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Comprehensive Cleaning",
+      "icon": "fas fa-broom",
+      "description": "Regular cleaning of all rooms, including dusting, sweeping, mopping, and maintaining cleanliness throughout your home."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Time-Saving",
+      "icon": "fas fa-clock",
+      "description": "Free up your valuable time by delegating household chores to our professional maids."
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider the number of hours you need the maid to work daily and weekly.",
+      "icon": "fas fa-clock"
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Working Professionals",
+      "icon": "fas fa-briefcase",
+      "description": "Perfect for busy professionals who need reliable household management.",
+      "order": 1
+    }
+  }
+] 

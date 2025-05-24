@@ -1,0 +1,1260 @@
+[
+  {
+    "model": "main.mainservice",
+    "pk": 1,
+    "fields": {
+      "name": "Full-Time Maid Service",
+      "slug": "full-time-maid-service",
+      "meta_title": "Professional Full-Time Maid Services in India | EzyHelpers",
+      "meta_description": "Get reliable full-time maid services for your home. Our professional maids are trained, verified, and ready to provide comprehensive household assistance.",
+      
+      "hero_title": "Professional Full-Time Maid Services for Your Home",
+      "hero_subtitle": "Experience hassle-free household management with our trained and verified full-time maids. We provide comprehensive cleaning and household assistance services.",
+      "hero_rating": 4.98,
+      
+      "stats_title": "Why Choose Our Full-Time Maid Service",
+      "stats_subtitle": "We bring years of expertise and dedication to every service we provide, ensuring your complete satisfaction and peace of mind.",
+      
+      "features_title": "Comprehensive Household Management",
+      "features_subtitle": "Our full-time maids are trained to handle all aspects of household management with professionalism and care.",
+      
+      "specialized_services_title": "Specialized Maid Services",
+      "specialized_services_subtitle": "Choose from our range of specialized maid services tailored to meet your specific household needs.",
+      
+      "service_types_title": "Our Full-Time Maid Service Packages",
+      "service_types_subtitle": "Select the perfect maid service package that matches your household requirements and budget.",
+      
+      "benefits_title": "Benefits of Our Full-Time Maid Service",
+      "benefits_subtitle": "Experience the advantages of having a professional full-time maid from EzyHelpers.",
+      
+      "choose_service_title": "Choosing the Right Full-Time Maid",
+      "choose_service_subtitle": "We understand that selecting the perfect full-time maid is crucial. Here's what makes our service stand out.",
+      
+      "why_hire_title": "Why Choose Our Full-Time Maid Service",
+      "why_hire_subtitle": "Experience unmatched quality and reliability with our professional full-time maid services.",
+      
+      "ideal_for_title": "Perfect For Your Home",
+      "ideal_for_subtitle": "Our full-time maid services are ideal for various household situations and requirements.",
+      
+      "how_to_book_title": "How to Book Our Full-Time Maid Service",
+      "how_to_book_subtitle": "Getting started with our full-time maid service is simple and straightforward.",
+      
+      "considerations_title": "Important Considerations",
+      "considerations_subtitle": "Key points to consider when hiring a full-time maid for your home.",
+      
+      "cta_title": "Ready for a Well-Managed Home?",
+      "cta_subtitle": "Experience the difference with our professional full-time maid services. Book now and enjoy a well-maintained home.",
+      "cta_button_text": "Book Full-Time Maid",
+      "cta_secondary_button_text": "Get a Quote",
+      
+      "lead_form_title": "Get a Free Quote for Full-Time Maid Service",
+      "lead_form_subtitle": "Fill out this form, and our team will contact you shortly to discuss your requirements.",
+      
+      "faqs_title": "Frequently Asked Questions",
+      "faqs_subtitle": "Find answers to common questions about our full-time maid services.",
+      
+      "created_at": "2024-03-20T10:00:00Z",
+      "updated_at": "2024-03-20T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Comprehensive Cleaning",
+      "icon": "fas fa-broom",
+      "description": "Regular cleaning of all rooms, including dusting, sweeping, mopping, and maintaining cleanliness throughout your home."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 2,
+    "fields": {
+      "service": 1,
+      "title": "Laundry & Ironing",
+      "icon": "fas fa-tshirt",
+      "description": "Complete laundry services including washing, drying, folding, and ironing of clothes and household linens."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 3,
+    "fields": {
+      "service": 1,
+      "title": "Cooking & Meal Prep",
+      "icon": "fas fa-utensils",
+      "description": "Prepare meals according to your preferences, including breakfast, lunch, and dinner, with proper kitchen maintenance."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 4,
+    "fields": {
+      "service": 1,
+      "title": "Child & Elder Care",
+      "icon": "fas fa-baby",
+      "description": "Assistance with childcare and elderly care, including basic supervision and support with daily activities."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 5,
+    "fields": {
+      "service": 1,
+      "title": "Grocery Shopping",
+      "icon": "fas fa-shopping-basket",
+      "description": "Help with grocery shopping and maintaining household supplies, ensuring everything you need is available."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 6,
+    "fields": {
+      "service": 1,
+      "title": "Pet Care",
+      "icon": "fas fa-paw",
+      "description": "Basic pet care services including feeding, walking, and maintaining pet areas clean and organized."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 7,
+    "fields": {
+      "service": 1,
+      "title": "Plant Care",
+      "icon": "fas fa-leaf",
+      "description": "Regular watering and maintenance of indoor plants to keep your home green and fresh."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 8,
+    "fields": {
+      "service": 1,
+      "title": "Basic Maintenance",
+      "icon": "fas fa-tools",
+      "description": "Light household maintenance tasks and keeping everything in working order."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 9,
+    "fields": {
+      "service": 1,
+      "title": "Security & Privacy",
+      "icon": "fas fa-shield-alt",
+      "description": "Maintain strict confidentiality and ensure the security of your home and belongings."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 10,
+    "fields": {
+      "service": 1,
+      "title": "Flexible Scheduling",
+      "icon": "fas fa-clock",
+      "description": "Customizable work hours to match your family's schedule and requirements."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 11,
+    "fields": {
+      "service": 1,
+      "title": "Quality Assurance",
+      "icon": "fas fa-check-circle",
+      "description": "Regular quality checks and feedback sessions to ensure service excellence."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 12,
+    "fields": {
+      "service": 1,
+      "title": "Emergency Support",
+      "icon": "fas fa-phone-alt",
+      "description": "24/7 support for any urgent situations or service-related concerns."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 13,
+    "fields": {
+      "service": 1,
+      "title": "Regular Training",
+      "icon": "fas fa-graduation-cap",
+      "description": "Continuous training and skill development for our maids to maintain high service standards."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 14,
+    "fields": {
+      "service": 1,
+      "title": "Health & Safety",
+      "icon": "fas fa-heartbeat",
+      "description": "Regular health check-ups and safety protocols for all our staff members."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 15,
+    "fields": {
+      "service": 1,
+      "title": "Satisfaction Guarantee",
+      "icon": "fas fa-smile",
+      "description": "100% satisfaction guarantee with our service quality and maid performance."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 16,
+    "fields": {
+      "service": 1,
+      "title": "Easy Replacement",
+      "icon": "fas fa-sync",
+      "description": "Quick and hassle-free replacement if you're not satisfied with the assigned maid."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 17,
+    "fields": {
+      "service": 1,
+      "title": "Transparent Pricing",
+      "icon": "fas fa-rupee-sign",
+      "description": "Clear and transparent pricing with no hidden charges or surprise fees."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 18,
+    "fields": {
+      "service": 1,
+      "title": "Regular Feedback",
+      "icon": "fas fa-comments",
+      "description": "Regular feedback sessions to ensure continuous improvement in service quality."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 19,
+    "fields": {
+      "service": 1,
+      "title": "Documentation",
+      "icon": "fas fa-file-alt",
+      "description": "Complete documentation and verification of all our staff members."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 20,
+    "fields": {
+      "service": 1,
+      "title": "Insurance Coverage",
+      "icon": "fas fa-shield-alt",
+      "description": "Comprehensive insurance coverage for both the maid and your property."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 21,
+    "fields": {
+      "service": 1,
+      "title": "Holiday Coverage",
+      "icon": "fas fa-calendar-check",
+      "description": "Arrangement for replacement maids during holidays or leaves."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 22,
+    "fields": {
+      "service": 1,
+      "title": "Performance Tracking",
+      "icon": "fas fa-chart-line",
+      "description": "Regular performance tracking and evaluation of our maids."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 23,
+    "fields": {
+      "service": 1,
+      "title": "Cultural Sensitivity",
+      "icon": "fas fa-globe",
+      "description": "Training in cultural sensitivity and respect for different household customs."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 24,
+    "fields": {
+      "service": 1,
+      "title": "Emergency Response",
+      "icon": "fas fa-ambulance",
+      "description": "Quick response and support during any household emergencies."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 25,
+    "fields": {
+      "service": 1,
+      "title": "Regular Updates",
+      "icon": "fas fa-bell",
+      "description": "Regular updates and communication about service status and any changes."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 26,
+    "fields": {
+      "service": 1,
+      "title": "Customized Service",
+      "icon": "fas fa-cogs",
+      "description": "Tailored service plans to match your specific household requirements."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 27,
+    "fields": {
+      "service": 1,
+      "title": "Quality Equipment",
+      "icon": "fas fa-tools",
+      "description": "Use of professional-grade cleaning equipment and supplies."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 28,
+    "fields": {
+      "service": 1,
+      "title": "Eco-Friendly Products",
+      "icon": "fas fa-leaf",
+      "description": "Use of environmentally friendly cleaning products and methods."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 29,
+    "fields": {
+      "service": 1,
+      "title": "Regular Health Checks",
+      "icon": "fas fa-stethoscope",
+      "description": "Regular health check-ups and medical screenings for all our staff."
+    }
+  },
+  {
+    "model": "main.servicefeature",
+    "pk": 30,
+    "fields": {
+      "service": 1,
+      "title": "Background Verification",
+      "icon": "fas fa-user-shield",
+      "description": "Thorough background verification and reference checks for all maids."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Time-Saving",
+      "icon": "fas fa-clock",
+      "description": "Free up your valuable time by delegating household chores to our professional maids."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 2,
+    "fields": {
+      "service": 1,
+      "title": "Professional Service",
+      "icon": "fas fa-user-tie",
+      "description": "Get professional and trained maids who understand modern household management."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 3,
+    "fields": {
+      "service": 1,
+      "title": "Peace of Mind",
+      "icon": "fas fa-heart",
+      "description": "Enjoy peace of mind knowing your home is in capable hands."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 4,
+    "fields": {
+      "service": 1,
+      "title": "Consistent Quality",
+      "icon": "fas fa-check-double",
+      "description": "Experience consistent quality of service with our trained and monitored staff."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 5,
+    "fields": {
+      "service": 1,
+      "title": "Flexible Scheduling",
+      "icon": "fas fa-calendar-alt",
+      "description": "Choose work hours that suit your family's schedule and requirements."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 6,
+    "fields": {
+      "service": 1,
+      "title": "Cost-Effective",
+      "icon": "fas fa-coins",
+      "description": "Get value for money with our comprehensive service packages."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 7,
+    "fields": {
+      "service": 1,
+      "title": "Verified Staff",
+      "icon": "fas fa-user-check",
+      "description": "All our maids are thoroughly verified and background-checked."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 8,
+    "fields": {
+      "service": 1,
+      "title": "Regular Training",
+      "icon": "fas fa-graduation-cap",
+      "description": "Our staff receives regular training to maintain high service standards."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 9,
+    "fields": {
+      "service": 1,
+      "title": "Health & Safety",
+      "icon": "fas fa-shield-virus",
+      "description": "Regular health check-ups and safety protocols for all staff members."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 10,
+    "fields": {
+      "service": 1,
+      "title": "Easy Replacement",
+      "icon": "fas fa-sync",
+      "description": "Quick and hassle-free replacement if you're not satisfied with the assigned maid."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 11,
+    "fields": {
+      "service": 1,
+      "title": "24/7 Support",
+      "icon": "fas fa-headset",
+      "description": "Round-the-clock customer support for any service-related concerns."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 12,
+    "fields": {
+      "service": 1,
+      "title": "Customized Service",
+      "icon": "fas fa-cogs",
+      "description": "Tailored service plans to match your specific household requirements."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 13,
+    "fields": {
+      "service": 1,
+      "title": "Quality Equipment",
+      "icon": "fas fa-tools",
+      "description": "Use of professional-grade cleaning equipment and supplies."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 14,
+    "fields": {
+      "service": 1,
+      "title": "Eco-Friendly",
+      "icon": "fas fa-leaf",
+      "description": "Use of environmentally friendly cleaning products and methods."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 15,
+    "fields": {
+      "service": 1,
+      "title": "Insurance Coverage",
+      "icon": "fas fa-shield-alt",
+      "description": "Comprehensive insurance coverage for both the maid and your property."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 16,
+    "fields": {
+      "service": 1,
+      "title": "Holiday Coverage",
+      "icon": "fas fa-calendar-check",
+      "description": "Arrangement for replacement maids during holidays or leaves."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 17,
+    "fields": {
+      "service": 1,
+      "title": "Performance Tracking",
+      "icon": "fas fa-chart-line",
+      "description": "Regular performance tracking and evaluation of our maids."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 18,
+    "fields": {
+      "service": 1,
+      "title": "Cultural Sensitivity",
+      "icon": "fas fa-globe",
+      "description": "Training in cultural sensitivity and respect for different household customs."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 19,
+    "fields": {
+      "service": 1,
+      "title": "Emergency Response",
+      "icon": "fas fa-ambulance",
+      "description": "Quick response and support during any household emergencies."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 20,
+    "fields": {
+      "service": 1,
+      "title": "Regular Updates",
+      "icon": "fas fa-bell",
+      "description": "Regular updates and communication about service status and any changes."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 21,
+    "fields": {
+      "service": 1,
+      "title": "Documentation",
+      "icon": "fas fa-file-alt",
+      "description": "Complete documentation and verification of all our staff members."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 22,
+    "fields": {
+      "service": 1,
+      "title": "Regular Health Checks",
+      "icon": "fas fa-stethoscope",
+      "description": "Regular health check-ups and medical screenings for all our staff."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 23,
+    "fields": {
+      "service": 1,
+      "title": "Background Verification",
+      "icon": "fas fa-user-shield",
+      "description": "Thorough background verification and reference checks for all maids."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 24,
+    "fields": {
+      "service": 1,
+      "title": "Satisfaction Guarantee",
+      "icon": "fas fa-smile",
+      "description": "100% satisfaction guarantee with our service quality and maid performance."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 25,
+    "fields": {
+      "service": 1,
+      "title": "Transparent Pricing",
+      "icon": "fas fa-rupee-sign",
+      "description": "Clear and transparent pricing with no hidden charges or surprise fees."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 26,
+    "fields": {
+      "service": 1,
+      "title": "Regular Feedback",
+      "icon": "fas fa-comments",
+      "description": "Regular feedback sessions to ensure continuous improvement in service quality."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 27,
+    "fields": {
+      "service": 1,
+      "title": "Quality Assurance",
+      "icon": "fas fa-check-circle",
+      "description": "Regular quality checks and feedback sessions to ensure service excellence."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 28,
+    "fields": {
+      "service": 1,
+      "title": "Emergency Support",
+      "icon": "fas fa-phone-alt",
+      "description": "24/7 support for any urgent situations or service-related concerns."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 29,
+    "fields": {
+      "service": 1,
+      "title": "Regular Training",
+      "icon": "fas fa-graduation-cap",
+      "description": "Continuous training and skill development for our maids to maintain high service standards."
+    }
+  },
+  {
+    "model": "main.benefit",
+    "pk": 30,
+    "fields": {
+      "service": 1,
+      "title": "Health & Safety",
+      "icon": "fas fa-heartbeat",
+      "description": "Regular health check-ups and safety protocols for all our staff members."
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider the number of hours you need the maid to work daily and weekly.",
+      "icon": "fas fa-clock"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 2,
+    "fields": {
+      "service": 1,
+      "point_text": "List out all the specific duties and responsibilities you expect from the maid.",
+      "icon": "fas fa-tasks"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 3,
+    "fields": {
+      "service": 1,
+      "point_text": "Decide if you need a live-in or live-out maid based on your requirements.",
+      "icon": "fas fa-home"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 4,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider your budget for the maid's salary and any additional benefits.",
+      "icon": "fas fa-rupee-sign"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 5,
+    "fields": {
+      "service": 1,
+      "point_text": "Specify any language preferences for better communication.",
+      "icon": "fas fa-language"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 6,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider the level of experience required for your specific needs.",
+      "icon": "fas fa-star"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 7,
+    "fields": {
+      "service": 1,
+      "point_text": "List any special skills required, such as cooking specific cuisines or childcare experience.",
+      "icon": "fas fa-certificate"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 8,
+    "fields": {
+      "service": 1,
+      "point_text": "Plan for holiday coverage and replacement arrangements.",
+      "icon": "fas fa-calendar"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 9,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider any specific health requirements or restrictions.",
+      "icon": "fas fa-heartbeat"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 10,
+    "fields": {
+      "service": 1,
+      "point_text": "Ensure thorough background verification is conducted.",
+      "icon": "fas fa-user-shield"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 11,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider any specific training requirements for your household.",
+      "icon": "fas fa-graduation-cap"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 12,
+    "fields": {
+      "service": 1,
+      "point_text": "Review and understand all contract terms and conditions.",
+      "icon": "fas fa-file-contract"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 13,
+    "fields": {
+      "service": 1,
+      "point_text": "Ensure proper insurance coverage for both parties.",
+      "icon": "fas fa-shield-alt"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 14,
+    "fields": {
+      "service": 1,
+      "point_text": "Establish a system for regular performance reviews.",
+      "icon": "fas fa-chart-line"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 15,
+    "fields": {
+      "service": 1,
+      "point_text": "Maintain a list of emergency contacts and procedures.",
+      "icon": "fas fa-phone-alt"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 16,
+    "fields": {
+      "service": 1,
+      "point_text": "Clearly communicate house rules and expectations.",
+      "icon": "fas fa-list"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 17,
+    "fields": {
+      "service": 1,
+      "point_text": "Address privacy concerns and establish boundaries.",
+      "icon": "fas fa-user-secret"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 18,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider cultural differences and sensitivities.",
+      "icon": "fas fa-globe"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 19,
+    "fields": {
+      "service": 1,
+      "point_text": "Plan for necessary equipment and cleaning supplies.",
+      "icon": "fas fa-tools"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 20,
+    "fields": {
+      "service": 1,
+      "point_text": "Understand the replacement policy in case of issues.",
+      "icon": "fas fa-sync"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 21,
+    "fields": {
+      "service": 1,
+      "point_text": "Establish a clear payment schedule and method.",
+      "icon": "fas fa-calendar-check"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 22,
+    "fields": {
+      "service": 1,
+      "point_text": "Clarify leave policies and holiday entitlements.",
+      "icon": "fas fa-calendar-minus"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 23,
+    "fields": {
+      "service": 1,
+      "point_text": "Establish clear communication channels and protocols.",
+      "icon": "fas fa-comments"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 24,
+    "fields": {
+      "service": 1,
+      "point_text": "Define clear performance metrics and expectations.",
+      "icon": "fas fa-chart-bar"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 25,
+    "fields": {
+      "service": 1,
+      "point_text": "Establish safety protocols and emergency procedures.",
+      "icon": "fas fa-hard-hat"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 26,
+    "fields": {
+      "service": 1,
+      "point_text": "Maintain proper documentation of all agreements and records.",
+      "icon": "fas fa-file-alt"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 27,
+    "fields": {
+      "service": 1,
+      "point_text": "Define quality standards for all household tasks.",
+      "icon": "fas fa-check-double"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 28,
+    "fields": {
+      "service": 1,
+      "point_text": "Establish a system for regular feedback and improvement.",
+      "icon": "fas fa-comment-dots"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 29,
+    "fields": {
+      "service": 1,
+      "point_text": "Have a clear process for resolving any conflicts or issues.",
+      "icon": "fas fa-handshake"
+    }
+  },
+  {
+    "model": "main.considerationpoint",
+    "pk": 30,
+    "fields": {
+      "service": 1,
+      "point_text": "Consider long-term arrangements and career development.",
+      "icon": "fas fa-road"
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Working Professionals",
+      "icon": "fas fa-briefcase",
+      "description": "Perfect for busy professionals who need reliable household management.",
+      "order": 1
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 2,
+    "fields": {
+      "service": 1,
+      "title": "Nuclear Families",
+      "icon": "fas fa-users",
+      "description": "Ideal for nuclear families seeking comprehensive household support.",
+      "order": 2
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 3,
+    "fields": {
+      "service": 1,
+      "title": "Elderly Care",
+      "icon": "fas fa-user-friends",
+      "description": "Great for families with elderly members needing regular assistance.",
+      "order": 3
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 4,
+    "fields": {
+      "service": 1,
+      "title": "Child Care",
+      "icon": "fas fa-baby",
+      "description": "Perfect for families with young children needing supervision and care.",
+      "order": 4
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 5,
+    "fields": {
+      "service": 1,
+      "title": "Large Homes",
+      "icon": "fas fa-home",
+      "description": "Ideal for large homes requiring regular maintenance and cleaning.",
+      "order": 5
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 6,
+    "fields": {
+      "service": 1,
+      "title": "Pet Owners",
+      "icon": "fas fa-paw",
+      "description": "Great for pet owners needing help with pet care and cleaning.",
+      "order": 6
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 7,
+    "fields": {
+      "service": 1,
+      "title": "Hosts",
+      "icon": "fas fa-glass-cheers",
+      "description": "Perfect for those who frequently host guests and need extra help.",
+      "order": 7
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 8,
+    "fields": {
+      "service": 1,
+      "title": "Garden Homes",
+      "icon": "fas fa-leaf",
+      "description": "Ideal for homes with gardens needing regular maintenance.",
+      "order": 8
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 9,
+    "fields": {
+      "service": 1,
+      "title": "Busy Parents",
+      "icon": "fas fa-user-tie",
+      "description": "Great for busy parents juggling work and family responsibilities.",
+      "order": 9
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 10,
+    "fields": {
+      "service": 1,
+      "title": "Health Conscious",
+      "icon": "fas fa-heartbeat",
+      "description": "Perfect for health-conscious families needing clean environments.",
+      "order": 10
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 11,
+    "fields": {
+      "service": 1,
+      "title": "Frequent Travelers",
+      "icon": "fas fa-plane",
+      "description": "Ideal for families who travel frequently and need home maintenance.",
+      "order": 11
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 12,
+    "fields": {
+      "service": 1,
+      "title": "Home Offices",
+      "icon": "fas fa-laptop-house",
+      "description": "Great for those working from home needing a clean workspace.",
+      "order": 12
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 13,
+    "fields": {
+      "service": 1,
+      "title": "New Parents",
+      "icon": "fas fa-baby-carriage",
+      "description": "Perfect for new parents needing extra support and help.",
+      "order": 13
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 14,
+    "fields": {
+      "service": 1,
+      "title": "Senior Citizens",
+      "icon": "fas fa-user-graduate",
+      "description": "Ideal for senior citizens needing regular assistance.",
+      "order": 14
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 15,
+    "fields": {
+      "service": 1,
+      "title": "Large Families",
+      "icon": "fas fa-users-cog",
+      "description": "Great for large families needing comprehensive household management.",
+      "order": 15
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 16,
+    "fields": {
+      "service": 1,
+      "title": "Fitness Enthusiasts",
+      "icon": "fas fa-dumbbell",
+      "description": "Perfect for fitness enthusiasts needing clean workout spaces.",
+      "order": 16
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 17,
+    "fields": {
+      "service": 1,
+      "title": "Art Collectors",
+      "icon": "fas fa-palette",
+      "description": "Ideal for art collectors needing careful cleaning and maintenance.",
+      "order": 17
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 18,
+    "fields": {
+      "service": 1,
+      "title": "Food Enthusiasts",
+      "icon": "fas fa-utensils",
+      "description": "Great for food enthusiasts needing kitchen maintenance.",
+      "order": 18
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 19,
+    "fields": {
+      "service": 1,
+      "title": "Pet Lovers",
+      "icon": "fas fa-paw",
+      "description": "Perfect for pet lovers needing help with pet care and cleaning.",
+      "order": 19
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 20,
+    "fields": {
+      "service": 1,
+      "title": "Garden Lovers",
+      "icon": "fas fa-seedling",
+      "description": "Ideal for garden lovers needing plant care and maintenance.",
+      "order": 20
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 21,
+    "fields": {
+      "service": 1,
+      "title": "Book Lovers",
+      "icon": "fas fa-book",
+      "description": "Great for book lovers needing library maintenance.",
+      "order": 21
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 22,
+    "fields": {
+      "service": 1,
+      "title": "Tech Enthusiasts",
+      "icon": "fas fa-laptop",
+      "description": "Perfect for tech enthusiasts needing clean workspaces.",
+      "order": 22
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 23,
+    "fields": {
+      "service": 1,
+      "title": "Music Lovers",
+      "icon": "fas fa-music",
+      "description": "Ideal for music lovers needing instrument care.",
+      "order": 23
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 24,
+    "fields": {
+      "service": 1,
+      "title": "Sports Enthusiasts",
+      "icon": "fas fa-futbol",
+      "description": "Great for sports enthusiasts needing equipment maintenance.",
+      "order": 24
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 25,
+    "fields": {
+      "service": 1,
+      "title": "Artists",
+      "icon": "fas fa-paint-brush",
+      "description": "Perfect for artists needing studio maintenance.",
+      "order": 25
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 26,
+    "fields": {
+      "service": 1,
+      "title": "Wine Collectors",
+      "icon": "fas fa-wine-glass",
+      "description": "Ideal for wine collectors needing cellar maintenance.",
+      "order": 26
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 27,
+    "fields": {
+      "service": 1,
+      "title": "Antique Collectors",
+      "icon": "fas fa-clock",
+      "description": "Great for antique collectors needing careful cleaning.",
+      "order": 27
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 28,
+    "fields": {
+      "service": 1,
+      "title": "Plant Enthusiasts",
+      "icon": "fas fa-leaf",
+      "description": "Perfect for plant enthusiasts needing garden care.",
+      "order": 28
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 29,
+    "fields": {
+      "service": 1,
+      "title": "Home Chefs",
+      "icon": "fas fa-utensils",
+      "description": "Ideal for home chefs needing kitchen maintenance.",
+      "order": 29
+    }
+  },
+  {
+    "model": "main.idealforcard",
+    "pk": 30,
+    "fields": {
+      "service": 1,
+      "title": "Home Office Workers",
+      "icon": "fas fa-laptop-house",
+      "description": "Great for home office workers needing clean workspaces.",
+      "order": 30
+    }
+  }
+] 

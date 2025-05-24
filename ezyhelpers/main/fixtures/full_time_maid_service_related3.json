@@ -1,0 +1,302 @@
+[
+  {
+    "model": "main.serviceidealfor",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Working Professionals",
+      "icon": "fas fa-briefcase",
+      "description": "Perfect for busy professionals who need reliable household management."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 2,
+    "fields": {
+      "service": 1,
+      "title": "Nuclear Families",
+      "icon": "fas fa-users",
+      "description": "Ideal for nuclear families seeking comprehensive household support."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 3,
+    "fields": {
+      "service": 1,
+      "title": "Elderly Care",
+      "icon": "fas fa-user-friends",
+      "description": "Great for families with elderly members needing regular assistance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 4,
+    "fields": {
+      "service": 1,
+      "title": "Child Care",
+      "icon": "fas fa-baby",
+      "description": "Perfect for families with young children needing supervision and care."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 5,
+    "fields": {
+      "service": 1,
+      "title": "Large Homes",
+      "icon": "fas fa-home",
+      "description": "Ideal for large homes requiring regular maintenance and cleaning."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 6,
+    "fields": {
+      "service": 1,
+      "title": "Pet Owners",
+      "icon": "fas fa-paw",
+      "description": "Great for pet owners needing help with pet care and cleaning."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 7,
+    "fields": {
+      "service": 1,
+      "title": "Hosts",
+      "icon": "fas fa-glass-cheers",
+      "description": "Perfect for those who frequently host guests and need extra help."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 8,
+    "fields": {
+      "service": 1,
+      "title": "Garden Homes",
+      "icon": "fas fa-leaf",
+      "description": "Ideal for homes with gardens needing regular maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 9,
+    "fields": {
+      "service": 1,
+      "title": "Busy Parents",
+      "icon": "fas fa-user-tie",
+      "description": "Great for busy parents juggling work and family responsibilities."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 10,
+    "fields": {
+      "service": 1,
+      "title": "Health Conscious",
+      "icon": "fas fa-heartbeat",
+      "description": "Perfect for health-conscious families needing clean environments."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 11,
+    "fields": {
+      "service": 1,
+      "title": "Frequent Travelers",
+      "icon": "fas fa-plane",
+      "description": "Ideal for families who travel frequently and need home maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 12,
+    "fields": {
+      "service": 1,
+      "title": "Home Offices",
+      "icon": "fas fa-laptop-house",
+      "description": "Great for those working from home needing a clean workspace."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 13,
+    "fields": {
+      "service": 1,
+      "title": "New Parents",
+      "icon": "fas fa-baby-carriage",
+      "description": "Perfect for new parents needing extra support and help."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 14,
+    "fields": {
+      "service": 1,
+      "title": "Senior Citizens",
+      "icon": "fas fa-user-graduate",
+      "description": "Ideal for senior citizens needing regular assistance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 15,
+    "fields": {
+      "service": 1,
+      "title": "Large Families",
+      "icon": "fas fa-users-cog",
+      "description": "Great for large families needing comprehensive household management."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 16,
+    "fields": {
+      "service": 1,
+      "title": "Fitness Enthusiasts",
+      "icon": "fas fa-dumbbell",
+      "description": "Perfect for fitness enthusiasts needing clean workout spaces."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 17,
+    "fields": {
+      "service": 1,
+      "title": "Art Collectors",
+      "icon": "fas fa-palette",
+      "description": "Ideal for art collectors needing careful cleaning and maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 18,
+    "fields": {
+      "service": 1,
+      "title": "Food Enthusiasts",
+      "icon": "fas fa-utensils",
+      "description": "Great for food enthusiasts needing kitchen maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 19,
+    "fields": {
+      "service": 1,
+      "title": "Pet Lovers",
+      "icon": "fas fa-paw",
+      "description": "Perfect for pet lovers needing help with pet care and cleaning."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 20,
+    "fields": {
+      "service": 1,
+      "title": "Garden Lovers",
+      "icon": "fas fa-seedling",
+      "description": "Ideal for garden lovers needing plant care and maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 21,
+    "fields": {
+      "service": 1,
+      "title": "Book Lovers",
+      "icon": "fas fa-book",
+      "description": "Great for book lovers needing library maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 22,
+    "fields": {
+      "service": 1,
+      "title": "Tech Enthusiasts",
+      "icon": "fas fa-laptop",
+      "description": "Perfect for tech enthusiasts needing clean workspaces."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 23,
+    "fields": {
+      "service": 1,
+      "title": "Music Lovers",
+      "icon": "fas fa-music",
+      "description": "Ideal for music lovers needing instrument care."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 24,
+    "fields": {
+      "service": 1,
+      "title": "Sports Enthusiasts",
+      "icon": "fas fa-futbol",
+      "description": "Great for sports enthusiasts needing equipment maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 25,
+    "fields": {
+      "service": 1,
+      "title": "Artists",
+      "icon": "fas fa-paint-brush",
+      "description": "Perfect for artists needing studio maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 26,
+    "fields": {
+      "service": 1,
+      "title": "Wine Collectors",
+      "icon": "fas fa-wine-glass",
+      "description": "Ideal for wine collectors needing cellar maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 27,
+    "fields": {
+      "service": 1,
+      "title": "Antique Collectors",
+      "icon": "fas fa-clock",
+      "description": "Great for antique collectors needing careful cleaning."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 28,
+    "fields": {
+      "service": 1,
+      "title": "Plant Enthusiasts",
+      "icon": "fas fa-leaf",
+      "description": "Perfect for plant enthusiasts needing garden care."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 29,
+    "fields": {
+      "service": 1,
+      "title": "Home Chefs",
+      "icon": "fas fa-utensils",
+      "description": "Ideal for home chefs needing kitchen maintenance."
+    }
+  },
+  {
+    "model": "main.serviceidealfor",
+    "pk": 30,
+    "fields": {
+      "service": 1,
+      "title": "Home Office Workers",
+      "icon": "fas fa-laptop-house",
+      "description": "Great for home office workers needing clean workspaces."
+    }
+  }
+] 

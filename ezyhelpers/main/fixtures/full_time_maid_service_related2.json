@@ -1,0 +1,302 @@
+[
+  {
+    "model": "main.serviceconsideration",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Work Hours",
+      "icon": "fas fa-clock",
+      "description": "Consider the number of hours you need the maid to work daily and weekly."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 2,
+    "fields": {
+      "service": 1,
+      "title": "Duties Required",
+      "icon": "fas fa-tasks",
+      "description": "List out all the specific duties and responsibilities you expect from the maid."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 3,
+    "fields": {
+      "service": 1,
+      "title": "Living Arrangements",
+      "icon": "fas fa-home",
+      "description": "Decide if you need a live-in or live-out maid based on your requirements."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 4,
+    "fields": {
+      "service": 1,
+      "title": "Budget",
+      "icon": "fas fa-rupee-sign",
+      "description": "Consider your budget for the maid's salary and any additional benefits."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 5,
+    "fields": {
+      "service": 1,
+      "title": "Language Preference",
+      "icon": "fas fa-language",
+      "description": "Specify any language preferences for better communication."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 6,
+    "fields": {
+      "service": 1,
+      "title": "Experience Level",
+      "icon": "fas fa-star",
+      "description": "Consider the level of experience required for your specific needs."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 7,
+    "fields": {
+      "service": 1,
+      "title": "Special Skills",
+      "icon": "fas fa-certificate",
+      "description": "List any special skills required, such as cooking specific cuisines or childcare experience."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 8,
+    "fields": {
+      "service": 1,
+      "title": "Holiday Coverage",
+      "icon": "fas fa-calendar",
+      "description": "Plan for holiday coverage and replacement arrangements."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 9,
+    "fields": {
+      "service": 1,
+      "title": "Health Requirements",
+      "icon": "fas fa-heartbeat",
+      "description": "Consider any specific health requirements or restrictions."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 10,
+    "fields": {
+      "service": 1,
+      "title": "Background Check",
+      "icon": "fas fa-user-shield",
+      "description": "Ensure thorough background verification is conducted."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 11,
+    "fields": {
+      "service": 1,
+      "title": "Training Needs",
+      "icon": "fas fa-graduation-cap",
+      "description": "Consider any specific training requirements for your household."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 12,
+    "fields": {
+      "service": 1,
+      "title": "Contract Terms",
+      "icon": "fas fa-file-contract",
+      "description": "Review and understand all contract terms and conditions."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 13,
+    "fields": {
+      "service": 1,
+      "title": "Insurance Coverage",
+      "icon": "fas fa-shield-alt",
+      "description": "Ensure proper insurance coverage for both parties."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 14,
+    "fields": {
+      "service": 1,
+      "title": "Performance Review",
+      "icon": "fas fa-chart-line",
+      "description": "Establish a system for regular performance reviews."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 15,
+    "fields": {
+      "service": 1,
+      "title": "Emergency Contacts",
+      "icon": "fas fa-phone-alt",
+      "description": "Maintain a list of emergency contacts and procedures."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 16,
+    "fields": {
+      "service": 1,
+      "title": "House Rules",
+      "icon": "fas fa-list",
+      "description": "Clearly communicate house rules and expectations."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 17,
+    "fields": {
+      "service": 1,
+      "title": "Privacy Concerns",
+      "icon": "fas fa-user-secret",
+      "description": "Address privacy concerns and establish boundaries."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 18,
+    "fields": {
+      "service": 1,
+      "title": "Cultural Sensitivity",
+      "icon": "fas fa-globe",
+      "description": "Consider cultural differences and sensitivities."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 19,
+    "fields": {
+      "service": 1,
+      "title": "Equipment & Supplies",
+      "icon": "fas fa-tools",
+      "description": "Plan for necessary equipment and cleaning supplies."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 20,
+    "fields": {
+      "service": 1,
+      "title": "Replacement Policy",
+      "icon": "fas fa-sync",
+      "description": "Understand the replacement policy in case of issues."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 21,
+    "fields": {
+      "service": 1,
+      "title": "Payment Schedule",
+      "icon": "fas fa-calendar-check",
+      "description": "Establish a clear payment schedule and method."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 22,
+    "fields": {
+      "service": 1,
+      "title": "Leave Policy",
+      "icon": "fas fa-calendar-minus",
+      "description": "Clarify leave policies and holiday entitlements."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 23,
+    "fields": {
+      "service": 1,
+      "title": "Communication",
+      "icon": "fas fa-comments",
+      "description": "Establish clear communication channels and protocols."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 24,
+    "fields": {
+      "service": 1,
+      "title": "Performance Metrics",
+      "icon": "fas fa-chart-bar",
+      "description": "Define clear performance metrics and expectations."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 25,
+    "fields": {
+      "service": 1,
+      "title": "Safety Protocols",
+      "icon": "fas fa-hard-hat",
+      "description": "Establish safety protocols and emergency procedures."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 26,
+    "fields": {
+      "service": 1,
+      "title": "Documentation",
+      "icon": "fas fa-file-alt",
+      "description": "Maintain proper documentation of all agreements and records."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 27,
+    "fields": {
+      "service": 1,
+      "title": "Quality Standards",
+      "icon": "fas fa-check-double",
+      "description": "Define quality standards for all household tasks."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 28,
+    "fields": {
+      "service": 1,
+      "title": "Feedback System",
+      "icon": "fas fa-comment-dots",
+      "description": "Establish a system for regular feedback and improvement."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 29,
+    "fields": {
+      "service": 1,
+      "title": "Conflict Resolution",
+      "icon": "fas fa-handshake",
+      "description": "Have a clear process for resolving any conflicts or issues."
+    }
+  },
+  {
+    "model": "main.serviceconsideration",
+    "pk": 30,
+    "fields": {
+      "service": 1,
+      "title": "Long-term Planning",
+      "icon": "fas fa-road",
+      "description": "Consider long-term arrangements and career development."
+    }
+  }
+] 

@@ -1,0 +1,302 @@
+[
+  {
+    "model": "main.servicebenefit",
+    "pk": 1,
+    "fields": {
+      "service": 1,
+      "title": "Time-Saving",
+      "icon": "fas fa-clock",
+      "description": "Free up your valuable time by delegating household chores to our professional maids."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 2,
+    "fields": {
+      "service": 1,
+      "title": "Professional Service",
+      "icon": "fas fa-user-tie",
+      "description": "Get professional and trained maids who understand modern household management."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 3,
+    "fields": {
+      "service": 1,
+      "title": "Peace of Mind",
+      "icon": "fas fa-heart",
+      "description": "Enjoy peace of mind knowing your home is in capable hands."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 4,
+    "fields": {
+      "service": 1,
+      "title": "Consistent Quality",
+      "icon": "fas fa-check-double",
+      "description": "Experience consistent quality of service with our trained and monitored staff."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 5,
+    "fields": {
+      "service": 1,
+      "title": "Flexible Scheduling",
+      "icon": "fas fa-calendar-alt",
+      "description": "Choose work hours that suit your family's schedule and requirements."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 6,
+    "fields": {
+      "service": 1,
+      "title": "Cost-Effective",
+      "icon": "fas fa-coins",
+      "description": "Get value for money with our comprehensive service packages."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 7,
+    "fields": {
+      "service": 1,
+      "title": "Verified Staff",
+      "icon": "fas fa-user-check",
+      "description": "All our maids are thoroughly verified and background-checked."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 8,
+    "fields": {
+      "service": 1,
+      "title": "Regular Training",
+      "icon": "fas fa-graduation-cap",
+      "description": "Our staff receives regular training to maintain high service standards."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 9,
+    "fields": {
+      "service": 1,
+      "title": "Health & Safety",
+      "icon": "fas fa-shield-virus",
+      "description": "Regular health check-ups and safety protocols for all staff members."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 10,
+    "fields": {
+      "service": 1,
+      "title": "Easy Replacement",
+      "icon": "fas fa-sync",
+      "description": "Quick and hassle-free replacement if you're not satisfied with the assigned maid."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 11,
+    "fields": {
+      "service": 1,
+      "title": "24/7 Support",
+      "icon": "fas fa-headset",
+      "description": "Round-the-clock customer support for any service-related concerns."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 12,
+    "fields": {
+      "service": 1,
+      "title": "Customized Service",
+      "icon": "fas fa-cogs",
+      "description": "Tailored service plans to match your specific household requirements."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 13,
+    "fields": {
+      "service": 1,
+      "title": "Quality Equipment",
+      "icon": "fas fa-tools",
+      "description": "Use of professional-grade cleaning equipment and supplies."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 14,
+    "fields": {
+      "service": 1,
+      "title": "Eco-Friendly",
+      "icon": "fas fa-leaf",
+      "description": "Use of environmentally friendly cleaning products and methods."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 15,
+    "fields": {
+      "service": 1,
+      "title": "Insurance Coverage",
+      "icon": "fas fa-shield-alt",
+      "description": "Comprehensive insurance coverage for both the maid and your property."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 16,
+    "fields": {
+      "service": 1,
+      "title": "Holiday Coverage",
+      "icon": "fas fa-calendar-check",
+      "description": "Arrangement for replacement maids during holidays or leaves."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 17,
+    "fields": {
+      "service": 1,
+      "title": "Performance Tracking",
+      "icon": "fas fa-chart-line",
+      "description": "Regular performance tracking and evaluation of our maids."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 18,
+    "fields": {
+      "service": 1,
+      "title": "Cultural Sensitivity",
+      "icon": "fas fa-globe",
+      "description": "Training in cultural sensitivity and respect for different household customs."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 19,
+    "fields": {
+      "service": 1,
+      "title": "Emergency Response",
+      "icon": "fas fa-ambulance",
+      "description": "Quick response and support during any household emergencies."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 20,
+    "fields": {
+      "service": 1,
+      "title": "Regular Updates",
+      "icon": "fas fa-bell",
+      "description": "Regular updates and communication about service status and any changes."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 21,
+    "fields": {
+      "service": 1,
+      "title": "Documentation",
+      "icon": "fas fa-file-alt",
+      "description": "Complete documentation and verification of all our staff members."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 22,
+    "fields": {
+      "service": 1,
+      "title": "Regular Health Checks",
+      "icon": "fas fa-stethoscope",
+      "description": "Regular health check-ups and medical screenings for all our staff."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 23,
+    "fields": {
+      "service": 1,
+      "title": "Background Verification",
+      "icon": "fas fa-user-shield",
+      "description": "Thorough background verification and reference checks for all maids."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 24,
+    "fields": {
+      "service": 1,
+      "title": "Satisfaction Guarantee",
+      "icon": "fas fa-smile",
+      "description": "100% satisfaction guarantee with our service quality and maid performance."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 25,
+    "fields": {
+      "service": 1,
+      "title": "Transparent Pricing",
+      "icon": "fas fa-rupee-sign",
+      "description": "Clear and transparent pricing with no hidden charges or surprise fees."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 26,
+    "fields": {
+      "service": 1,
+      "title": "Regular Feedback",
+      "icon": "fas fa-comments",
+      "description": "Regular feedback sessions to ensure continuous improvement in service quality."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 27,
+    "fields": {
+      "service": 1,
+      "title": "Quality Assurance",
+      "icon": "fas fa-check-circle",
+      "description": "Regular quality checks and feedback sessions to ensure service excellence."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 28,
+    "fields": {
+      "service": 1,
+      "title": "Emergency Support",
+      "icon": "fas fa-phone-alt",
+      "description": "24/7 support for any urgent situations or service-related concerns."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 29,
+    "fields": {
+      "service": 1,
+      "title": "Regular Training",
+      "icon": "fas fa-graduation-cap",
+      "description": "Continuous training and skill development for our maids to maintain high service standards."
+    }
+  },
+  {
+    "model": "main.servicebenefit",
+    "pk": 30,
+    "fields": {
+      "service": 1,
+      "title": "Health & Safety",
+      "icon": "fas fa-heartbeat",
+      "description": "Regular health check-ups and safety protocols for all our staff members."
+    }
+  }
+] 

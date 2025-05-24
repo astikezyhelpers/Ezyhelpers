@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Terms and Conditions - EzyHelpers{% endblock %}
+{% block description %}Terms and conditions for using EzyHelpers services{% endblock %}
+
+{% block content %}
+<section class="py-16 lg:py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8">Terms and Conditions</h1>
+            
+            <div class="prose max-w-none">
+                <p class="text-gray-600 mb-6">Last updated: May 2025</p>
+                
+                <h2 class="text-2xl font-semibold mt-8 mb-4">1. Acceptance of Terms</h2>
+                <p>By accessing and using EzyHelpers services, you agree to be bound by these Terms and Conditions.</p>
+                
+                <h2 class="text-2xl font-semibold mt-8 mb-4">2. Service Description</h2>
+                <p>EzyHelpers provides domestic helper and service staff placement services. Our role is to facilitate connections between service providers and clients.</p>
+                
+                <h2 class="text-2xl font-semibold mt-8 mb-4">3. User Obligations</h2>
+                <ul class="list-disc pl-6 mb-6">
+                    <li>Provide accurate and complete information</li>
+                    <li>Maintain confidentiality of any account information</li>
+                    <li>Use services in compliance with applicable laws</li>
+                </ul>
+                
+                <h2 class="text-2xl font-semibold mt-8 mb-4">4. Service Terms</h2>
+                <p>Detailed terms regarding service delivery, payments, and cancellations are provided upon service booking.</p>
+                
+                <h2 class="text-2xl font-semibold mt-8 mb-4">5. Privacy</h2>
+                <p>Your use of our services is also governed by our <a href="{% url 'privacy' %}" class="text-primary hover:text-primary/80">Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -74,7 +74,7 @@
             <i class="{{ stat.icon }} text-2xl"></i>
           </div>
           <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ stat.title }}</h3>
-          <p class="text-gray-600 text-sm leading-relaxed">{{ stat.description }}</p>
+          <p class="text-gray-600 text-sm leading-relaxed">{{ stat.description|safe }}</p>
         </div>
         {% endfor %}
       </div>
