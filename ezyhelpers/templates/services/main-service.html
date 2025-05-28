@@ -1,13 +1,21 @@
 {% extends '../base.html' %}
 {% load static %}
-{% load my_filters %}
+{% load custom_filters %}
 
 {% block title %}{{ service.meta_title }}{% endblock %}
 {% block description %}{{ service.meta_description }}{% endblock %}
 
+{% block extra_head %}
+  <!-- Cache Control Headers -->
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+  <meta http-equiv="Expires" content="31536000">
+  <meta http-equiv="Pragma" content="public">
+{% endblock %}
+
 {% block content %}
-  <!-- Service Hero Section -->
-  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden px-4 sm:px-6 lg:px-8">
+  <!-- 1. Service Hero Section -->
+  {% if service.hero_title or service.hero_subtitle or service.hero_image %}
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden px-4 sm:px-6 lg:px-8" role="banner" aria-label="Service Hero">
     <div class="container mx-auto relative z-10">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
@@ -20,28 +28,39 @@
             <span class="font-medium text-primary">{{ service.name }}</span>
           </div>
           
+          {% if service.hero_title %}
           <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-heading mb-5 leading-tight">
             {{ service.hero_title|safe }}
           </h1>
+          {% endif %}
+
+          {% if service.hero_subtitle %}
           <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
             {{ service.hero_subtitle|safe }}
           </p>
-          <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          {% endif %}
+
+          <div class="flex flex-col sm:flex-row justify-center py-4 lg:justify-start gap-4">
             <a href="#contact-form" class="px-7 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center space-x-2 group text-base">
-              <span>Hire a Helper</span>
+              <span>Book Now</span>
               <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
             </a>
             <a href="#how-it-works" class="px-7 py-3 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center space-x-2 text-base">
               <i class="fas fa-info-circle text-gray-500"></i>
-              <span>How It Works</span>
+              <span>Learn More</span>
             </a>
           </div>
         </div>
+        {% if service.hero_image %}
         <div class="lg:w-1/2" data-aos="fade-left" data-aos-delay="100">
           <div class="relative">
             <img src="{{ service.hero_image.url }}" 
-                 alt="{{ service.name }}" 
-                 class="rounded-2xl shadow-xl w-full h-auto">
+                 alt="{{ service.hero_image_alt_text|default:service.name }}" 
+                 class="rounded-2xl shadow-xl w-full h-auto"
+                 loading="lazy"
+                 onerror="this.onerror=null;this.src='{% static 'images/placeholder.jpg' %}'"
+                 decoding="async">
+            {% if service.hero_rating %}
             <div class="absolute -bottom-5 -right-5 bg-white/70 backdrop-blur-md p-4 rounded-xl shadow-lg hidden md:block border border-gray-100">
               <div class="flex items-center">
                 <div class="bg-primary/10 p-3 rounded-lg mr-3">
@@ -50,26 +69,45 @@
                 <div>
                   <p class="text-sm text-gray-600 mb-0.5">Average Rating</p>
                   <div class="flex items-center">
-                    {% for i in "12345" %}
-                      <i class="fas fa-star text-yellow-400 {% if forloop.counter <= service.hero_rating %}text-yellow-400{% else %}text-gray-300{% endif %} mr-1 text-sm"></i>
-                    {% endfor %}
+                    <i class="fas fa-star text-yellow-400 mr-1 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1 text-sm"></i>
+                    <i class="fas fa-star text-yellow-400 mr-1 text-sm"></i>
                     <span class="ml-2 font-semibold text-gray-800 text-sm">{{ service.hero_rating }}/5</span>
                   </div>
                 </div>
               </div>
             </div>
+            {% endif %}
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 
-  <!-- Service Stats Section -->
+  <!-- 2. Service Stats Section -->
+  {% if service.stats_title or service.custom_stats.all %}
   <section class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
     <div class="container mx-auto">
+      {% if service.stats_title or service.stats_subtitle %}
+      <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Why Choose Us</span>
+        {% if service.stats_title %}
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.stats_title }}</h2>
+        {% endif %}
+        {% if service.stats_subtitle %}
+        <p class="text-gray-600">{{ service.stats_subtitle }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if service.custom_stats.all %}
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         {% for stat in service.custom_stats.all %}
-        <div class="bg-white p-6 lg:p-8 rounded-2xl shadow-md text-center border border-gray-100 transition-shadow hover:shadow-lg" data-aos="fade-up" {% if not forloop.first %}data-aos-delay="{{ forloop.counter0|multiply:100 }}"{% endif %}>
+        <div class="bg-white p-6 lg:p-8 rounded-2xl shadow-md text-center border border-gray-100 transition-shadow hover:shadow-lg" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
           <div class="inline-flex items-center justify-center bg-primary/10 text-primary rounded-full w-14 h-14 mb-5">
             <i class="{{ stat.icon }} text-2xl"></i>
           </div>
@@ -78,23 +116,38 @@
         </div>
         {% endfor %}
       </div>
+      {% endif %}
+
+      {% if service.stats_bottom_paragraph %}
+      <div class="mt-10 text-center text-gray-500 text-base">{{ service.stats_bottom_paragraph|safe }}</div>
+      {% endif %}
     </div>
   </section>
+  {% endif %}
 
-  <!-- Service Features Section -->
+  <!-- 3. Service Features Section -->
+  {% if service.features_title or service.custom_features.all %}
   <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
     <div class="container mx-auto">
+      {% if service.features_title or service.features_subtitle %}
       <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16" data-aos="fade-up">
         <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Our Services</span>
+        {% if service.features_title %}
         <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.features_title }}</h2>
+        {% endif %}
+        {% if service.features_subtitle %}
+        <p class="text-gray-600 mb-8">{{ service.features_subtitle }}</p>
+        {% endif %}
       </div>
+      {% endif %}
       
+      {% if service.custom_features.all %}
       <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
         <!-- Tab Buttons -->
         <div class="lg:w-1/3" data-aos="fade-right">
           <div class="flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 space-x-3 lg:space-x-0 lg:space-y-3">
             {% for feature in service.custom_features.all %}
-            <button class="tab-button flex items-center w-full text-left px-5 py-3 font-medium rounded-xl whitespace-nowrap text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-200 {% if forloop.first %}active{% endif %}" data-tab="feature-{{ feature.id }}">
+            <button class="tab-button flex items-center w-full text-left px-5 py-3 font-medium rounded-xl whitespace-nowrap text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-200 border border-gray-200 {% if forloop.first %}active bg-primary/10 text-primary border-primary/20{% else %}bg-white{% endif %}" data-tab="feature-{{ feature.id }}">
               <i class="{{ feature.icon }} text-lg w-6 text-center mr-3 {% if forloop.first %}text-primary{% else %}text-gray-400{% endif %} transition-colors duration-200"></i>
               <span class="flex-1">{{ feature.title }}</span>
             </button>
@@ -106,238 +159,637 @@
         <div class="lg:w-2/3" data-aos="fade-left">
           {% for feature in service.custom_features.all %}
           <div class="tab-content {% if forloop.first %}active{% endif %}" id="feature-{{ feature.id }}">
-            <div class="prose max-w-none">
-              {{ feature.description|safe }}
+            <div class="bg-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-lg border border-gray-100/80 transition-all duration-300">
+              <h3 class="text-xl lg:text-2xl font-semibold text-gray-800 mb-5">{{ feature.title }}</h3>
+              <div class="rich-text-content text-gray-600 text-base leading-relaxed">
+                {{ feature.description|safe }}
+              </div>
             </div>
           </div>
           {% endfor %}
         </div>
       </div>
+      {% endif %}
+
+      {% if service.features_bottom_paragraph %}
+      <div class="mt-10 text-center text-gray-500 text-base">{{ service.features_bottom_paragraph|safe }}</div>
+      {% endif %}
     </div>
   </section>
+  {% endif %}
 
-  <!-- How It Works Section -->
-  <section id="how-it-works" class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
-    <div class="container mx-auto">
-      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16" data-aos="fade-up">
-        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Our Process</span>
-        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.how_it_works_title }}</h2>
-      </div>
-
-      <!-- New Steps Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 max-w-6xl mx-auto relative">
-        
-        <!-- Optional: Connecting Line (requires careful styling) -->
-        <!-- <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 transform -translate-y-1/2 -z-10"></div> -->
-
-        {% for step in service.how_it_works_steps.all %}
-        <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
-          <!-- Step Number/Icon -->
-          <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary text-white font-bold text-xl mb-5 shadow-lg border-4 border-gray-50 z-10">
-            {% if step.icon %}
-              <i class="{{ step.icon }}"></i>
-            {% else %}
-              {{ step.step_number }}
-            {% endif %}
-          </div>
-          <!-- Step Content -->
-          <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 flex-grow w-full">
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ step.title }}</h3>
-            <div class="rich-text-content text-gray-600 text-sm leading-relaxed">{{ step.description|safe }}</div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+  <!-- 4. Specialized Services Section -->
+  {% if service.specialized_services_title or service.specialized_details.all %}
+  <section class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
     <div class="container mx-auto">
       <div class="max-w-4xl mx-auto" data-aos="fade-up">
         <div class="text-center mb-12 lg:mb-16">
-          <span class="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Why Choose Us</span>
-          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.benefits_title }}</h2>
+          <span class="inline-block px-4 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">More Options</span>
+          {% if service.specialized_services_title %}
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.specialized_services_title }}</h2>
+          {% endif %}
+          {% if service.specialized_services_subtitle %}
+          <p class="text-gray-600 mb-8">{{ service.specialized_services_subtitle }}</p>
+          {% endif %}
         </div>
         
-        <!-- New Benefits Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for benefit in service.benefits.all %}
-            <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
-                {% if benefit.icon %}
-                <div class="flex-shrink-0 mt-1">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-600">
-                        <i class="{{ benefit.icon }} text-xl"></i>
-                    </div>
-                </div>
-                {% endif %}
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">{{ benefit.title }}</h3>
-                    <div class="rich-text-content text-gray-600 text-sm leading-relaxed">{{ benefit.description|safe }}</div>
-                </div>
+        <!-- Specialized Services Grid -->
+        <div class="space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:grid-cols-3">
+          {% for detail in service.specialized_details.all %}
+          <div class="flex items-start" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+            {% if detail.icon %}
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 text-primary">
+                <i class="{{ detail.icon }} text-2xl"></i>
+              </div>
             </div>
-            {% endfor %}
+            {% endif %}
+            <div class="{% if detail.icon %}ml-4{% endif %}">
+              <h3 class="text-lg leading-6 font-medium text-gray-900">{{ detail.title }}</h3>
+              <div class="mt-2 rich-text-content text-base text-gray-500">{{ detail.description|safe }}</div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
-        
-        {% if service.benefits_link_text %}
-        <p class="mt-12 text-center text-gray-500 text-sm">
-          Need different hours? Explore our <a href="{{ service.benefits_link_url }}" class="font-medium text-primary hover:underline"><b>{{ service.benefits_link_text }}</b></a>.
-        </p>
+
+        {% if service.specialized_services_bottom_paragraph %}
+        <div class="mt-10 text-center text-gray-500 text-base">{{ service.specialized_services_bottom_paragraph|safe }}</div>
         {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 
-  <!-- Specialized Services Section -->
-  <section class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
+  <!-- 5. Types of Service Section -->
+  {% if service.service_types_title or service.service_type_cards.all %}
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      {% if service.service_types_title or service.service_types_subtitle %}
+      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Service Types</span>
+        {% if service.service_types_title %}
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.service_types_title }}</h2>
+        {% endif %}
+        {% if service.service_types_subtitle %}
+        <p class="text-gray-600 mb-8">{{ service.service_types_subtitle }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if service.service_type_cards.all %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {% for card in service.service_type_cards.all %}
+        <div class="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transform translate-x-8 -translate-y-8"></div>
+          <div class="p-8">
+            <div class="relative z-10 mb-8">
+              <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
+                <i class="{{ card.icon }} text-primary text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold mb-4">{{ card.title }}</h3>
+            <div class="text-gray-600">{{ card.description|safe }}</div>
+            {% if card.price %}
+            <div class="mt-6 pt-4 border-t border-gray-100">
+              <span class="text-primary font-semibold text-lg">₹{{ card.price }}</span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if service.service_types_bottom_paragraph %}
+      <div class="mt-10 text-center text-gray-500 text-base">{{ service.service_types_bottom_paragraph|safe }}</div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 6. Benefits Section -->
+  {% if service.benefits_title or service.benefits.all %}
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
     <div class="container mx-auto">
       <div class="max-w-4xl mx-auto" data-aos="fade-up">
-         <div class="text-center mb-12 lg:mb-16">
-            <span class="inline-block px-4 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">More Options</span>
-            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.specialized_services_title }}</h2>
-         </div>
-        
-        <!-- New Specialized Services List/Grid -->
-        <div class="space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:grid-cols-3">
-            {% for detail in service.specialized_details.all %}
-            <div class="flex items-start" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
-                {% if detail.icon %}
-                <div class="flex-shrink-0">
-                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 text-primary">
-                        <i class="{{ detail.icon }} text-2xl"></i>
-                    </div>
-                </div>
-                {% endif %}
-                <div class="{% if detail.icon %}ml-4{% endif %}">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">{{ detail.title }}</h3>
-                    <div class="mt-2 rich-text-content text-base text-gray-500">{{ detail.description|safe }}</div>
-                </div>
-            </div>
-            {% endfor %}
+        <div class="text-center mb-12 lg:mb-16">
+          <span class="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Benefits of Choosing Us</span>
+          {% if service.benefits_title %}
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.benefits_title }}</h2>
+          {% endif %}
+          {% if service.benefits_subtitle %}
+          <p class="text-gray-600 mb-8">{{ service.benefits_subtitle }}</p>
+          {% endif %}
         </div>
+        
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {% for benefit in service.benefits.all %}
+          <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+            {% if benefit.icon %}
+            <div class="flex-shrink-0 mt-1">
+              <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-600">
+                <i class="{{ benefit.icon }} text-xl"></i>
+              </div>
+            </div>
+            {% endif %}
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">{{ benefit.title }}</h3>
+              <div class="rich-text-content text-gray-600 text-sm leading-relaxed">{{ benefit.description|safe }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+        {% if service.benefits_link_text and service.benefits_link_url %}
+        <p class="mt-12 text-center text-gray-500 text-sm">
+          Need different hours? Explore our <a href="{{ service.benefits_link_url }}" class="font-medium text-primary hover:underline"><b>{{ service.benefits_link_text }}</b></a>.
+        </p>
+        {% endif %}
+
+        {% if service.benefits_bottom_paragraph %}
+        <div class="mt-10 text-center text-gray-500 text-base">{{ service.benefits_bottom_paragraph|safe }}</div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 
-  <!-- Considerations Section -->
+  <!-- 7. Choosing the Right Service Section -->
+  {% if service.choose_service_title or service.choose_service_image %}
+  <section class="py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Left Column -->
+        <div class="lg:w-1/2" data-aos="fade-right">
+          <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Making the Right Choice</span>
+          {% if service.choose_service_title %}
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-6">{{ service.choose_service_title }}</h2>
+          {% endif %}
+          {% if service.choose_service_subtitle %}
+          <p class="text-gray-600 mb-8">{{ service.choose_service_subtitle }}</p>
+          {% endif %}
+          
+          {% if service.choosing_right_points.all %}
+          <div class="space-y-6">
+            {% for point in service.choosing_right_points.all %}
+            <div class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm transform hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+              {% if point.icon %}
+              <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <i class="{{ point.icon }} text-primary"></i>
+              </div>
+              {% endif %}
+              <div>
+                <h3 class="font-bold text-lg mb-2">{{ point.title }}</h3>
+                <p class="text-gray-600">{{ point.description|safe }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        
+        <!-- Right Column -->
+        <div class="lg:w-1/2 relative" data-aos="fade-left">
+          <div class="relative z-10">
+            {% if service.choose_service_image %}
+            <img src="{{ service.choose_service_image.url }}" 
+                 alt="{{ service.choose_service_image_alt_text|default:'Choosing the right service' }}" 
+                 class="rounded-2xl shadow-xl w-full h-auto"
+                 loading="lazy"
+                 onerror="this.onerror=null;this.src='{% static 'images/placeholder.jpg' %}'"
+                 decoding="async">
+            {% endif %}
+            <!-- Decorative Elements -->
+            <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-primary/5 rounded-full"></div>
+            <div class="absolute -top-6 -left-6 w-32 h-32 bg-secondary/5 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      {% if service.choose_service_bottom_paragraph %}
+      <div class="mt-10 text-center text-gray-500 text-base">{{ service.choose_service_bottom_paragraph|safe }}</div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+  
+  <!-- 8. Why Choose Our Services Section -->
+  {% if service.why_hire_title or service.why_hire_subtitle or service.why_hire_image %}
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <!-- Left Column: Image -->
+        {% if service.why_hire_image %}
+        <div class="relative" data-aos="fade-right">
+          <img src="{{ service.why_hire_image.url }}" 
+               alt="{{ service.why_hire_image_alt_text|default:'Why choose our service' }}" 
+               class="rounded-2xl shadow-xl w-full h-auto">
+          <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg hidden md:block">
+            <div class="flex items-center space-x-4">
+              <div class="bg-primary/10 p-3 rounded-full">
+                <i class="fas fa-shield-alt text-primary text-2xl"></i>
+              </div>
+              <div>
+                <p class="font-bold text-xl">100%</p>
+                <p class="text-gray-600">Satisfaction Guaranteed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        
+        <!-- Right Column: Content -->
+        <div class="space-y-8" data-aos="fade-left">
+          {% if service.why_hire_title or service.why_hire_subtitle %}
+          <div class="text-center lg:text-left">
+            <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Service Highlights</span>
+            {% if service.why_hire_title %}
+            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.why_hire_title }}</h2>
+            {% endif %}
+            {% if service.why_hire_subtitle %}
+            <p class="text-gray-600">{{ service.why_hire_subtitle }}</p>
+            {% endif %}
+          </div>
+          {% endif %}
+          
+          <div class="space-y-6">
+            {% for point in service.why_choose_us_points.all %}
+            <div class="flex items-start space-x-4">
+              <div class="bg-primary/10 p-3 rounded-lg shrink-0">
+                <i class="{{ point.icon }} text-primary text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">{{ point.title }}</h3>
+                <p class="text-gray-600">{{ point.description }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      
+      {% if service.why_hire_bottom_paragraph %}
+      <div class="mt-10 text-center text-gray-500 text-base">{{ service.why_hire_bottom_paragraph|safe }}</div>
+    {% endif %}
+    
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 9. Ideal For Section -->
+  {% if service.ideal_for_title or service.ideal_for_cards.all %}
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-primary/10 to-transparent"></div>
+      <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+    </div>
+    
+    <div class="container mx-auto relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Perfect Match</span>
+          {% if service.ideal_for_title %}
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.ideal_for_title }}</h2>
+          {% endif %}
+          {% if service.ideal_for_subtitle %}
+          <p class="text-gray-600">{{ service.ideal_for_subtitle }}</p>
+          {% endif %}
+        </div>
+
+        {% if service.ideal_for_cards.all %}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {% for card in service.ideal_for_cards.all %}
+          <div class="flex items-center space-x-4 bg-white border border-gray-100 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+            {% if card.icon %}
+            <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center transform rotate-3 group-hover:rotate-0 transition-transform duration-300">
+              <i class="{{ card.icon }} text-primary"></i>
+            </div>
+            {% endif %}
+            <div>
+              <h3 class="font-bold text-lg">{{ card.title }}</h3>
+              <div class="text-gray-600">{{ card.description|safe }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if service.ideal_for_bottom_paragraph %}
+        <div class="mt-10 text-center text-gray-500 text-base">{{ service.ideal_for_bottom_paragraph|safe }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 10. How to Book Section -->
+  {% if service.how_to_book_title or service.booking_steps.all %}
+  <section id="how-it-works" class="py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Our Process</span>
+        {% if service.how_to_book_title %}
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.how_to_book_title }}</h2>
+        {% endif %}
+        {% if service.how_to_book_subtitle %}
+        <p class="text-gray-600">{{ service.how_to_book_subtitle }}</p>
+        {% endif %}
+      </div>
+
+      {% if service.booking_steps.all %}
+      <div class="max-w-5xl mx-auto">
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-primary/20 transform -translate-x-1/2"></div>
+          
+          <!-- Timeline Items -->
+          {% for step in service.booking_steps.all %}
+          <div class="relative flex flex-col md:flex-row items-center mb-12 {% if forloop.counter|divisibleby:2 %}md:flex-row-reverse{% endif %}" data-aos="fade-{% if forloop.counter|divisibleby:2 %}left{% else %}right{% endif %}">
+            <div class="absolute left-8 md:left-1/2 w-8 h-8 bg-white rounded-full border-4 border-primary transform -translate-x-1/2 z-10"></div>
+            <div class="md:w-1/2 {% if forloop.counter|divisibleby:2 %}md:pl-12{% else %}md:pr-12{% endif %} pl-24 md:pl-0">
+              <div class="bg-white p-6 rounded-xl shadow-sm">
+                <div class="flex items-center mb-4">
+                  {% if step.icon %}
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
+                    <i class="{{ step.icon }} text-primary"></i>
+                  </div>
+                  {% endif %}
+                  <h3 class="text-xl font-bold">{{ step.title }}</h3>
+                </div>
+                <div class="text-gray-600">{{ step.description|safe }}</div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if service.how_to_book_bottom_paragraph %}
+      <div class="mt-10 text-center text-gray-500 text-base">{{ service.how_to_book_bottom_paragraph|safe }}</div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 11. Hyperlink Cards Section -->
+  {% if service.hyperlinks_title or service.hyperlinks_subtitle or service.hyperlink_cards.all %}
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      {% if service.hyperlinks_title or service.hyperlinks_subtitle %}
+      <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">Quick Links</span>
+        {% if service.hyperlinks_title %}
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.hyperlinks_title }}</h2>
+        {% endif %}
+        {% if service.hyperlinks_subtitle %}
+        <p class="text-gray-600">{{ service.hyperlinks_subtitle }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if service.hyperlink_cards.all %}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for card in service.hyperlink_cards.all %}
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-primary/20" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+          {% if card.icon %}
+          <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+            <i class="{{ card.icon }} text-primary text-2xl"></i>
+          </div>
+          {% endif %}
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ card.title }}</h3>
+          <div class="rich-text-content text-gray-600 text-base leading-relaxed mb-4">
+            {{ card.description|safe }}
+          </div>
+          {% if card.link_url %}
+          <a href="{{ card.link_url }}" class="text-primary hover:text-primary/80 font-medium text-sm flex items-center">
+            {{ card.link_text|default:"Learn More" }}
+            <i class="fas fa-arrow-right ml-2 text-xs"></i>
+          </a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 12. Key Considerations Section -->
+  {% if service.considerations_title or service.consideration_points.all %}
   <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
     <div class="container mx-auto">
       <div class="max-w-4xl mx-auto" data-aos="fade-up">
         <div class="text-center mb-12 lg:mb-16">
           <span class="inline-block px-4 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Good to Know</span>
           <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.considerations_title }}</h2>
+          {% if service.considerations_subtitle %}
+          <p class="text-gray-600">{{ service.considerations_subtitle }}</p>
+          {% endif %}
         </div>
         
         <!-- Improved Considerations Section (Card Layout) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {% for point in service.consideration_points.all %}
-            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 flex flex-col items-center text-center shadow-sm" 
-                 data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
-                <div class="flex-shrink-0 mb-4">
-                     <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 text-yellow-600">
-                        <i class="{{ point.icon|default:'fas fa-info-circle' }} text-2xl"></i>
-                     </div>
-                </div>
-                <div class="rich-text-content text-yellow-800 text-sm leading-relaxed">{{ point.point_text|safe }}</div>
+          {% for point in service.consideration_points.all %}
+          <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 flex flex-col items-center text-center shadow-sm" 
+               data-aos="fade-up" data-aos-delay="{{ forloop.counter0|multiply:100 }}">
+            <div class="flex-shrink-0 mb-4">
+              <div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 text-yellow-600">
+                <i class="{{ point.icon|default:'fas fa-info-circle' }} text-2xl"></i>
+              </div>
             </div>
-            {% endfor %}
+            <div class="rich-text-content text-yellow-800 text-sm leading-relaxed">{{ point.point_text|safe }}</div>
+          </div>
+          {% endfor %}
         </div>
 
+        {% if service.considerations_bottom_paragraph %}
+        <div class="mt-10 text-center text-gray-500 text-base">{{ service.considerations_bottom_paragraph|safe }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 13. CTA Section -->
+  {% if service.cta_title or service.cta_subtitle %}
+  <section class="py-16 lg:py-20 bg-gradient-to-br from-primary to-primary/90 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+        {% if service.cta_title %}
+        <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4 text-white">{{ service.cta_title }}</h2>
+        {% endif %}
+        {% if service.cta_subtitle %}
+        <p class="text-white/90 mb-8">{{ service.cta_subtitle }}</p>
+        {% endif %}
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#contact-form" class="px-7 py-3 bg-white text-primary font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-white/30 flex items-center justify-center space-x-2 group text-base">
+            <span>Book Now</span>
+            <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
+          </a>
+          <a href="tel:+919876543210" class="px-7 py-3 bg-primary/20 text-white font-semibold rounded-xl hover:bg-primary/30 transition-all duration-300 shadow-lg hover:shadow-white/30 flex items-center justify-center space-x-2 text-base">
+            <i class="fas fa-phone-alt text-sm"></i>
+            <span>Call Us</span>
+          </a>
+        </div>
+      </div>
+      {% if service.cta_bottom_paragraph %}
+      <div class="mt-10 text-center text-white/80 text-base">{{ service.cta_bottom_paragraph|safe }}</div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- 14. Contact Form Section -->
+  <section id="contact-form" class="py-16 lg:py-20 bg-gray-100 px-4 sm:px-6 lg:px-8" role="form" aria-label="Contact Form">
+    <div class="container mx-auto">
+      <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+        <!-- Form Section -->
+        <div class="w-full md:w-1/2 p-8 lg:p-12 order-2 md:order-1">
+          {% if service.lead_form_title %}
+          <h3 class="text-gray-900 text-2xl lg:text-3xl font-semibold mb-3">{{ service.lead_form_title }}</h3>
+          {% endif %}
+          {% if service.lead_form_subtitle %}
+          <p class="text-gray-600 mb-6 lg:mb-8">{{ service.lead_form_subtitle }}</p>
+          {% endif %}
+          
+          <form method="POST" class="space-y-5" id="servicePageQuoteForm" aria-label="Quote Request Form">
+            {% csrf_token %}
+            <input type="hidden" name="source" value="service_page">
+            <input type="hidden" name="service_needed" value="{{ service.name }}">
+            
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Full Name*</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                placeholder="Enter your full name"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                aria-required="true"
+                aria-invalid="false"
+              >
+              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email*</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  required 
+                  placeholder="you@example.com"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                  aria-required="true"
+                  aria-invalid="false"
+                >
+                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Phone*</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  required 
+                  placeholder="Your phone number"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                  aria-required="true"
+                  aria-invalid="false"
+                >
+                <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="location" class="block text-sm font-medium text-gray-700 mb-1.5">Location</label>
+                <input 
+                  type="text" 
+                  id="location" 
+                  name="location" 
+                  placeholder="Your location"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                  aria-required="false"
+                  aria-invalid="false"
+                >
+              </div>
+              <div>
+                <label for="timing" class="block text-sm font-medium text-gray-700 mb-1.5">Preferred Timing</label>
+                <input 
+                  type="text" 
+                  id="timing" 
+                  name="timing" 
+                  placeholder="Preferred time for service"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                  aria-required="false"
+                  aria-invalid="false"
+                >
+              </div>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Message*</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="4" 
+                required
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
+                placeholder="Tell us about the service you need..."
+                aria-required="true"
+                aria-invalid="false"
+              ></textarea>
+              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="w-full px-7 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center space-x-2 group text-base"
+              aria-label="Submit Quote Request"
+              data-loading-text="Sending..."
+            >
+              <span>Request Your Free Quote</span>
+              <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
+            </button>
+          </form>
+          <div id="serviceFormMessage" class="mt-4" role="alert" aria-live="polite"></div>
+        </div>
+
+        <!-- Image Section -->
+        <div class="w-full md:w-1/2 order-1 md:order-2">
+          {% if service.lead_form_image %}
+          <img 
+            src="{{ service.lead_form_image.url }}" 
+            alt="{{ service.lead_form_image_alt_text|default:'Contact EzyHelpers Support Team' }}"
+            class="object-cover w-full h-64 md:h-full"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='{% static 'images/placeholder.jpg' %}'"
+            decoding="async">
+          {% endif %}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form Section -->
-  <section id="contact-form" class="py-16 lg:py-20 bg-gray-100 px-4 sm:px-6 lg:px-8">
-    <div class="container mx-auto">
-        <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col md:flex-row">
-          <!-- Form Section -->
-          <div class="w-full md:w-1/2 p-8 lg:p-12 order-2 md:order-1">
-            <h3 class="text-gray-900 text-2xl lg:text-3xl font-semibold mb-3">Get a Free Quote Today</h3>
-            <p class="text-gray-600 mb-6 lg:mb-8">Fill out this form, and our team will contact you shortly.</p>
-            
-            <form method="POST" class="space-y-5" id="servicePageQuoteForm">
-              {% csrf_token %}
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5">Full Name*</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  required 
-                  placeholder="Enter your full name"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
-                >
-              </div>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email*</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    required 
-                    placeholder="you@example.com"
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
-                  >
-                </div>
-                <div>
-                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-1.5">Phone*</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone" 
-                    required 
-                    placeholder="Your phone number"
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
-                  >
-                </div>
-              </div>
-        
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-1.5">Message*</label>
-                <textarea 
-                  id="message" 
-                  name="message" 
-                  rows="4" 
-                  required
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-150 bg-gray-50 placeholder-gray-400"
-                  placeholder="Tell us about the service you need..."
-                ></textarea>
-              </div>
-        
-              <button 
-                type="submit" 
-                class="w-full px-7 py-3 bg-gradient-to-r from-primary to-primary/90 text-white font-semibold rounded-xl hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-primary/30 flex items-center justify-center space-x-2 group text-base"
-              >
-                <span>Request Your Free Quote</span>
-                 <i class="fas fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform duration-300"></i>
-              </button>
-            </form>
-            <div id="serviceFormMessage" class="mt-4"></div>
-          </div>
-
-           <!-- Image Section -->
-          <div class="w-full md:w-1/2 order-1 md:order-2">
-            <img 
-              src="https://images.pexels.com/photos/7792815/pexels-photo-7792815.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-              alt="Contact EzyHelpers Support Team"
-              class="object-cover w-full h-64 md:h-full"
-            >
-          </div>
-        </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+  <!-- 15. FAQs Section -->
+  {% if service.faqs_title or service.custom_faqs.all %}
+  <section class="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8" role="region" aria-label="Frequently Asked Questions">
     <div class="container mx-auto">
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-12 lg:mb-16" data-aos="fade-up">
           <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold uppercase tracking-wider mb-3">Need Answers?</span>
-          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">Frequently Asked Questions</h2>
-          <p class="text-gray-600 text-base lg:text-lg leading-relaxed">Find answers to common questions about our {{ service.name }} service.</p>
+          {% if service.faqs_title %}
+          <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4">{{ service.faqs_title }}</h2>
+          {% endif %}
+          {% if service.faqs_subtitle %}
+          <p class="text-gray-600 text-base lg:text-lg leading-relaxed">{{ service.faqs_subtitle }}</p>
+          {% endif %}
         </div>
 
         <div class="space-y-3 lg:space-y-4">
@@ -358,77 +810,60 @@
       </div>
     </div>
   </section>
+  {% endif %}
+{% endblock %}
 
+{% block extra_js %}
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Tab functionality
       const tabButtons = document.querySelectorAll('.tab-button');
-      // Select content panes using ID pattern instead of class
-      const tabContents = document.querySelectorAll('[id^="feature-"]'); 
+      const tabContents = document.querySelectorAll('.tab-content');
 
-      // Apply initial active styles to the first tab button
-      if (tabButtons.length > 0) {
-        const firstButton = tabButtons[0];
-        firstButton.classList.add('active', 'bg-primary/10', 'text-primary');
-        const firstIcon = firstButton.querySelector('i');
-         if (firstIcon) {
-            firstIcon.classList.add('text-primary');
-            firstIcon.classList.remove('text-gray-400');
-         }
+      function setActiveTab(tabId) {
+        // Update button states
+        tabButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-tab') === tabId;
+          btn.classList.toggle('active', isActive);
+          btn.classList.toggle('bg-primary/10', isActive);
+          btn.classList.toggle('text-primary', isActive);
+          btn.classList.toggle('border-primary/20', isActive);
+          btn.classList.toggle('bg-white', !isActive);
+          
+          const icon = btn.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('text-primary', isActive);
+            icon.classList.toggle('text-gray-400', !isActive);
+          }
+        });
+
+        // Update content visibility
+        tabContents.forEach(content => {
+          const isActiveContent = content.id === tabId;
+          content.style.display = isActiveContent ? 'block' : 'none';
+          // Also manage the 'active' class on content for robustness
+          if (isActiveContent) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+        });
       }
 
-      // Set initial display state for content panes
-      tabContents.forEach((content, index) => {
-        if (index === 0) {
-          content.style.display = 'block'; // Show the first tab content
-        } else {
-          content.style.display = 'none'; // Hide others
-        }
-      });
+      // Set initial active tab
+      if (tabButtons.length > 0) {
+        setActiveTab(tabButtons[0].getAttribute('data-tab'));
+      }
 
+      // Add click handlers
       tabButtons.forEach(button => {
         button.addEventListener('click', () => {
           const tabId = button.getAttribute('data-tab');
-
-          // Update button active state (same logic as before)
-          tabButtons.forEach(btn => {
-            btn.classList.remove('active', 'bg-primary/10', 'text-primary');
-            btn.classList.add('text-gray-700'); 
-            const icon = btn.querySelector('i');
-            if (icon) {
-              icon.classList.remove('text-primary');
-              icon.classList.add('text-gray-400'); 
-            }
-          });
-
-          // Activate the clicked button (same logic as before)
-          button.classList.add('active', 'bg-primary/10', 'text-primary');
-          button.classList.remove('text-gray-700');
-          const activeIcon = button.querySelector('i');
-          if (activeIcon) {
-            activeIcon.classList.add('text-primary');
-            activeIcon.classList.remove('text-gray-400');
-          }
-
-          // Update content visibility using direct style manipulation
-          tabContents.forEach(content => {
-            if (content.id === tabId) {
-                content.style.display = 'block'; // Show target
-                // Force reflow (optional but kept from previous step)
-                void content.offsetWidth; 
-            } else {
-                content.style.display = 'none'; // Hide others
-            }
-          });
-
-          // Refresh AOS after updating tab content visibility
-          if (typeof AOS !== 'undefined') {
-            AOS.refresh();
-          }
+          setActiveTab(tabId);
         });
       });
 
-      // FAQ Accordion Logic (Keep existing code here)
+      // FAQ Accordion Logic
       const faqItems = document.querySelectorAll('.faq-item');
       faqItems.forEach(item => {
         const button = item.querySelector('.faq-question');
@@ -470,103 +905,132 @@
             }
         });
       });
+    });
 
-      // Contact Form Logic
-      const quoteForm = document.getElementById('servicePageQuoteForm'); 
-      const messageContainer = document.getElementById('serviceFormMessage'); 
+    document.addEventListener('DOMContentLoaded', function() {
+      // Form validation and submission
+      const form = document.getElementById('servicePageQuoteForm');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.innerHTML;
+      const messageContainer = document.getElementById('serviceFormMessage');
 
-      if (quoteForm && messageContainer) {
-          quoteForm.addEventListener('submit', function(event) {
-              event.preventDefault(); // Ensure this is the VERY FIRST line
-
-              try { // Start try block
-                  const formData = new FormData(quoteForm);
-                  const submitButton = quoteForm.querySelector('button[type="submit"]');
-                  if (!submitButton) {
-                      console.error("Submit button not found in service form:", quoteForm);
-                      messageContainer.innerHTML = 
-                          `<div class="bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Error!</strong><span class="block sm:inline"> Form configuration error. Cannot submit.</span></div>`;
-                      messageContainer.className = 'mt-4';
-                      return; // Stop execution
-                  }
-                  const originalButtonText = submitButton.innerHTML;
-
-                  submitButton.disabled = true;
-                  submitButton.innerHTML = 
-                      `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...`;
-
-                  messageContainer.innerHTML = '';
-                  messageContainer.className = ''; 
-
-                  fetch(quoteForm.action || window.location.pathname, { 
-                      method: 'POST',
-                      headers: {
-                          'X-CSRFToken': formData.get('csrfmiddlewaretoken'), 
-                          'X-Requested-With': 'XMLHttpRequest', 
-                      },
-                      body: formData 
-                  })
-                  .then(response => {
-                      const contentType = response.headers.get("content-type");
-                      if (contentType && contentType.indexOf("application/json") !== -1) {
-                          return response.json().then(data => ({ ok: response.ok, status: response.status, data }));
-                      } else {
-                          return response.text().then(text => { throw new Error(`Server returned non-JSON response: ${response.status} ${response.statusText}. Body: ${text.substring(0, 100)}`); });
-                      }
-                  })
-                  .then(result => {
-                      if (!result.ok) {
-                          throw new Error(result.data.error || `Server error: ${result.status}`);
-                      }
-                      const data = result.data;
-                      if (data.success) {
-                          messageContainer.innerHTML = 
-                              `<div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Success!</strong><span class="block sm:inline"> Quote request sent. We will contact you shortly.</span></div>`;
-                          messageContainer.className = 'mt-4';
-
-                          const thankYouUrl = new URL('{% url "thank_you" %}', window.location.origin);
-                          const thankYouData = data.form_data; // Contains Name, Email, Phone, Message, form_type
-                          
-                          for (const key in thankYouData) {
-                              if (thankYouData[key]) {
-                                  thankYouUrl.searchParams.append(key, thankYouData[key]);
-                              }
-                          }
-                          console.log("Service form AJAX success: Redirecting..."); // DEBUG
-                          console.log("Generated Service Thank You URL:", thankYouUrl.toString()); // DEBUG
-                          window.location.href = thankYouUrl.toString(); // Redirect in the same tab
-                          // quoteForm.reset(); // Might not execute before redirect
-                      } else {
-                          throw new Error(data.error || 'Could not send request. Please try again.');
-                      }
-                  })
-                  .catch(error => {
-                      console.error('Service quote form submission error:', error);
-                      messageContainer.innerHTML = 
-                          `<div class="bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Error!</strong><span class="block sm:inline"> An unexpected error occurred: ${error.message}. Please check console or try again later.</span></div>`;
-                      messageContainer.className = 'mt-4';
-                  })
-                  .finally(() => {
-                      submitButton.disabled = false;
-                      submitButton.innerHTML = originalButtonText;
-                  });
-
-              } catch (error) { // Catch synchronous errors
-                  console.error('Synchronous error during service form setup:', error);
-                  messageContainer.innerHTML = 
-                      `<div class="bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md relative mb-6" role="alert"><strong class="font-bold">Error!</strong><span class="block sm:inline"> A script error occurred: ${error.message}. Please check console.</span></div>`;
-                  messageContainer.className = 'mt-4';
-                  const submitButton = quoteForm.querySelector('button[type="submit"]');
-                   if (submitButton) {
-                       submitButton.disabled = false;
-                       // submitButton.innerHTML = originalButtonText; // May fail
-                   }
-              }
-          });
-      } else {
-          if (!quoteForm) console.error("Service page quote form with ID 'servicePageQuoteForm' not found.");
-          if (!messageContainer) console.error("Service page message container with ID 'serviceFormMessage' not found.");
+      // Debounce function for performance
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
       }
+
+      // Form validation with improved performance
+      const validateField = debounce((field) => {
+        const errorDiv = field.nextElementSibling;
+        let isValid = true;
+        let errorMessage = '';
+
+        if (field.required && !field.value.trim()) {
+          isValid = false;
+          errorMessage = 'This field is required';
+        } else if (field.type === 'email' && field.value) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(field.value)) {
+            isValid = false;
+            errorMessage = 'Please enter a valid email address';
+          }
+        } else if (field.type === 'tel' && field.value) {
+          const phoneRegex = /^\+?[\d\s-]{10,}$/;
+          if (!phoneRegex.test(field.value)) {
+            isValid = false;
+            errorMessage = 'Please enter a valid phone number';
+          }
+        }
+
+        field.setAttribute('aria-invalid', !isValid);
+        errorDiv.textContent = errorMessage;
+        errorDiv.classList.toggle('hidden', isValid);
+        return isValid;
+      }, 300);
+
+      // Add validation to all required fields with improved performance
+      const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+      requiredFields.forEach(field => {
+        field.addEventListener('blur', () => validateField(field));
+        field.addEventListener('input', () => validateField(field));
+      });
+
+      // Form submission with improved error handling
+      form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        try {
+          // Validate all fields
+          const fields = form.querySelectorAll('input[required], textarea[required]');
+          let isValid = true;
+          fields.forEach(field => {
+            if (!validateField(field)) {
+              isValid = false;
+            }
+          });
+
+          if (!isValid) {
+            throw new Error('Please fix the errors in the form.');
+          }
+
+          // Show loading state
+          submitButton.disabled = true;
+          submitButton.innerHTML = `
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            ${submitButton.dataset.loadingText}
+          `;
+
+          const formData = new FormData(form);
+          const response = await fetch(form.action || window.location.pathname, {
+            method: 'POST',
+            headers: {
+              'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+              'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: formData
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          if (data.success) {
+            messageContainer.innerHTML = `
+              <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded-md relative" role="alert">
+                <strong class="font-bold">Success!</strong>
+                <span class="block sm:inline"> ${data.message || 'Quote request sent. We will contact you shortly.'}</span>
+              </div>
+            `;
+            form.reset();
+          } else {
+            throw new Error(data.error || 'Could not send request. Please try again.');
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          messageContainer.innerHTML = `
+            <div class="bg-red-100 border border-red-300 text-red-800 px-4 py-3 rounded-md relative" role="alert">
+              <strong class="font-bold">Error!</strong>
+              <span class="block sm:inline"> ${error.message}</span>
+            </div>
+          `;
+        } finally {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButtonText;
+        }
+      });
     });
   </script>
-{% endblock %} 
+{% endblock extra_js %} 

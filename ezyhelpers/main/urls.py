@@ -20,6 +20,8 @@ urlpatterns = [
     # Thank You Page
     path('thank-you/', views.thank_you_view, name='thank_you'),
 
+    path('services/new/<slug:slug>/', views.main_service_view2, name='new_service_details'),
+
     # New Service URLs using the new template
     path('services/new/live-in-helpers/', views.main_service_view2, {'slug': 'live-in-helpers'}, name='new_live_in_helpers'),
     path('services/new/full-time-helpers/', views.main_service_view2, {'slug': 'full-time-helpers'}, name='new_full_time_helpers'),
@@ -40,4 +42,5 @@ urlpatterns = [
     path('services/elderly-care/', views.main_service_view, {'slug': 'elderly-care'}, name='elderly_care'),
     path('services/cooks/', views.main_service_view, {'slug': 'cooks'}, name='cooks'),
     path('services/drivers/', views.main_service_view, {'slug': 'drivers'}, name='drivers'),
+    path('services/<slug:slug>/', views.main_service_view, name='service_details'),
 ]

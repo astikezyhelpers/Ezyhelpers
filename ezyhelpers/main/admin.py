@@ -2,9 +2,10 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.text import slugify
 from .models import (
-    Blog, Services, MainService, ServiceFeature, ServiceStat, FAQ, HowItWorksStep,
-    Benefit, SpecializedServiceDetail, ConsiderationPoint, Lead,
-    ServiceTypeCard, IdealForCard, BookingStep, HyperlinkCard, SpecializedServiceCard
+    Blog, Services, MainService, ServiceStat, ServiceFeature, FAQ,
+    Benefit, SpecializedServiceDetail, ConsiderationPoint,
+    ServiceTypeCard, IdealForCard, BookingStep, HyperlinkCard, Lead,
+    WhyChooseUsPoint, ChoosingRightPoint
 )
 
 class CustomInlineMixin:
@@ -33,18 +34,6 @@ class CustomServiceFeatureInline(CustomInlineMixin, admin.StackedInline):
     verbose_name_plural = "2. Service Features"
     help_text = "Add features that describe what your service offers"
 
-class HowItWorksStepInline(CustomInlineMixin, admin.StackedInline):
-    model = HowItWorksStep
-    fields = (
-        ('step_number', 'title'),
-        'icon',
-        'description'
-    )
-    verbose_name = "How It Works Step"
-    verbose_name_plural = "3. How It Works Steps"
-    ordering = ['step_number']
-    help_text = "Add steps to explain your service process"
-
 class BenefitInline(CustomInlineMixin, admin.StackedInline):
     model = Benefit
     fields = (
@@ -52,7 +41,7 @@ class BenefitInline(CustomInlineMixin, admin.StackedInline):
         'description'
     )
     verbose_name = "Benefit"
-    verbose_name_plural = "4. Benefits"
+    verbose_name_plural = "5. Benefits"
     help_text = "Add benefits that customers get from your service"
 
 class SpecializedServiceDetailInline(CustomInlineMixin, admin.StackedInline):
@@ -62,7 +51,7 @@ class SpecializedServiceDetailInline(CustomInlineMixin, admin.StackedInline):
         'description'
     )
     verbose_name = "Specialized Service Detail"
-    verbose_name_plural = "5. Specialized Service Details"
+    verbose_name_plural = "3. Specialized Service Details"
     help_text = "Add specialized aspects of your service"
 
 class ConsiderationPointInline(CustomInlineMixin, admin.StackedInline):
@@ -72,7 +61,7 @@ class ConsiderationPointInline(CustomInlineMixin, admin.StackedInline):
         'point_text'
     )
     verbose_name = "Consideration Point"
-    verbose_name_plural = "6. Consideration Points"
+    verbose_name_plural = "10. Consideration Points"
     help_text = "Add important points to consider about your service"
 
 class CustomFAQInline(CustomInlineMixin, admin.StackedInline):
@@ -82,7 +71,7 @@ class CustomFAQInline(CustomInlineMixin, admin.StackedInline):
         'answer'
     )
     verbose_name = "FAQ"
-    verbose_name_plural = "7. FAQs"
+    verbose_name_plural = "12. FAQs"
     help_text = "Add frequently asked questions and their answers"
 
 class ServiceTypeCardInline(CustomInlineMixin, admin.StackedInline):
@@ -90,10 +79,10 @@ class ServiceTypeCardInline(CustomInlineMixin, admin.StackedInline):
     fields = (
         ('title', 'icon'),
         'description',
-        ('image', 'order')
+        'order'
     )
     verbose_name = "Service Type"
-    verbose_name_plural = "8. Service Types"
+    verbose_name_plural = "4. Service Types"
     help_text = "Add different types of services you offer"
     ordering = ['order']
 
@@ -105,7 +94,7 @@ class IdealForCardInline(CustomInlineMixin, admin.StackedInline):
         'order'
     )
     verbose_name = "Ideal For Card"
-    verbose_name_plural = "9. Ideal For Cards"
+    verbose_name_plural = "8. Ideal For Cards"
     help_text = "Add cards describing who your service is ideal for"
     ordering = ['order']
 
@@ -117,7 +106,7 @@ class BookingStepInline(CustomInlineMixin, admin.StackedInline):
         'description'
     )
     verbose_name = "Booking Step"
-    verbose_name_plural = "10. Booking Steps"
+    verbose_name_plural = "9. Booking Steps"
     help_text = "Add steps explaining how to book your service"
     ordering = ['step_number']
 
@@ -134,16 +123,28 @@ class HyperlinkCardInline(CustomInlineMixin, admin.StackedInline):
     help_text = "Add cards with links to related services and resources"
     ordering = ['order']
 
-class SpecializedServiceCardInline(CustomInlineMixin, admin.StackedInline):
-    model = SpecializedServiceCard
+class WhyChooseUsPointInline(CustomInlineMixin, admin.StackedInline):
+    model = WhyChooseUsPoint
     fields = (
         ('title', 'icon'),
         'description',
-        ('image', 'order')
+        'order'
     )
-    verbose_name = "Specialized Service"
-    verbose_name_plural = "12. Specialized Services"
-    help_text = "Add cards for specialized services you offer"
+    verbose_name = "Why Choose Us Point"
+    verbose_name_plural = "7. Why Choose Us Points"
+    help_text = "Add points explaining why customers should choose your service"
+    ordering = ['order']
+
+class ChoosingRightPointInline(CustomInlineMixin, admin.StackedInline):
+    model = ChoosingRightPoint
+    fields = (
+        ('title', 'icon'),
+        'description',
+        'order'
+    )
+    verbose_name = "Choosing Right Point"
+    verbose_name_plural = "6. Choosing Right Points"
+    help_text = "Add points to help customers choose the right service"
     ordering = ['order']
 
 @admin.register(MainService)
@@ -151,33 +152,14 @@ class MainServiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'display_hero_image', 'created_at', 'updated_at', 'display_stats_count', 'display_features_count')
     list_filter = ('created_at', 'updated_at')
     search_fields = ('name', 'meta_title', 'meta_description', 'hero_title', 'hero_subtitle')
-    readonly_fields = ('created_at', 'updated_at', 'slug', 'preview_hero_image', 'preview_choose_service_image', 
-                      'preview_why_hire_image', 'preview_lead_form_image')
-    save_on_top = True
+    readonly_fields = ('created_at', 'updated_at', 'preview_hero_image')
+    save_on_top = True  # Add save buttons at the top of the page
     
     def preview_hero_image(self, obj):
         if obj.hero_image:
             return format_html('<img src="{}" style="max-width: 300px; max-height: 200px;" />', obj.hero_image.url)
         return "No image"
     preview_hero_image.short_description = "Hero Image Preview"
-
-    def preview_choose_service_image(self, obj):
-        if obj.choose_service_image:
-            return format_html('<img src="{}" style="max-width: 300px; max-height: 200px;" />', obj.choose_service_image.url)
-        return "No image"
-    preview_choose_service_image.short_description = "Choose Service Image Preview"
-
-    def preview_why_hire_image(self, obj):
-        if obj.why_hire_image:
-            return format_html('<img src="{}" style="max-width: 300px; max-height: 200px;" />', obj.why_hire_image.url)
-        return "No image"
-    preview_why_hire_image.short_description = "Why Hire Us Image Preview"
-
-    def preview_lead_form_image(self, obj):
-        if obj.lead_form_image:
-            return format_html('<img src="{}" style="max-width: 300px; max-height: 200px;" />', obj.lead_form_image.url)
-        return "No image"
-    preview_lead_form_image.short_description = "Lead Form Image Preview"
 
     def display_hero_image(self, obj):
         if obj.hero_image:
@@ -207,7 +189,7 @@ class MainServiceAdmin(admin.ModelAdmin):
             'fields': (
                 'hero_title',
                 'hero_subtitle',
-                ('hero_image', 'preview_hero_image'),
+                ('hero_image', 'hero_image_alt_text', 'preview_hero_image'),
                 'hero_rating'
             ),
             'description': 'Configure the hero section that appears at the top of the service page.',
@@ -219,7 +201,7 @@ class MainServiceAdmin(admin.ModelAdmin):
                 'stats_subtitle',
                 'stats_bottom_paragraph'
             ),
-            'description': 'Configure the statistics section that highlights key service metrics.',
+            'description': 'Configure the statistics section of your service.',
             'classes': ('wide',)
         }),
         ('4. Features Section', {
@@ -228,7 +210,7 @@ class MainServiceAdmin(admin.ModelAdmin):
                 'features_subtitle',
                 'features_bottom_paragraph'
             ),
-            'description': 'Set the title and subtitle for the features section.',
+            'description': 'Configure the features section of your service.',
             'classes': ('wide',)
         }),
         ('5. Specialized Services Section', {
@@ -240,43 +222,44 @@ class MainServiceAdmin(admin.ModelAdmin):
             'description': 'Configure the specialized services section.',
             'classes': ('wide',)
         }),
-        ('6. Types of Services Section', {
+        ('6. Service Types Section', {
             'fields': (
                 'service_types_title',
                 'service_types_subtitle',
                 'service_types_bottom_paragraph'
             ),
-            'description': 'Set the title and subtitle for the types of services section.',
+            'description': 'Configure the service types section.',
             'classes': ('wide',)
         }),
         ('7. Benefits Section', {
             'fields': (
                 'benefits_title',
                 'benefits_subtitle',
-                ('benefits_link_text', 'benefits_link_url'),
+                'benefits_link_text',
+                'benefits_link_url',
                 'benefits_bottom_paragraph'
             ),
-            'description': 'Configure the benefits section and its call-to-action link.',
+            'description': 'Configure the benefits section.',
             'classes': ('wide',)
         }),
-        ('8. Choose Right Service Section', {
+        ('8. Choose Service Section', {
             'fields': (
                 'choose_service_title',
                 'choose_service_subtitle',
-                ('choose_service_image', 'preview_choose_service_image'),
+                ('choose_service_image', 'choose_service_image_alt_text'),
                 'choose_service_bottom_paragraph'
             ),
-            'description': 'Configure the section that helps users choose the right service.',
+            'description': 'Configure the choose service section.',
             'classes': ('wide',)
         }),
         ('9. Why Hire Us Section', {
             'fields': (
                 'why_hire_title',
                 'why_hire_subtitle',
-                ('why_hire_image', 'preview_why_hire_image'),
+                ('why_hire_image', 'why_hire_image_alt_text'),
                 'why_hire_bottom_paragraph'
             ),
-            'description': 'Configure the section that explains why users should choose your service.',
+            'description': 'Configure the why hire us section.',
             'classes': ('wide',)
         }),
         ('10. Ideal For Section', {
@@ -285,7 +268,7 @@ class MainServiceAdmin(admin.ModelAdmin):
                 'ideal_for_subtitle',
                 'ideal_for_bottom_paragraph'
             ),
-            'description': 'Set the title and subtitle for the ideal customer section.',
+            'description': 'Configure the ideal for section.',
             'classes': ('wide',)
         }),
         ('11. How to Book Section', {
@@ -294,16 +277,16 @@ class MainServiceAdmin(admin.ModelAdmin):
                 'how_to_book_subtitle',
                 'how_to_book_bottom_paragraph'
             ),
-            'description': 'Configure the booking process section.',
+            'description': 'Configure the how to book section.',
             'classes': ('wide',)
         }),
-        ('12. Key Considerations Section', {
+        ('12. Considerations Section', {
             'fields': (
                 'considerations_title',
                 'considerations_subtitle',
                 'considerations_bottom_paragraph'
             ),
-            'description': 'Set the title and subtitle for the considerations section.',
+            'description': 'Configure the considerations section.',
             'classes': ('wide',)
         }),
         ('13. Hyperlinks Section', {
@@ -311,15 +294,13 @@ class MainServiceAdmin(admin.ModelAdmin):
                 'hyperlinks_title',
                 'hyperlinks_subtitle'
             ),
-            'description': 'Configure the related services and resources section.',
+            'description': 'Configure the hyperlinks section.',
             'classes': ('wide',)
         }),
         ('14. CTA Section', {
             'fields': (
                 'cta_title',
                 'cta_subtitle',
-                'cta_button_text',
-                'cta_secondary_button_text',
                 'cta_bottom_paragraph'
             ),
             'description': 'Configure the call-to-action section.',
@@ -329,9 +310,9 @@ class MainServiceAdmin(admin.ModelAdmin):
             'fields': (
                 'lead_form_title',
                 'lead_form_subtitle',
-                ('lead_form_image', 'preview_lead_form_image')
+                ('lead_form_image', 'lead_form_image_alt_text')
             ),
-            'description': 'Configure the contact form section.',
+            'description': 'Configure the lead form section.',
             'classes': ('wide',)
         }),
         ('16. FAQs Section', {
@@ -339,7 +320,7 @@ class MainServiceAdmin(admin.ModelAdmin):
                 'faqs_title',
                 'faqs_subtitle'
             ),
-            'description': 'Set the title and subtitle for the FAQs section.',
+            'description': 'Configure the FAQs section.',
             'classes': ('wide',)
         }),
         ('17. System Fields', {
@@ -353,18 +334,30 @@ class MainServiceAdmin(admin.ModelAdmin):
     )
     
     inlines = [
+        # 1. Service Stats Section
         CustomServiceStatInline,
+        # 2. Service Features Section
         CustomServiceFeatureInline,
-        HowItWorksStepInline,
-        BenefitInline,
+        # 3. Specialized Services Section
         SpecializedServiceDetailInline,
-        ConsiderationPointInline,
-        CustomFAQInline,
+        # 4. Service Types Section
         ServiceTypeCardInline,
+        # 5. Benefits Section
+        BenefitInline,
+        # 6. Choose Service Section
+        ChoosingRightPointInline,
+        # 7. Why Hire Us Section
+        WhyChooseUsPointInline,
+        # 8. Ideal For Section
         IdealForCardInline,
+        # 9. How to Book Section
         BookingStepInline,
+        # 10. Considerations Section
+        ConsiderationPointInline,
+        # 11. Hyperlinks Section
         HyperlinkCardInline,
-        SpecializedServiceCardInline,
+        # 12. FAQs Section
+        CustomFAQInline,
     ]
 
     def save_model(self, request, obj, form, change):
@@ -413,13 +406,6 @@ class FAQAdmin(admin.ModelAdmin):
         return obj.answer[:100] + '...' if len(obj.answer) > 100 else obj.answer
     truncated_answer.short_description = "Answer"
 
-@admin.register(HowItWorksStep)
-class HowItWorksStepAdmin(admin.ModelAdmin):
-    list_display = ('step_number', 'title', 'service')
-    list_filter = ('service',)
-    search_fields = ('title', 'description', 'service__name')
-    ordering = ['service', 'step_number']
-
 @admin.register(Benefit)
 class BenefitAdmin(admin.ModelAdmin):
     list_display = ('title', 'icon_preview', 'service')
@@ -460,5 +446,16 @@ class ConsiderationPointAdmin(admin.ModelAdmin):
 
 # Simple admin interfaces for remaining models
 admin.site.register(Lead)
-admin.site.register(Blog)
-admin.site.register(Services)
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'created_at', 'reading_time')
+    list_filter = ('created_at', 'author')
+    search_fields = ('title', 'content')
+    prepopulated_fields = {'slug': ('title',)}  # This will auto-populate but still allow editing
+
+@admin.register(Services)
+class ServicesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created_at')
+    search_fields = ('name', 'content')
+    prepopulated_fields = {'slug': ('name',)}  # This will auto-populate but still allow editing

@@ -1,7 +1,9 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from .models import MainService
+from django.db import connection, transaction
+from ..models import MainService
+import django.db.utils
 
 class MainServiceModelTest(TestCase):
     def setUp(self):
@@ -57,6 +59,19 @@ class MainServiceModelTest(TestCase):
             faqs_title="Test FAQs Title",
             faqs_subtitle="Test FAQs Subtitle"
         )
+
+    def tearDown(self):
+        try:
+            # Clean up any created objects
+            MainService.objects.all().delete()
+            User.objects.all().delete()
+        except transaction.TransactionManagementError:
+            # This can occur if a test (like test_unique_slug)
+            # intentionally causes an IntegrityError and breaks the transaction
+            # for the current TestCase. The TestCase will rollback the transaction.
+            # We pass here so tearDown itself doesn't report an additional error,
+            # allowing the test to pass if its core assertion was successful.
+            pass
 
     def test_required_sections_complete(self):
         """Test that a service with all required sections is valid"""
@@ -222,95 +237,53 @@ class MainServiceModelTest(TestCase):
 
     def test_unique_slug(self):
         """Test that duplicate slugs are not allowed"""
-        # Create first service
-        MainService.objects.create(
-            name="Test Service",
-            meta_title="Test Meta Title",
-            meta_description="Test Meta Description",
-            
-            # Hero Section
-            hero_title="Test Hero Title",
-            hero_subtitle="Test Hero Subtitle",
-            hero_image="static/service_images/test.jpg",
-            
-            # Service Stats Section
-            stats_title="Test Stats Title",
-            stats_subtitle="Test Stats Subtitle",
-            
-            # Features Section
-            features_title="Test Features Title",
-            features_subtitle="Test Features Subtitle",
-            
-            # How to Book Section
-            how_to_book_title="Test How to Book Title",
-            how_to_book_subtitle="Test How to Book Subtitle",
-            
-            # Key Considerations Section
-            considerations_title="Test Considerations Title",
-            considerations_subtitle="Test Considerations Subtitle",
-            
-            # Hyperlinks Section
-            hyperlinks_title="Test Hyperlinks Title",
-            hyperlinks_subtitle="Test Hyperlinks Subtitle",
-            
-            # CTA Section
-            cta_title="Test CTA Title",
-            cta_subtitle="Test CTA Subtitle",
-            cta_button_text="Test Button",
-            cta_secondary_button_text="Test Secondary Button",
-            
-            # Lead Form Section
-            lead_form_title="Test Lead Form Title",
-            lead_form_subtitle="Test Lead Form Subtitle",
-            
-            # FAQs Section
-            faqs_title="Test FAQs Title",
-            faqs_subtitle="Test FAQs Subtitle"
-        )
-        
-        # Try to create second service with same name
-        with self.assertRaises(Exception):
+        # self.complete_service with name="Test Service" (and slug "test-service")
+        # was created in setUp.
+
+        # Try to create a second service with the same name,
+        # which should result in the same slug and raise an IntegrityError.
+        with self.assertRaises(django.db.utils.IntegrityError):
             MainService.objects.create(
-                name="Test Service",
-                meta_title="Test Meta Title 2",
-                meta_description="Test Meta Description 2",
+                name="Test Service",  # This will generate slug "test-service"
+                meta_title="Another Meta Title for Unique Slug Test",
+                meta_description="Another Meta Description for Unique Slug Test",
                 
                 # Hero Section
-                hero_title="Test Hero Title 2",
-                hero_subtitle="Test Hero Subtitle 2",
-                hero_image="static/service_images/test2.jpg",
+                hero_title="Another Hero Title",
+                hero_subtitle="Another Hero Subtitle",
+                hero_image="static/service_images/another.jpg",
                 
                 # Service Stats Section
-                stats_title="Test Stats Title 2",
-                stats_subtitle="Test Stats Subtitle 2",
+                stats_title="Another Stats Title",
+                stats_subtitle="Another Stats Subtitle",
                 
                 # Features Section
-                features_title="Test Features Title 2",
-                features_subtitle="Test Features Subtitle 2",
+                features_title="Another Features Title",
+                features_subtitle="Another Features Subtitle",
                 
                 # How to Book Section
-                how_to_book_title="Test How to Book Title 2",
-                how_to_book_subtitle="Test How to Book Subtitle 2",
+                how_to_book_title="Another How to Book Title",
+                how_to_book_subtitle="Another How to Book Subtitle",
                 
                 # Key Considerations Section
-                considerations_title="Test Considerations Title 2",
-                considerations_subtitle="Test Considerations Subtitle 2",
+                considerations_title="Another Considerations Title",
+                considerations_subtitle="Another Considerations Subtitle",
                 
                 # Hyperlinks Section
-                hyperlinks_title="Test Hyperlinks Title 2",
-                hyperlinks_subtitle="Test Hyperlinks Subtitle 2",
+                hyperlinks_title="Another Hyperlinks Title",
+                hyperlinks_subtitle="Another Hyperlinks Subtitle",
                 
                 # CTA Section
-                cta_title="Test CTA Title 2",
-                cta_subtitle="Test CTA Subtitle 2",
-                cta_button_text="Test Button 2",
-                cta_secondary_button_text="Test Secondary Button 2",
+                cta_title="Another CTA Title",
+                cta_subtitle="Another CTA Subtitle",
+                cta_button_text="Another Button",
+                cta_secondary_button_text="Another Secondary Button",
                 
                 # Lead Form Section
-                lead_form_title="Test Lead Form Title 2",
-                lead_form_subtitle="Test Lead Form Subtitle 2",
+                lead_form_title="Another Lead Form Title",
+                lead_form_subtitle="Another Lead Form Subtitle",
                 
                 # FAQs Section
-                faqs_title="Test FAQs Title 2",
-                faqs_subtitle="Test FAQs Subtitle 2"
-            )
+                faqs_title="Another FAQs Title",
+                faqs_subtitle="Another FAQs Subtitle"
+            ) 

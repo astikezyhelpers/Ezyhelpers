@@ -48,104 +48,31 @@
         </p>
       </div>
       
-      <!-- Service Categories with Icons -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16" data-aos="fade-up">
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fas fa-home"></i>
+      <!-- Service Categories with Hero Info -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16" data-aos="fade-up">
+        {% for service in main_services %}
+        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 service-card group">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="/media/{{ service.hero_image }}" alt="{{ service.hero_image_alt_text }}" 
+                 class="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Live-in Maid</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'live_in_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fa-solid fa-user-clock"></i>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold tracking-tight text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">{{ service.name }}</h3>
+            <p class="text-[15px] leading-relaxed text-gray-600 mb-6 line-clamp-2 group-hover:text-gray-700 transition-colors duration-300">{{ service.hero_title|safe }}</p>
+            <a href="{% url 'service_details' service.slug %}" 
+               class="inline-flex items-center text-[15px] font-medium text-primary group/link">
+              <span class="relative">
+                Learn more
+                <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-primary group-hover/link:w-full transition-all duration-300 ease-out"></span>
+              </span>
+              <svg class="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300 ease-out" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
           </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Full-time Maid</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'full_time_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
         </div>
-
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fa-solid fa-clock"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Part-time Maid</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'part_time_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fa-solid fa-clock"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">On-Demand Maid</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'on_demand_helpers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fa-solid fa-baby"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Nanny/Babysitter</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'nanny' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fa-solid fa-person-cane"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Elderly Care</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'elderly_care' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fa-solid fa-utensils"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Cook</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'cooks' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-md p-8 text-center hover:shadow-lg transition-all duration-300 service-card">
-          <div class="bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
-            <i class="fa-solid fa-car"></i>
-          </div>
-          <h3 class="text-xl font-bold font-heading mb-3">Driver</h3>
-          <p class="text-gray-600 mb-4">Full-time domestic professionals who become part of your household.</p>
-          <a href="{% url 'drivers' %}" class="text-primary font-medium hover:underline inline-flex items-center group">
-            <span>Learn more</span>
-            <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-          </a>
-        </div>
-
+        {% endfor %}
       </div>
       
     </div>

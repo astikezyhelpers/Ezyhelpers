@@ -117,7 +117,8 @@ def contact_us(request):
 
 def services(request):
     services_list = Services.objects.all().order_by('-created_at')
-    context = {'services': services_list}
+    main_services_list = MainService.objects.all().order_by('-created_at')
+    context = {'services': services_list, 'main_services': main_services_list}
     return render(request, 'services.html', context)
 
 def service_details(request, slug):
@@ -251,7 +252,9 @@ def main_service_view2(request, slug):
                 # Re-render form page on non-AJAX error
                  pass # Let it fall through to render below
     
-    return render(request, 'services/new-main-service.html', {'service': service})
+    # return render(request, 'services/service_detail.html', {'service': service})
+    return render(request, 'services/main-service.html', {'service': service})
+    # return render(request, 'services/main-service.html', {'service': service})
 
 
 def liveInHelpers(request):
